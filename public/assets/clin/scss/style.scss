@@ -1,0 +1,148 @@
+/*-----------------------------------------------------------------------------------
+
+Template Name: Physic
+Template URI: themes.pixelstrap.net/physic/template
+Description: This is doctor website
+Author: Pixelstrap
+Author URI: https://themeforest.net/user/pixelstrap
+
+----------------------------------------------------------------------------------- */
+
+/*========================
+   1. Utils scss file
+==========================*/
+/* 1.01 mixin scss */
+
+/*========================
+   2. themes scss file
+==========================*/
+/* 2.01 variables scss */
+/* 2.02 general scss */
+/* 2.03 button scss */
+/* 2.04 modal scss */
+/* 2.05 tap-top scss */
+/* 2.06 loader scss */
+/* 2.07 mode-change-btn scss */
+
+/*========================
+   3. base scss file
+==========================*/
+/* 3.01 reset scss */
+
+/*========================
+   4. layout scss file
+==========================*/
+/* 4.01 forms scss */
+/* 4.02 header scss */
+/* 4.03 footer scss */
+/* 4.04 home-slider scss */
+/* 4.05 appointment scss */
+/* 4.06 service-section scss */
+/* 4.07 about-us scss */
+/* 4.08 doctor-team scss */
+/* 4.09 blog scss */
+/* 4.10 testimonial scss */
+/* 4.11 map scss */
+/* 4.12 gallery scss */
+/* 4.13 breadcrumb scss */
+/* 4.14 card scss */
+/* 4.15 title scss */
+/* 4.16 label scss */
+/* 4.17 offcanvas scss */
+/* 4.18 subscribe scss */
+/* 4.19 emoji scss */
+/* 4.20 counter scss */
+/* 4.21 facilities scss */
+/* 4.22 product-box scss */
+/* 4.23 faq scss */
+/* 4.24 accordion scss */
+/* 4.25 compare scss */
+/* 4.26 login scss */
+/* 4.27 patients-list scss */
+/* 4.28 dashboard scss */
+/* 4.29 zoom-gallery scss */
+/* 4.30 chat scss */
+/* 4.31 patient-dashboard scss */
+/* 4.32 history scss */
+/* 4.33 our-timetable scss */
+/* 4.34 pricing-plan scss */
+/* 4.35 booking scss */
+/* 4.36 shop scss */
+/* 4.37 calendar scss */
+/* 4.38 cart scss */
+/* 4.39 banner scss */
+/* 4.40 sortable scss */
+/* 4.41 pricing scss */
+/* 4.42 doctor-profile scss */
+/* 4.43 hospitals scss */
+
+/*========================
+   5. components scss file
+==========================*/
+/* 5.01 search scss */
+/* 5.02 ratio scss */
+
+//Utils
+@import "utils/mixin";
+
+// themes
+@import "themes/variables";
+@import "themes/general";
+@import "themes/button";
+@import "themes/modal";
+@import "themes/tap-top";
+@import "themes/loader";
+@import "themes/mode-change-btn";
+
+// base
+@import "base/reset";
+
+//layout
+@import "layout/forms";
+@import "layout/header";
+@import "layout/footer";
+@import "layout/home-slider";
+@import "layout/appointment";
+@import "layout/service-section";
+@import "layout/about-us";
+@import "layout/doctor-team";
+@import "layout/blog";
+@import "layout/testimonial";
+@import "layout/map";
+@import "layout/gallery";
+@import "layout/breadcrumb";
+@import "layout/card";
+@import "layout/title";
+@import "layout/label";
+@import "layout/offcanvas";
+@import "layout/subscribe";
+@import "layout/emoji";
+@import "layout/counter";
+@import "layout/facilities";
+@import "layout/banner";
+@import "layout/product-box";
+@import "layout/faq";
+@import "layout/accordion";
+@import "layout/compare";
+@import "layout/login";
+@import "layout/patients-list";
+@import "layout/dashboard";
+@import "layout/zoom-gallery";
+@import "layout/chat";
+@import "layout/patient-dashboard";
+@import "layout/history";
+@import "layout/our-timetable";
+@import "layout/pricing-plan";
+@import "layout/booking";
+@import "layout/shop";
+@import "layout/calendar";
+@import "layout/cart";
+@import "layout/sortable";
+@import "layout/pricing";
+@import "layout/doctor-profile";
+@import "layout/hospitals";
+
+// components
+
+@import "components/search";
+@import "components/ratio";

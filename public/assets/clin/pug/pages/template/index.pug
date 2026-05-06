@@ -1,0 +1,1264 @@
+- var home_slider     = true;
+- var wow             = true;
+- var animate         = true;
+- var sue_ellen       = true;
+- var img_resize      = true;
+
+
+doctype html
+html(lang='en')
+  include ../../components/header-files
+  body.homeopathy-demo.font-montserrat
+    .loader-wrapper
+      .text-center
+        img.img-fluid(src='../assets/images/Loader.gif' alt='loader')
+      .text-animation
+        svg
+          text(x='50%' y='50%' dy='.35em' text-anchor='middle')
+            | Physic template
+    header.style-6 
+      .top-header 
+        .custom-container.container 
+          .header-items
+            .top-header-left
+              a(href="tel:+800-585-8001")      
+                i.fa.fa-phone
+                |  800-585-800 / 652-545-526
+              a(href="#")
+                i.fa-regular.fa-clock
+                | We Are Open 24 Hours
+            .top-header-right
+                a(href="contact.html") 
+                  | How to Find Us
+                a(href="#" data-bs-toggle='modal' data-bs-target='#feedback')
+                  | Give Feedback
+                a(href="#" data-bs-toggle='modal' data-bs-target='#appointment')
+                  | Request An Appointment
+      .main-header
+        .custom-container.container
+          .row 
+            .col-12 
+              .mobile-fix-option 
+                ul 
+                  li 
+                    a(href="index.html", class="active")
+                      svg
+                        use(xlink:href='../assets/svg/mobile-icon.svg#home')
+                      | Home 
+                  li 
+                    a(href="search-1.html")
+                      svg
+                        use(xlink:href='../assets/svg/mobile-icon.svg#search')
+                      | Search 
+                  li 
+                    a(href="cart.html")
+                      svg
+                        use(xlink:href='../assets/svg/mobile-icon.svg#cart')
+                      | Cart 
+                  li 
+                    a(href="wishlist.html")
+                      svg
+                        use(xlink:href='../assets/svg/mobile-icon.svg#heart')
+                      | Wishlist
+                  li 
+                    a(href="doctor-dashboard.html")
+                      svg
+                        use(xlink:href='../assets/svg/mobile-icon.svg#user')
+                      | Account 
+            .col-lg-12.p-0 
+              .main-menu
+                .menu-left 
+                  .brand-logo 
+                    a(href="index.html") 
+                      img.img-fluid.light(src="../assets/images/logo/logo7.svg" alt='Logo')
+                      img.img-fluid.dark(src="../assets/images/logo/white-logo7.svg" alt='Logo')
+                nav#main-nav
+                  .main-navbar
+                    ul#sm-horizontal.nav-menu.sm-horizontal.custom-scrollbar
+                      li.back-btn
+                        .mobile-back.text-right
+                          h5 Back
+                          i.fa.fa-angle-right.ps-2
+                      li 
+                        a.nav-link(href="javascript:void(0)") Home
+                          span.sub-arrow
+                            i.ri-arrow-down-s-line
+                        .mega-menu
+                          .row.gy-4.row-cols-1.row-cols-xl-5
+                            .col
+                              .layout-images.dental-care
+                                a(href="layout-2.html") 
+                                  img.img-fluid(src="../assets/images/header/2.jpg", alt="demo-2")
+                                  h6 Dental Care
+                            .col
+                              .layout-images.homeopathy-demo  
+                                a(href="index.html") 
+                                  img.img-fluid(src="../assets/images/header/1.jpg", alt="demo-1")
+                                  h6 Homeopathy
+                            .col
+                              .layout-images.nutritionist-demo
+                                a(href="layout-3.html") 
+                                  img.img-fluid(src="../assets/images/header/3.jpg", alt="demo-3")
+                                  h6 Nutritionist
+                            .col
+                              .layout-images.children-care 
+                                a(href="layout-4.html") 
+                                  img.img-fluid(src="../assets/images/header/4.jpg", alt="demo-4")
+                                  h6 Children Care
+                            .col
+                              .layout-images.eyes-care 
+                                a(href="layout-5.html") 
+                                  img.img-fluid(src="../assets/images/header/5.jpg", alt="demo-5")
+                                  h6 Eyes Care
+                            .col
+                              .layout-images
+                                a(href="layout-6.html") 
+                                  img.img-fluid(src="../assets/images/header/6.jpg", alt="demo-6")
+                                  h6 Medicine
+                            .col
+                              .layout-images.physiotherapy-demo  
+                                a(href="layout-7.html") 
+                                  img.img-fluid(src="../assets/images/header/7.jpg", alt="demo-7")
+                                  h6 Physiotherapy
+                            .col
+                              .layout-images.dermatology-demo
+                                a(href="layout-8.html") 
+                                  img.img-fluid(src="../assets/images/header/8.jpg", alt="demo-8")
+                                  h6 Dermatology
+                            .col
+                              .layout-images.cardiologist-demo
+                                a(href="layout-9.html") 
+                                  img.img-fluid(src="../assets/images/header/9.jpg", alt="demo-9")
+                                  h6 Cardiologist
+                      li 
+                        a.nav-link(href="javascript:void(0)") Shop
+                          span.sub-arrow
+                            i.ri-arrow-down-s-line
+                        ul.sub-menu 
+                          li 
+                            a.nav-link(href="shop.html") Shop Left Sidebar
+                          li 
+                            a.nav-link(href="shop-right-sidebar.html") Shop Right Sidebar
+                          li 
+                            a.nav-link(href="shop-no-sidebar.html") Shop No Sidebar
+                          li 
+                            a.nav-link(href="shop-slider.html") Shop Slider
+                          li 
+                            a.nav-link(href="shop-details.html") Shop Detail
+                          li 
+                            a.nav-link(href="shop-images.html") Shop Images
+                          li 
+                            a.nav-link(href="shop-bundle.html") Shop Bundle
+                          li 
+                            a.nav-link(href="shop-variant-accordion.html") Shop Variant Accordion
+
+                      li 
+                        a.nav-link(href="javascript:void(0)") ShortCode
+                          span.sub-arrow
+                            i.ri-arrow-down-s-line
+                        .mega-menu
+                          .row 
+                            .col-xl-3  
+                              ul 
+                                li 
+                                  a(href="element_services.html") Services Element
+                                li 
+                                  a(href="element_title.html") title Element
+                                li 
+                                  a(href="element_product_box.html") product Box Element
+                                li 
+                                  a(href="element_label.html") label Element
+                                li 
+                                  a(href="element_about-us.html") about Us Element
+                                li 
+                                  a(href="element_form.html") form Element
+                            .col-xl-3 
+                              ul 
+                                li 
+                                  a(href="element_breadcrumb.html") breadcrumb Element
+                                li 
+                                  a(href="element_button.html") button Element
+                                li 
+                                  a(href="element_after-before.html") after-before Element
+                                li 
+                                  a(href="element_book-appointment.html") book-appointment Element
+                                li 
+                                  a(href="element_doctor-team.html") doctor-team Element
+                                li 
+                                  a(href="element_footer.html") footer Element
+                            .col-xl-3  
+                              ul 
+                                li 
+                                  a(href="element_ratio.html") ratio Element
+                                li 
+                                  a(href="element_subscribe.html") subscribe Element
+                                li 
+                                  a(href="element_map.html") Map Element
+                                li 
+                                  a(href="element_testimonial.html") testimonial Element
+                                li 
+                                  a(href="element_blog.html") blog Element
+                                li 
+                                  a(href="element_product_banner.html") product Banner Element
+                            .col-xl-3  
+                              ul 
+                                li 
+                                  a(href="element_emergency.html") emergency Element
+                                li 
+                                  a(href="element_gallery.html") gallery Element
+                                li 
+                                  a(href="element_counter.html") counter Element
+                                li 
+                                  a(href="element_facilities.html") facilities Element
+                            .col-12  
+                              .video-section-2.d-none.d-xl-block
+                                video(autoplay='' loop='' muted='')
+                                  source(src='../assets/video/1.mp4' type='video/mp4')
+                                  source(src='../assets/video/1.mp4' type='video/ogg')
+                                p "Create a unique physiotherapy blog layout that supports patient education and professional branding."
+
+                      li 
+                        a.nav-link(href="javascript:void(0)") Pages 
+                          span.sub-arrow
+                            i.ri-arrow-down-s-line
+                        .mega-menu
+                          .all-pages 
+                            .row
+                              .col-xl-2
+                                h5 Booking Page
+                                ul 
+                                  li 
+                                    a(href="booking-1.html") Booking 1
+                                  li 
+                                    a(href="booking-2.html") Booking 2
+                                h5 Service Page
+                                ul 
+                                  li 
+                                    a(href="service-1.html") Service 1
+                                  li 
+                                    a(href="service-2.html") Service 2
+                                  li 
+                                    a(href="service-details.html") Service Details
+                                h5 Sortable Page
+                                ul 
+                                  li 
+                                    a(href="sortable-list.html") Sortable List
+                                  li 
+                                    a(href="sortable-2.html") Sortable 2
+                                  li 
+                                    a(href="sortable-3.html") Sortable 3
+                                h5 Search Page
+                                ul 
+                                  li 
+                                    a(href="search-1.html") Search
+                                  li 
+                                    a(href="search-2.html") Search 2
+                                  li 
+                                    a(href="search-3.html") Search 3
+                              .col-xl-2
+                                h5 Doctors Page
+                                ul 
+                                  li 
+                                    a(href="doctor-details.html") Doctor Details
+                                  li 
+                                    a(href="doctors-list.html") Doctor List
+                                  li 
+                                    a(href="doctor-dashboard.html") Doctor Dashboard
+                                  li 
+                                    a(href="patient-dashboard.html") Patient Dashboard
+                                  li 
+                                    a(href="patients-list.html") Patient list
+                                  li 
+                                    a(href="our-history.html") Our History
+                                  li 
+                                    a(href="our-timetable.html") Our Timetable
+                                  li 
+                                    a(href="chat.html") Doctor Chat
+                                  li 
+                                    a(href="doctor-blog.html") Doctor Blog 
+                                  li 
+                                    a(href="add-blog.html") Add Doctor Blog 
+                                  li 
+                                    a(href="doctor-profile.html") Doctor Profile
+                                  li 
+                                    a(href="doctor-signup.html") Doctor Sign Up
+                                  li 
+                                    a(href="patient-signup.html") Patient Sign Up
+                              .col-xl-2
+                                h5 Hospitals Page
+                                ul 
+                                  li 
+                                    a(href="hospitals.html") Hospitals
+                                  li 
+                                    a(href="specialty.html") Specialty
+                                h5 portfolio Page
+                                ul 
+                                  li 
+                                    a(href="portfolio.html") Portfolio
+                                  li 
+                                    a(href="portfolio-details.html") Portfolio Details 
+                                h5 Other Page
+                                ul 
+                                  li 
+                                    a(href="about-us.html")  About Us
+                                  li 
+                                    a(href="faq.html") Faq
+                                  li 
+                                    a(href="checkout.html") Checkout
+                                  li 
+                                    a(href="payment-success.html") Payment Success
+                                  li 
+                                    a(href="login.html") Login
+                                  li 
+                                    a(href="login-phone.html") Login Phone
+                                  li 
+                                    a(href="otp.html") Otp 
+                              .col-xl-2   
+                                ul 
+                                  li 
+                                    a(href="sign-up.html") Sign Up
+                                  li 
+                                    a(href="forget-password.html") Forget Password
+                                  li 
+                                    a(href="forget-password-2.html") Forget Password 2
+                                  li 
+                                    a(href="compare.html") Compare
+                                  li 
+                                    a(href="404.html") 404
+                                  li 
+                                    a(href="500.html") 500
+                                  li 
+                                    a(href="wishlist.html") Wishlist
+                                  li 
+                                    a(href="cart.html") Cart
+                                  li 
+                                    a(href="pricing-plan.html") Pricing plan
+                                  li 
+                                    a(href="maintenance.html") Maintenance
+                                  li 
+                                    a(href="voice-call.html") Voice Call
+                                  li 
+                                    a(href="video-call.html") Video Call
+                                  li 
+                                    a(href="terms-condition.html") Terms Condition
+                                  li 
+                                    a(href="privacy-policy.html") Privacy Policy
+                                  
+                              .col-xl-4.d-none.d-xl-block 
+                                .header-banner-2  
+                                  .d-flex 
+                                    h5 Your Health, Our Expert Care
+                                    svg 
+                                      use(xlink:href="../assets/images/svg/calling.svg#calling-1")
+                                  a.btn.btn-lg(href="contact.html")  
+                                    | Appointment
+                                    span 
+                                        i.fa-solid.fa-arrow-right
+
+                      li 
+                        a.nav-link(href="javascript:void(0)") Blog
+                          span.sub-arrow
+                            i.ri-arrow-down-s-line
+                        ul.sub-menu 
+                          li 
+                            a.nav-link(href="blog-left-sidebar.html") Blog Left Sidebar
+                          li 
+                            a.nav-link(href="blog-right-sidebar.html") Blog Right Sidebar
+                          li 
+                            a.nav-link(href="blog-details.html") Blog Details
+                          li 
+                            a.nav-link(href="blog-no-sidebar.html") Blog No Sidebar
+                          li 
+                            a.nav-link(href="blog-list-left-sidebar.html") Blog List Left Sidebar
+                          li 
+                            a.nav-link(href="blog-list-right-sidebar.html") Blog List Right Sidebar
+                          li 
+                            a.nav-link(href="blog-list-no-sidebar.html") Blog List No Sidebar
+                      li 
+                        a.nav-link(href="contact.html") Contact
+                .menu-right 
+                  .icon-nav
+                    .default-btn.mode.me-2
+                      img.img-fluid(src='../assets/svg/moon.svg' alt="svg")
+                    .toggle-nav#toggle-nav
+                      .icon
+                        i.ri-align-center
+                    ul.d-flex.gap-2 
+                      li.onhover-div.mobile-search
+                        button.btn.default-btn(data-bs-toggle='modal' data-bs-target='#search')
+                          img.img-fluid(src='../assets/svg/search.svg' alt="search")
+                      li
+                        button.btn.default-btn(type='button' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRight' aria-controls='offcanvasRight')
+                          img.img-fluid(src='../assets/svg/grid.svg' alt="svg")
+                      li.onhover-dropdown
+                        button.btn.default-btn
+                          img.img-fluid(src='../assets/svg/user.svg' alt="user")
+                        ul.user-dropdown
+                          li 
+                            a(href="login.html") Login
+                          li 
+                            a(href="sign-up.html") Register
+                      li
+                        button.btn.default-btn(type='button' data-bs-toggle='offcanvas' data-bs-target='#offcanvasCart' aria-controls='offcanvasCart')
+                          img.img-fluid(src='../assets/svg/cart.svg' alt="cart")
+
+    section.home-section.style-7
+      .custom-container.container
+        .home-bg-img
+          .row.align-items-center
+            .col-lg-7.col-md-8
+              h6 Natural Products
+              h1 Healing Through Homeopathy Medicines
+              p Homeopathy is a natural and holistic system of medicine that focuses on stimulating the body’s innate healing abilities.
+              a.btn.btn-lg.sec-btn-right(href="element_book-appointment.html")  
+                | Book Appointment
+                span
+                    i.fa-solid.fa-arrow-right 
+            .col-lg-5.col-md-4
+              .home-img 
+                img(src="../assets/images/layout-7/1.png", alt="layout-7")
+        .marquee
+          .marquee__item
+              h4.animation-text Homeopathy
+          .marquee__item
+              h4.animation-text Homeopathy
+          .marquee__item
+              h4.animation-text Homeopathy
+     
+    section.position-relative.overflow-hidden
+      .custom-container.container 
+        .title
+          .dot-img
+            span Our
+            img.img-fluid(src="../assets/images/title/title7.png", alt="title7")
+          h2 Healthcare Services
+        .row.gy-md-4.g-3
+          .col-xxl-2.col-lg-3.col-md-4.col-6 
+            .services-box 
+              .services-img 
+                img.img-fluid(src="../assets/images/layout-7/testimonial/1.png", alt="testimonial", class="img-fluid")
+              .services-content 
+                a(href="service-1.html")
+                  h6 Digestive Problems
+          .col-xxl-2.col-lg-3.col-md-4.col-6 
+            .services-box 
+              .services-img 
+                img.img-fluid(src="../assets/images/layout-7/testimonial/2.png", alt="testimonial", class="img-fluid")
+              .services-content 
+                a(href="service-1.html")
+                  h6 Respiratory
+          .col-xxl-2.col-lg-3.col-md-4.col-6 
+            .services-box 
+              .services-img 
+                img.img-fluid(src="../assets/images/layout-7/testimonial/3.png", alt="testimonial", class="img-fluid")
+              .services-content 
+                a(href="service-1.html")
+                  h6 Urinary Disorders
+          .col-xxl-2.col-lg-3.col-md-4.col-6 
+            .services-box 
+              .services-img 
+                img.img-fluid(src="../assets/images/layout-7/testimonial/4.png", alt="testimonial", class="img-fluid")
+              .services-content 
+                a(href="service-1.html")
+                  h6 Lifestyle Diseases
+          .col-xxl-2.col-lg-3.col-md-4.col-6 
+            .services-box 
+              .services-img 
+                img.img-fluid(src="../assets/images/layout-7/testimonial/5.png", alt="testimonial", class="img-fluid")
+              .services-content 
+                a(href="service-1.html")
+                  h6 Skin Diseases
+          .col-xxl-2.col-lg-3.col-md-4.col-6 
+            .services-box 
+              .services-img 
+                img.img-fluid(src="../assets/images/layout-7/testimonial/6.png", alt="testimonial", class="img-fluid")
+              .services-content 
+                a(href="service-1.html")
+                  h6 Joint & Muscle
+    
+    section.about-section.pt-0
+      .custom-container.container   
+        .title
+          .dot-img
+            span Our
+            img.img-fluid(src="../assets/images/title/title7.png", alt="title7")
+          h2 About Us
+        .row.gy-4.align-items-center 
+          .col-lg-6 
+            .about-img
+              img.img-fluid(src="../assets/images/layout-7/2.png", alt="layout-7")
+              .animation-icon   
+                .icon 
+                  i.ri-add-line
+              .content-box 
+                p Experience
+                h6 8 years
+          .col-lg-6
+            .about-content 
+              h4 What is Homeopathy?
+              p Homeopathy is a holistic system of medicine that focuses on stimulating the body’s natural ability to heal itself. It is based on two main principles:
+              .d-flex 
+                .icon 
+                  i.ri-check-line
+                h6 "Like Cures Like"
+              p This means that a substance causing symptoms in a healthy person can, in very small doses, treat similar symptoms in a sick person.
+              .d-flex 
+                .icon 
+                  i.ri-check-line
+                h6 "The Law of Minimum Dose"
+              p Homeopathy uses highly diluted substances, with the belief that lower doses enhance the remedy's healing power.
+              a.btn.btn-lg.sec-btn-right(href="about-us.html")  
+                | View More
+                span 
+                    i.fa-solid.fa-arrow-right 
+    
+    section.light-section-2
+      .custom-container.container
+        .title
+          .dot-img
+            span Our
+            img.img-fluid(src="../assets/images/title/title7.png", alt="title7")
+          h2 Benefits Of Homeopathic Medicine
+        .row.gy-4 
+          .col-xl-4.col-md-6 
+            .benefits-box
+              .icon 
+                svg.shape
+                  use(xlink:href='../assets/svg/polygon1.svg#polygonShape')
+                svg.svg
+                  use(xlink:href='../assets/svg/health.svg#health')
+              .content 
+                a(href="#!") 
+                  h5 Safest Medicine
+                p Homeopathy is widely regarded as one of the safest forms of medicine, suitable for individuals of all ages, including infants, and the elderly.
+          .col-xl-4.col-md-6 
+            .benefits-box 
+              .icon 
+                svg.shape
+                  use(xlink:href='../assets/svg/polygon1.svg#polygonShape')
+                svg.svg
+                  use(xlink:href='../assets/svg/tree.svg#tree')
+              .content 
+                a(href="#!") 
+                  h5 No side Effects
+                p Homeopathy is celebrated for its gentle and non-invasive approach to healing, with no known side effects when used correctly.
+          .col-xl-4.col-md-6 
+            .benefits-box 
+              .icon 
+                svg.shape
+                  use(xlink:href='../assets/svg/polygon1.svg#polygonShape')
+                svg.svg
+                  use(xlink:href='../assets/svg/doctor.svg#doctor')
+              .content 
+                a(href="#!") 
+                  h5 Improves immunity
+                p Homeopathy strengthens the body’s natural defense system by improving immunity and enhancing its ability to fight off illness.
+
+    section.advantages-box
+      .custom-container.container 
+        .row.gy-4 
+          .col-lg-6
+            h3 Homeopathy Consultation  Advantages
+            p Homeopathy offers a range of benefits, making it a preferred choice for natural and holistic healing. It addresses the root cause of illness rather than just suppressing symptoms, promoting long-term wellness.
+            ul 
+              li 
+                div  
+                  img.img-fluid(src="../assets/images/layout-7/svg/1.svg", alt="svg")
+                  h6 2,00,000+ 
+                  span Happy Patients
+              li 
+                div
+                  img.img-fluid(src="../assets/images/layout-7/svg/2.svg", alt="svg")
+                  h6 100%
+                  span Safe & Natural
+              li 
+                div
+                  img.img-fluid(src="../assets/images/layout-7/svg/3.svg", alt="svg")
+                  h6 Certified
+                  span Doctors
+              li 
+                div
+                  img.img-fluid(src="../assets/images/layout-7/svg/4.svg", alt="svg")
+                  h6 No
+                  span Side Effects
+            a.btn.btn-lg.sec-btn-right(href="#!")  
+              | View More
+              span 
+                i.fa-solid.fa-arrow-right 
+          .col-lg-6
+            .advantages-appointment-box
+              .row.gy-4 
+                .col-12 
+                  h4 Get An Appointment
+                .col-12 
+                  .form-group
+                    input(type='text' placeholder='Your Name')
+                .col-12 
+                  .form-group
+                    input(type='email' placeholder='Email Address')
+                .col-sm-6 
+                  .form-group
+                    input(type='number' placeholder='India (+91)')
+                .col-sm-6 
+                  .form-group
+                    input(type='number' placeholder='Your Number')
+                .col-12 
+                  .form-group
+                     textarea(cols='30' id="name-6" rows='4' placeholder="Message")
+                .col-12 
+                  a.btn.btn-md.sub-btn.mx-auto(href="element_book-appointment.html") Get An Appointment 
+    section.light-section-2
+      .custom-container.container 
+        .title
+          .dot-img
+            span Our 
+            img.img-fluid(src="../assets/images/title/title7.png", alt="title7")
+          h2 Meet Our Doctors
+        .swiper.surgeons-slider
+          .swiper-wrapper
+            .swiper-slide
+              .doctor-slider-box
+                .doctor-img 
+                  img.img-fluid.w-100(src="../assets/images/doctor/eye/1.jpg", alt="eye")
+                .doctor-content 
+                  a(href="#!")
+                    h5 Dr. Marvin McKinney
+                  span marvin.mckinney@domain.com
+                  h6 
+                    img.img-fluid(src="../assets/svg/calling.svg", alt="calling")
+                    | (225)738 3893 
+                  a.btn(href="doctors-list.html") Book Appointment Now
+            .swiper-slide 
+              .doctor-slider-box
+                .doctor-img 
+                  img.img-fluid.w-100(src="../assets/images/doctor/eye/2.jpg", alt="eye")
+                .doctor-content 
+                  a(href="#!")
+                    h5 Dr. Kathryn Murphy
+                  span kathryn.murphy@domain.com
+                  h6 
+                    img.img-fluid(src="../assets/svg/calling.svg", alt="calling")
+                    | (225)546 9543
+                  a.btn(href="doctors-list.html") Book Appointment Now
+            .swiper-slide 
+              .doctor-slider-box
+                .doctor-img 
+                  img.img-fluid.w-100(src="../assets/images/doctor/eye/3.jpg", alt="eye")
+                .doctor-content 
+                  a(href="#!")
+                    h5 Dr. Courtney Henry
+                  span courtney.henry@domain.com
+                  h6 
+                    img.img-fluid(src="../assets/svg/calling.svg", alt="calling")
+                    | (225)945 7359
+                  a.btn(href="doctors-list.html") Book Appointment Now
+            .swiper-slide 
+              .doctor-slider-box
+                .doctor-img 
+                  img.img-fluid.w-100(src="../assets/images/doctor/eye/4.jpg", alt="eye")
+                .doctor-content 
+                  a(href="#!")
+                    h5 Dr. Marvin McKinney
+                  span marvin.mckinney@domain.com
+                  h6 
+                    img.img-fluid(src="../assets/svg/calling.svg", alt="calling")
+                    | (225)738 3893 
+                  a.btn(href="doctors-list.html") Book Appointment Now
+            .swiper-slide 
+              .doctor-slider-box
+                .doctor-img 
+                  img.img-fluid.w-100(src="../assets/images/doctor/eye/3.jpg", alt="eye")
+                .doctor-content 
+                  a(href="#!")
+                    h5 Dr. Savannah Nguyen
+                  span savannah.nguyen@domain.com
+                  h6 
+                    img.img-fluid(src="../assets/svg/calling.svg", alt="calling")
+                    | (225)738 3893
+                  a.btn(href="doctors-list.html") Book Appointment Now
+          .swiper-pagination
+   
+    section
+      .custom-container.container
+        .title
+          .dot-img
+            span Our
+            img.img-fluid(src="../assets/images/title/title7.png", alt="title7")
+          h2 Achievement Stories and Testimonials
+        .eye-testimonials.style-7
+          .swiper.achievement-slider
+            .swiper-wrapper 
+              .swiper-slide 
+                .other-box
+                  .other-img  
+                    img.img-fluid(src="../assets/images/layout-7/3.png", alt="other")
+                    div.other-content
+                      p 
+                        i.icon-1.ri-double-quotes-l
+                        | This tool transformed how our team works. It’s fast, user-friendly, and makes managing tasks simple, even during high-pressure deadlines.
+                        i.icon-2.ri-double-quotes-l
+                  h6 -  Emily Johnson
+                    span | Marketing Specialist 
+              .swiper-slide
+                .other-box
+                  .other-img
+                    img.img-fluid(src="../assets/images/layout-7/4.png", alt="other")
+                    div.other-content
+                      p 
+                        i.icon-1.ri-double-quotes-l
+                        | I’ve tried many platforms, but this one stands out. It keeps my workflow organized, efficient, and helps scale my business operations
+                        i.icon-2.ri-double-quotes-l
+                  h6 -  Carlos Ramirez
+                    span | Entrepreneur 
+              .swiper-slide 
+                .other-box
+                  .other-img  
+                    img.img-fluid(src="../assets/images/layout-7/5.png", alt="other")
+                    div.other-content
+                      p 
+                        i.icon-1.ri-double-quotes-l
+                        | This system brings structure to my creative process. I can manage projects effortlessly, track tasks, and communicate ideas with my entire team.
+                        i.icon-2.ri-double-quotes-l
+                  h6 -  Sophie Dubois
+                    span | Interior Designer 
+              .swiper-slide 
+                .other-box
+                  .other-img  
+                    img.img-fluid(src="../assets/images/layout-7/6.png", alt="other")
+                    div.other-content
+                      p 
+                        i.icon-1.ri-double-quotes-l
+                        | Excellent platform! It improves how I track, organize, and report data. My productivity and focus have both increased since using it daily.
+                        i.icon-2.ri-double-quotes-l
+                  h6 -  Aiko Tanaka
+                    span | Research Analyst 
+          .swiper-flex
+            .swiper-button-prev.achievement-button
+              img.img-fluid(src="../assets/svg/arrow-next.svg", alt="arrow-next")
+            .swiper-pagination.achievement-pagination
+            .swiper-button-next.achievement-button
+              img.img-fluid(src="../assets/svg/arrow-next.svg", alt="arrow-next")
+   
+    section.light-section-2 
+      .container-fluid
+        .title
+          .dot-img
+            span Our
+            img.img-fluid(src="../assets/images/title/title7.png", alt="title7")
+          h2 Awesome Gallery
+        //- .swiper.instagram-slider.ratio_square-3
+        //-   .swiper-wrapper 
+        //-     .swiper-slide
+        //-       .instagram-section 
+        //-         img.bg-img.img-fluid(src="../assets/images/layout-7/instagram/1.jpg", alt="instagram")
+        //-         a(href="#!").icon 
+        //-           i.ri-add-line
+        //-     .swiper-slide 
+        //-       .instagram-section 
+        //-         img.bg-img.img-fluid(src="../assets/images/layout-7/instagram/2.jpg", alt="instagram")
+        //-         a(href="#!").icon 
+        //-           i.ri-add-line
+        //-     .swiper-slide 
+        //-       .instagram-section 
+        //-         img.bg-img.img-fluid(src="../assets/images/layout-7/instagram/3.jpg", alt="instagram")
+        //-         a(href="#!").icon 
+        //-           i.ri-add-line
+        //-     .swiper-slide 
+        //-       .instagram-section 
+        //-         img.bg-img.img-fluid(src="../assets/images/layout-7/instagram/4.jpg", alt="instagram")
+        //-         a(href="#!").icon 
+        //-           i.ri-add-line
+        //-     .swiper-slide 
+        //-       .instagram-section 
+        //-         img.bg-img.img-fluid(src="../assets/images/layout-7/instagram/5.jpg", alt="instagram")
+        //-         a(href="#!").icon 
+        //-           i.ri-add-line
+        .swiper.instagram-slider.ratio_square-3#instagram-gallery
+          .swiper-wrapper
+            .swiper-slide
+              .instagram-section 
+                img.bg-img.img-fluid(src="../assets/images/layout-7/instagram/1.jpg", alt="instagram")
+                a.icon.lg-item(
+                  href="javascript:void(0)",
+                  data-src="../assets/images/layout-7/instagram/1.jpg"
+                )
+                  i.ri-add-line
+
+            .swiper-slide 
+              .instagram-section 
+                img.bg-img.img-fluid(src="../assets/images/layout-7/instagram/2.jpg", alt="instagram")
+                a.icon.lg-item(
+                  href="javascript:void(0)",
+                  data-src="../assets/images/layout-7/instagram/2.jpg"
+                )
+                  i.ri-add-line
+
+            .swiper-slide 
+              .instagram-section 
+                img.bg-img.img-fluid(src="../assets/images/layout-7/instagram/3.jpg", alt="instagram")
+                a.icon.lg-item(
+                  href="javascript:void(0)",
+                  data-src="../assets/images/layout-7/instagram/3.jpg"
+                )
+                  i.ri-add-line
+
+            .swiper-slide 
+              .instagram-section 
+                img.bg-img.img-fluid(src="../assets/images/layout-7/instagram/4.jpg", alt="instagram")
+                a.icon.lg-item(
+                  href="javascript:void(0)",
+                  data-src="../assets/images/layout-7/instagram/4.jpg"
+                )
+                  i.ri-add-line
+
+            .swiper-slide 
+              .instagram-section 
+                img.bg-img.img-fluid(src="../assets/images/layout-7/instagram/5.jpg", alt="instagram")
+                a.icon.lg-item(
+                  href="javascript:void(0)",
+                  data-src="../assets/images/layout-7/instagram/5.jpg"
+                )
+                  i.ri-add-line
+
+    section
+      .custom-container.container
+        .title
+          .dot-img
+            span Our
+            img.img-fluid(src="../assets/images/title/title7.png", alt="title7")
+          h2 Blog Posts
+        .eye-testimonials.style-7
+          .swiper.blog-slid.pb-0
+            .swiper-wrapper 
+              .swiper-slide 
+                ul.blog-slider  
+                  li 
+                    .d-flex 
+                      a.images(href="#!")
+                        img.img-fluid(src="../assets/images/layout-7/blog/1.jpg", alt="blog")
+                      .content 
+                        a(href="blog-left-sidebar.html") 
+                          h5 Gentle Acne Breakout Solutions
+                        p Homeopathy offers natural remedies to reduce redness, unclog pores, and prevent future acne without harsh chemicals, promoting clearer skin safely and effectively with noticeable results in just a few weeks.
+                        span 
+                          a(href="blog-left-sidebar.html") Read more 
+                          |  25 Sep, 2022
+                  li 
+                    .d-flex 
+                      a.images(href="#!")
+                        img.img-fluid(src="../assets/images/layout-7/blog/2.jpg", alt="blog")
+                      .content 
+                        a(href="blog-left-sidebar.html") 
+                          h5 Soothing Eczema Skin Care
+                        p These treatments calm irritation, repair dry patches, and reduce eczema flare-ups for long-lasting relief while nurturing sensitive skin gently with effective and proven holistic care methods.
+                        span 
+                          a(href="blog-left-sidebar.html") Read more 
+                          |  25 Feb, 2023
+              .swiper-slide
+                ul.blog-slider 
+                  li 
+                    .d-flex 
+                      a.images(href="#!")
+                        img.img-fluid(src="../assets/images/layout-7/blog/3.jpg", alt="blog")
+                      .content 
+                        a(href="blog-left-sidebar.html") 
+                          h5 Natural Allergy Symptom Relief
+                        p Eases sneezing, congestion, and reactions to pollen/dust by strengthening immunity and reducing sensitivity for year-round comfort without side effects or unwanted allergic triggers naturally.
+                        span 
+                          a(href="blog-left-sidebar.html") Read more 
+                          |  26 Oct, 2024
+                  li 
+                    .d-flex 
+                      a.images(href="#!")
+                        img.img-fluid(src="../assets/images/layout-7/blog/4.jpg", alt="blog")
+                      .content 
+                        a(href="blog-left-sidebar.html") 
+                          h5 Psoriasis Relief & Skin Repair
+                        p Homeopathic remedies target itching, scaling, and inflammation to restore smoother skin, improving comfort and appearance over consistent use through safe, long-lasting, and natural treatment options.
+                        span 
+                          a(href="blog-left-sidebar.html") Read more 
+                          |  28 Jun, 2023
+          .swiper-flex
+            .swiper-button-prev.blog-button
+              img.img-fluid(src="../assets/svg/arrow-next.svg", alt="arrow-next")
+            .swiper-pagination.blog-pagination
+            .swiper-button-next.blog-button
+              img.img-fluid(src="../assets/svg/arrow-next.svg", alt="arrow-next")
+   
+    section.p-0 
+      .container-fluid
+        .row 
+          .col-lg-6.p-0 
+            .map.style-7
+              iframe(src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14877.801278626011!2d72.85284411598363!3d21.213984337711395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04f1a519c0121%3A0x62f5a31f1639128f!2sHirabaugh%2C%20Surat%2C%20Gujarat%20395006!5e0!3m2!1sen!2sin!4v1734408954693!5m2!1sen!2sin') 
+          .col-lg-6.p-0
+            .newsletter-box 
+              div 
+                h3 Subscribe Newsletter
+                p "Stay Inspired—Subscribe to Our Newsletter for Nutrition Tips, Recipes, and Wellness Updates!"
+                .d-flex 
+                  .form-group
+                    input(type='email' placeholder='Your email address')
+                  a.btn.btn-md.sub-btn-2(href='#!') Subscribe
+
+    //- dark - rtl
+    .theme-btns
+      .theme-setting#rtl-btn.btntheme(data-bs-toggle="tooltip" data-bs-title="Rtl Mode")
+        i.fa-solid.fa-repeat
+
+    //- tap top 
+    .scroll-progress
+      a.scroll-top(href='#' aria-label='scroll')
+        span.scroll-text Scroll
+        span.scroll-line
+          span.scroll-point(style='height: 0%;')
+
+    footer 
+      section.md-section.footer-1.style-6   
+        .custom-container.container
+          .row.gy-3 
+            .col-lg-3.col-md-4.col-sm-5
+              .footer-content
+                .footer-logo
+                  a(href="index.html") 
+                    img.img-fluid.light(src="../assets/images/logo/logo7.svg" alt='Logo')
+                    img.img-fluid.dark(src="../assets/images/logo/white-logo7.svg" alt='Logo')
+                ul.contact-details.mb-2
+                  li
+                    a(href="#!") 
+                      i.ri-home-fill
+                      p 4517 Washington Ave. Manchester, Kentucky 39495
+                  li 
+                    a(href="tel:+800-585-8001")
+                      i.ri-phone-fill
+                      p (+066) 518 - 457 - 5181
+                  li 
+                    a(href="mailto:Contact@gmail.com") 
+                      i.ri-mail-fill
+                      p Contact@gmail.com
+                .d-flex.gap-3
+                    .footer-social
+                      a(href="https://www.facebook.com/" target="_blank")
+                        img.img-fluid(src="../assets/svg/facebook.svg" alt="Instagram icon")
+                    .footer-social
+                      a(href="https://www.linkedin.com/login" target="_blank")
+                        img.img-fluid(src="../assets/svg/linkedin.svg" alt="Instagram icon")
+                    .footer-social
+                      a(href="https://www.instagram.com/" target="_blank")
+                        img.img-fluid(src="../assets/svg/instagram.svg" alt="Instagram icon")
+                    .footer-social
+                      a.instagram(href="https://twitter.com/" target="_blank")
+                        img.img-fluid(src="../assets/svg/twitter.svg" alt="Instagram icon")
+            .col-lg-2.col-md-3.col-sm-3.col-xl-60
+              .footer-content
+                div 
+                  .footer-title.d-md-block 
+                    h5.footer-p  Usefully Link
+                    ul.footer-details.accordion-hidden.footer-p 
+                      li 
+                        a.nav(href="index.html") Home
+                      li 
+                        a.nav(href="pricing-plan.html") Pricing
+                      li 
+                        a.nav(href="about-us.html") About us
+                      li 
+                        a.nav(href="contact.html") Contact us
+                      li 
+                        a.nav(href="blog-left-sidebar.html") Blog
+                      li 
+                        a.nav(href="service-1.html") Treatments
+            .col-lg-2.col-md-5.col-sm-4.col-xl-60
+              .footer-content
+                div
+                  .footer-title.d-md-block
+                    h5.footer-p Treatments
+                    ul.footer-details.accordion-hidden.footer-p
+                      li 
+                        a.nav(href="specialty.html") Skin Diseases
+                      li 
+                        a.nav(href="specialty.html") Male Infertility
+                      li 
+                        a.nav(href="specialty.html") Live Diseases
+                      li 
+                        a.nav(href="specialty.html") Female Problems
+                      li 
+                        a.nav(href="specialty.html") Hair Fall
+                      li 
+                        a.nav(href="specialty.html") Piles
+            .col-lg-2.col-md-4.col-sm-4.col-xl-60
+              .footer-content
+                div
+                  .footer-title.d-md-block
+                    h5.footer-p Terms and policy
+                    ul.footer-details.accordion-hidden.footer-p
+                      li 
+                        a.nav(href="privacy-policy.html") Privacy Policy
+                      li 
+                        a.nav(href="privacy-policy.html") Refund Policy
+                      li 
+                        a.nav(href="privacy-policy.html") Shipping policy
+                      li 
+                        a.nav(href="privacy-policy.html") Disclaimer
+            .col-lg-3.col-md-8.col-sm-8.col-xl-60
+              .footer-content
+                div
+                  .footer-title.d-md-block 
+                    h5.footer-p Opening hours
+                    ul.footer-details.accordion-hidden.footer-p
+                      li 
+                        a.nav(href="#") Mon  --- 9:00 AM -20:00 PM
+                      li 
+                        a.nav(href="#") Tue  --- 9:00 AM -20:00 PM
+                      li 
+                        a.nav(href="#") Wed  --- 9:00 AM -20:00 PM
+                      li 
+                        a.nav(href="#") Thu  --- 9:00 AM -20:00 PM
+                      li 
+                        a.nav(href="#") Fri  --- 9:00 AM -20:00 PM
+                      li 
+                        a.nav(href="#") Sat  --- 9:00 AM -20:00 PM
+    .copyright.style-6 
+      .custom-container.container
+        .d-flex
+          .flex-grow-1
+            p @2025 all the copyright reserved.
+          ul.copyright-link
+            li 
+              a(href="privacy-policy.html") Privacy Policy   
+            li 
+              a(href="terms-condition.html") Terms & Condition
+
+    #video.modal.fade.theme-modal
+      .modal-dialog.modal-lg.modal-dialog-centered(role='document')
+        .modal-content
+          .modal-header
+            button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
+              | Close
+              i.ri-close-line
+          .modal-body
+            iframe(title='realestate' src='https://www.youtube.com/embed/Sz_1tkcU0Co' allowfullscreen='')
+
+    #offcanvasRight.offcanvas.offcanvas-end.appointment-offcanvas(tabindex='-1' aria-labelledby='offcanvasRightLabel')
+      .offcanvas-header
+        a(href="index.html")#offcanvasRightLabel.offcanvas-Title
+          img.light.img-fluid(src="../assets/images/logo/logo7.svg", alt="logo")
+          img.dark.img-fluid(src="../assets/images/logo/white-logo7.svg", alt="logo")
+        button.btn-close(type='button' data-bs-dismiss='offcanvas' aria-label='Close')
+          i.ri-close-line
+      .offcanvas-body.custom-scrollbar
+        p It integrates seamlessly with other services, enhancing community health, emergency management, and public safety within a broader ecosystem.
+        ul.social-icon 
+          li 
+            a(href="https://www.facebook.com/" target="_blank")
+              i.ri-facebook-line
+          li 
+            a(href="https://x.com/" target="_blank")
+              i.ri-twitter-x-line
+          li 
+            a(href="https://www.instagram.com/" target="_blank")  
+              i.ri-instagram-line
+          li 
+            a(href="https://www.linkedin.com/" target="_blank")
+              i.ri-linkedin-line 
+        h5 Visitation Schedule
+        ul.day-time 
+          li 
+            p Mon-Tue: 
+              span 8:00 am - 8:00 pm
+          li 
+            p Wed-Thu: 
+              span 9:00 am - 6:00 pm
+          li 
+            p Friday: 
+              span 1:00 am - 10:00 pm
+          li 
+            p Saturday: 
+              span 9:00 am - 6:00 pm
+          li 
+            p Sunday: 
+              span 9:00 am - 12:00 pm
+        ul.contact 
+          li 
+            a(href="#") 
+              .icon 
+                i.ri-phone-fill
+              span +89574123478
+          li 
+            a(href="#") 
+              .icon 
+                i.ri-mail-fill
+              span physic@doctor.com
+        h5 Gallery posts
+        .row.g-3 
+          .col-4
+            .gallery-img
+              a(href="#")
+                img.img-fluid.w-100(src="../assets/images/others/treatment/1.jpg", alt="treatment1") 
+          .col-4
+            .gallery-img
+              a(href="#")
+                img.img-fluid.w-100(src="../assets/images/others/treatment/2.jpg", alt="treatment2") 
+          .col-4
+            .gallery-img
+              a(href="#")
+                img.img-fluid.w-100(src="../assets/images/others/treatment/3.jpg", alt="treatment3") 
+          .col-4
+            .gallery-img
+              a(href="#")
+                img.img-fluid.w-100(src="../assets/images/others/treatment/4.jpg", alt="treatment4") 
+          .col-4
+            .gallery-img
+              a(href="#")
+                img.img-fluid.w-100(src="../assets/images/others/treatment/5.jpg", alt="treatment5") 
+
+    #offcanvasCart.offcanvas.offcanvas-end.cart-offcanvas(tabindex='-1' aria-labelledby='offcanvasCartLabel')
+      .offcanvas-header
+        h5#offcanvasCartLabel.offcanvas-title My Cart
+        button.btn-close(type='button' data-bs-dismiss='offcanvas' aria-label='Close')
+          i.ri-close-line
+      .offcanvas-body
+        .cart-details   
+          div 
+            img.img-fluid(src="../assets/images/gif/cart.gif", alt="cart gif")
+            p Your cart is currently empty
+
+    #appointment.modal.fade.theme-modal
+      .modal-dialog.modal-lg.modal-dialog-centered(role='document')
+        .modal-content
+          .modal-header
+            button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
+              | Close
+              i.ri-close-line
+          .modal-body
+            .header-content 
+              h5 Appointment
+            .row.gy-3
+              .col-md-6
+                label Patient Name
+                input(type="text" placeholder="Name")
+              .col-md-6
+                label Email Address
+                input(type="email" placeholder="Email")
+              .col-md-6
+                label Phone Number
+                input(type="Number" placeholder="Number")
+              .col-md-6
+                label Choose Date
+                input(type="Date")
+              .col-md-6
+                label Department
+                select.form-select(aria-label='Default select example')
+                  option(selected='') Choose Department
+                  option(value='1') Cardiology
+                  option(value='2') Dental Care
+                  option(value='3') Ophthalmology
+              .col-md-6
+                label Department
+                select.form-select(aria-label='Default select example')
+                  option(selected='') Choose Doctor
+                  option(value='1') Jordan Peele
+                  option(value='2') Jamie Oliver
+                  option(value='3') Norton Berry
+              .col-12
+                label Address
+                textarea(cols='30' rows='4' placeholder="Write your Feedback here...")
+            .footer-content
+              button.btn.btn-md.sub-btn-2(type="submit" data-bs-dismiss="modal" aria-label="Close") Cancel
+              button.btn.btn-md.sub-btn(type="submit" data-bs-dismiss="modal" aria-label="Close") Submit Now 
+
+    #feedback.modal.fade.theme-modal.feedback-modal
+      .modal-dialog.modal-md.modal-dialog-centered(role='document')
+        .modal-content
+          .modal-header
+            button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
+              | Close
+              i.ri-close-line
+          .modal-body
+            .header-content 
+              h5 Feedback
+            h6 How are you feeling ?
+            span We value your feedback so that we can better understand your needs and adjust our service.
+            .emoji-wrapper
+              input#star-1(type='radio' name='rate')
+              input#star-2(type='radio' name='rate')
+              input#star-3(type='radio' name='rate')
+              input#star-4(type='radio' name='rate')
+              input#star-5(type='radio' name='rate')
+              .content
+                .outer
+                  ul.emojis
+                    li.slideImg
+                        img.img-fluid(src='../assets/images/others/emoji/angry.png' alt='emoji')
+                    li
+                        img.img-fluid(src='../assets/images/others/emoji/sad.png' alt='emoji')
+                    li
+                        img.img-fluid(src='../assets/images/others/emoji/think.png' alt='emoji')
+                    li
+                        img.img-fluid(src='../assets/images/others/emoji/smile.png' alt='emoji')
+                    li
+                        img.img-fluid(src='../assets/images/others/emoji/love.png' alt='emoji')
+                .stars
+                  label.star-1.fas.fa-star(for='star-1')
+                  label.star-2.fas.fa-star(for='star-2')
+                  label.star-3.fas.fa-star(for='star-3')
+                  label.star-4.fas.fa-star(for='star-4')
+                  label.star-5.fas.fa-star(for='star-5')
+              textarea(cols='30' rows='4' placeholder="Write your Feedback here...")
+            .footer-content
+              button.btn.btn-md.sub-btn(type="submit" data-bs-dismiss="modal" aria-label="Close") Submit Now 
+    
+    #search.modal.fade.theme-modal.search-modal
+      .modal-dialog.modal-xl.modal-dialog-centered(role='document')
+        .modal-content
+          .modal-header
+            button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
+              | Close
+              i.ri-close-line
+          .modal-body
+            h5 Search Our Doctor
+            .search-box 
+              input(type="search", name="text" placeholder="Search Our Doctor...")
+              i.ri-search-eye-line
+            h6 Our Doctor Name 
+            ul.doctor-name  
+              li 
+                a(href="doctors-list.html") Dr. Ava Bennett
+              li 
+                a(href="doctors-list.html") Dr. Ethan Carter
+              li 
+                a(href="doctors-list.html") Dr. Mia Roberts
+              li 
+                a(href="doctors-list.html") Dr. Oliver Hughes
+              li 
+                a(href="doctors-list.html") Dr. Sophia Morgan
+              li 
+                a(href="doctors-list.html") Dr. Lucas Anderson
+            h6 Highest Searched
+            ul.search-doctor.custom-scrollbar
+              li
+                a(href="doctor-details.html")
+                  img.img-fluid(src="../assets/images/others/doctor/1.jpg", alt="doctor1") 
+                .content
+                  a(href="doctor-details.html") Dr. Ava Bennett
+                  span Pediatric Therapist
+              li    
+                a(href="doctor-details.html")
+                  img.img-fluid(src="../assets/images/others/doctor/2.jpg", alt="doctor2") 
+                .content
+                  a(href="doctor-details.html") Dr. Ava Bennett
+                  span Neurology Therapy
+              li
+                a(href="doctor-details.html")
+                  img.img-fluid(src="../assets/images/others/doctor/3.jpg", alt="doctor3") 
+                .content
+                  a(href="doctor-details.html") Dr. Ava Bennett
+                  span Senior Physiotherapist
+              li
+                a(href="doctor-details.html")
+                  img.img-fluid(src="../assets/images/others/doctor/4.jpg", alt="doctor4")
+                .content
+                  a(href="doctor-details.html") Dr. Ava Bennett
+                  span Orthopedic Therapist
+    
+   
+    include ../../components/footer-files

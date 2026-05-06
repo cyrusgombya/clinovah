@@ -1,0 +1,87 @@
+/*=====================
+  4.19  emoji scss
+==========================*/
+.emoji-wrapper {
+    width: 100%;
+    .content {
+        padding: 0 0 15px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .stars {
+        margin-top: 8px;
+        label {
+            font-size: 24px;
+            margin: 0 3px;
+            color: rgba(var(--theme-default), 0.1);
+        }
+    }
+    .outer {
+        height: 65px;
+        width: 65px;
+        overflow: hidden;
+        .emojis {
+            height: 500%;
+            display: flex;
+            flex-direction: column;
+            li {
+                height: 65px;
+                width: 100%;
+                list-style: none;
+                transition: all 0.3s ease;
+            }
+            img {
+                height: 52px;
+                width: 52px;
+            }
+        }
+    }
+    #star-2:checked~.content .emojis .slideImg {
+        margin-top: -64px;
+    }
+    #star-3:checked~.content .emojis .slideImg {
+        margin-top: -130px;
+    }
+    #star-4:checked~.content .emojis .slideImg {
+        margin-top: -194px;
+    }
+    #star-5:checked~.content .emojis .slideImg {
+        margin-top: -262px;
+    }
+    #star-1:hover~.content .stars .star-1,
+    #star-1:checked~.content .stars .star-1,
+    #star-2:hover~.content .stars .star-1,
+    #star-2:hover~.content .stars .star-2,
+    #star-2:checked~.content .stars .star-1,
+    #star-2:checked~.content .stars .star-2,
+    #star-3:hover~.content .stars .star-1,
+    #star-3:hover~.content .stars .star-2,
+    #star-3:hover~.content .stars .star-3,
+    #star-3:checked~.content .stars .star-1,
+    #star-3:checked~.content .stars .star-2,
+    #star-3:checked~.content .stars .star-3,
+    #star-4:hover~.content .stars .star-1,
+    #star-4:hover~.content .stars .star-2,
+    #star-4:hover~.content .stars .star-3,
+    #star-4:hover~.content .stars .star-4,
+    #star-4:checked~.content .stars .star-1,
+    #star-4:checked~.content .stars .star-2,
+    #star-4:checked~.content .stars .star-3,
+    #star-4:checked~.content .stars .star-4,
+    #star-5:hover~.content .stars .star-1,
+    #star-5:hover~.content .stars .star-2,
+    #star-5:hover~.content .stars .star-3,
+    #star-5:hover~.content .stars .star-4,
+    #star-5:hover~.content .stars .star-5,
+    #star-5:checked~.content .stars .star-1,
+    #star-5:checked~.content .stars .star-2,
+    #star-5:checked~.content .stars .star-3,
+    #star-5:checked~.content .stars .star-4,
+    #star-5:checked~.content .stars .star-5 {
+        color: rgba(var(--theme-default),1);
+    }
+    input[type="radio"] {
+        display: none;
+    }
+}

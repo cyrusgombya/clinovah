@@ -1,0 +1,151 @@
+/*=====================
+  2.01 variables css start
+==========================*/
+// General variables
+$theme-color-1: #e12454;
+$theme-color-2: #20aaf8;
+$theme-color-3: #9fb500;
+$theme-color-4: #ff379f;
+$theme-color-5: #3368c6;
+$header-button-bg: #1293dc;
+
+//fonts
+$font_Roboto: "Roboto", sans-serif;
+$font_Montserrat: "Montserrat", sans-serif;
+$font_Russo: "Russo One", sans-serif;
+$font-awesome: FontAwesome;
+$sue-ellen: "Sue Ellen Francisco", cursive;
+
+// font size
+$font-30: calc(20px + (30 - 20) * ((100vw - 320px) / (1920 - 320)));
+$font-28: calc(18px + (28 - 18) * ((100vw - 320px) / (1920 - 320)));
+$font-24: calc(17px + (24 - 17) * ((100vw - 320px) / (1920 - 320)));
+$font-22: calc(16px + (22 - 16) * ((100vw - 320px) / (1920 - 320)));
+$font-18: calc(15px + (18 - 15) * ((100vw - 320px) / (1920 - 320)));
+$font-16: calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));
+$font-14: calc(13px + (14 - 13) * ((100vw - 320px) / (1920 - 320)));
+
+:root {
+  --body-background: 255, 255, 255;
+  --white: 255, 255, 255;
+  --black: 0, 0, 0;
+  --section-background: 245, 249, 253;
+  --theme-font-color: 34, 54, 69;
+  --light-color: 245, 249, 253;
+  --p-text-color: 152, 159, 169;
+  --header-border: 218, 237, 253;
+  --header-border-color: 172, 183, 195;
+  --rating-color: 255, 168, 0;
+  --light-border: 238, 238, 238;
+  --light-background: 246, 246, 246;
+  --success-color: 33, 151, 59;
+  --danger-color: 255, 79, 79;
+  --content-color: 141, 141, 141;
+  //social color
+  --facebook: 57, 95, 198;
+  --twitter: 45, 184, 243;
+  --google: 229, 34, 17;
+  --instagram: 221, 42, 123;
+  // Theme Color
+  --theme-default: 57, 113, 212;
+  --theme-default-dark: 41, 90, 177;
+  .dental-care {
+    --theme-default: 32, 170, 248;
+    --theme-default-dark: 18, 147, 220;
+    &.dark {
+      --body-background: 10, 38, 53;
+      --theme-default-dark: 13, 47, 65;
+      --light-background: 13, 47, 65;
+      --section-background: 13, 47, 65;
+      --light-border: 63, 89, 100;
+    }
+  }
+  .dermatology-demo {
+    --theme-default: 159, 181, 0;
+    --theme-default-dark: 136, 155, 0;
+    &.dark {
+      --body-background: 19, 27, 3;
+      --theme-default-dark: 25, 35, 4;
+      --light-background: 25, 35, 4;
+      --section-background: 25, 35, 4;
+      --light-border: 55, 65, 41;
+    }
+  }
+  .children-care {
+    --theme-default: 255, 55, 159;
+    --theme-default-dark: 219, 39, 133;
+    &.dark {
+      --body-background: 34, 22, 29;
+      --theme-default-dark: 35, 19, 27;
+      --light-background: 35, 19, 27;
+      --light-border: 56, 36, 47;
+    }
+  }
+  .cardiologist-demo {
+    --theme-default: 225, 36, 84;
+    --theme-default-dark: 210, 29, 75;
+    &.dark {
+      --body-background: 41, 35, 37;
+      --light-background: 37, 30, 32;
+      --section-background: 37, 30, 32;
+      --header-border: 44, 52, 68;
+      --header-border-color: 57, 69, 92;
+      --light-border: 60, 43, 49;
+    }
+  }
+  .eyes-care {
+    --theme-default: 42, 143, 158;
+    --theme-default-dark: 0, 36, 50;
+    &.dark {
+      --body-background: 1, 32, 44;
+      --theme-default-dark: 160, 165, 171;
+      --light-background: 160, 165, 171;
+      --light-border: 44, 64, 71;
+    }
+  }
+  .homeopathy-demo {
+    --theme-default: 161, 184, 104;
+    --theme-font-color: 0, 35, 57;
+    &.dark {
+      --body-background: 24, 28, 16;
+      --theme-font-color: 255, 255, 255;
+      --light-background: 33, 38, 21;
+      --light-border: 52, 60, 36;
+    }
+  }
+  .nutritionist-demo {
+    --theme-default: 202, 169, 51;
+    --theme-font-color: 52, 44, 15;
+    &.dark {
+      --body-background: 35, 30, 10;
+      --theme-font-color: 255, 255, 255;
+      --light-background: 45, 38, 14;
+      --light-border: 60, 53, 27;
+    }
+  }
+  .physiotherapy-demo {
+    --theme-default: 217, 96, 53;
+    --theme-font-color: 52, 44, 15;
+    &.dark {
+      --body-background: 33, 29, 26;
+      --theme-font-color: 255, 255, 255;
+      --light-background: 45, 38, 14;
+      --light-border: 38, 49, 66;
+    }
+  }
+}
+.dark {
+  --body-background: 15, 28, 52;
+  --theme-font-color: 214, 214, 214;
+  --black: 255, 255, 255;
+  --light-background: 17, 33, 63;
+  --light-border: 44, 55, 74;
+  --header-border: 17, 33, 63;
+  --section-background: 17, 33, 63;
+}
+.font-success {
+  color: rgba(var(--success-color), 1);
+}
+.font-primary {
+  color: rgba(var(--theme-default), 1);
+}

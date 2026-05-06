@@ -1,0 +1,399 @@
+/*=====================
+  4.31 patient-dashboard css start
+==========================*/
+.patient-main-box {
+  background-color: rgba(var(--body-background), 1);
+  padding: calc(12px + (30 - 12) * ((100vw - 320px) / (1920 - 320)));
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 6px;
+  position: sticky;
+  top: 10%;
+  .dashboard-main-title {
+    > h5 {
+      position: relative;
+      width: fit-content;
+      margin-bottom: calc(10px + (30 - 10) * ((100vw - 320px) / (1920 - 320)));
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -6px;
+        left: 0;
+        height: 3px;
+        width: 40%;
+        background-color: rgba(var(--theme-default), 1);
+        border-radius: 4px;
+        animation: arrowsvg 4s infinite;
+      }
+    }
+  }
+  .booking-box {
+    background-color: rgba(var(--theme-default), 1);
+    background-image: url(../images/patient/booking.png);
+    background-size: cover;
+    background-position: left;
+    border-radius: 6px;
+    padding: 36px 16px;
+    text-align: right;
+    p {
+      color: rgba(var(--white), 1);
+      font-size: $font-14;
+      margin-bottom: 6px;
+    }
+    a {
+      padding: 6px 16px;
+      background-color: rgba(var(--body-background), 1);
+      color: rgba(var(--theme-default), 1);
+      font-size: $font-16;
+      font-weight: 600;
+      line-height: 1;
+      border-radius: 4px;
+    }
+  }
+  .favorites-doctor {
+    li {
+      width: 100%;
+      margin: 6px 0;
+      .d-flex {
+        align-items: center;
+        gap: 12px;
+        .img {
+          img {
+            width: 50px;
+            border-radius: 4px;
+          }
+        }
+        .content {
+          width: calc(100% - 50px);
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          > div {
+            a {
+              h6 {
+                font-size: $font-16;
+              }
+            }
+          }
+          .icon {
+            height: 38px;
+            width: 38px;
+            border-radius: 25px;
+            background-color: rgba(var(--theme-default), 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease-in-out;
+            i {
+              color: rgba(var(--theme-default), 1);
+              font-size: $font-16;
+              transition: all 0.4s ease-in-out;
+            }
+            &:hover {
+              background-color: rgba(var(--theme-default), 1);
+              i {
+                color: rgba(var(--white), 1);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .appointment-item {
+    .nav {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      gap: 8px;
+      overflow: auto;
+      padding: 8px;
+      border-radius: 4px;
+      background-color: rgba(var(--light-background), 1);
+      margin-bottom: 12px;
+      .nav-item {
+        .nav-link {
+          padding: 8px 9px;
+          border: 1px solid rgba(var(--light-border), 1);
+          background-color: rgba(var(--body-background), 1);
+          position: relative;
+          min-width: 55px;
+          &:after {
+            content: "";
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            width: 6px;
+            height: 6px;
+            border-radius: 10px;
+            background-color: rgba(var(--body-background), 1);
+            transform: scale(0);
+            transition: all 0.4s ease-in-out;
+          }
+          p {
+            font-weight: 500;
+          }
+          span {
+            font-weight: 600;
+            text-transform: capitalize;
+          }
+          &.active {
+            background-color: rgba(var(--theme-default), 1);
+            &::after {
+              transform: scale(1);
+            }
+            p {
+              color: rgba(var(--white), 1);
+            }
+            span {
+              color: rgba(var(--white), 1);
+            }
+          }
+        }
+      }
+    }
+    .appointment-tab {
+      padding: 8px;
+      border: 1px solid rgba(var(--light-border), 1);
+      border-radius: 4px;
+      .d-flex {
+        align-self: start;
+        justify-content: space-between;
+        .doctor-fav {
+          display: flex;
+          align-self: start;
+          gap: 10px;
+          .img {
+            img {
+              width: 50px;
+              border-radius: 4px;
+            }
+          }
+        }
+        .icon {
+          height: 35px;
+          width: 35px;
+          background-color: rgba(var(--light-background), 1);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          i {
+            color: rgba(var(--p-text-color), 1);
+            font-size: $font-16;
+          }
+        }
+      }
+      > p {
+        margin: 6px 0;
+        padding: 6px 12px;
+        border: 1px dashed rgba(var(--light-border), 1);
+        border-left: none;
+        border-right: none;
+        border-radius: 4px;
+        background-color: rgba(var(--section-background), 1);
+      }
+      .button-group {
+        display: flex;
+        gap: 14px;
+        margin-top: 12px;
+        flex-wrap: wrap;
+        .chat-btn {
+          background-color: rgba(var(--light-background), 1);
+          color: rgba(var(--p-text-color), 1);
+          font-weight: 600;
+          border-radius: 0 !important;
+          &:hover {
+            background-color: rgba(var(--theme-default), 1);
+            color: rgba(var(--white), 1);
+          }
+        }
+        .btn {
+          padding: calc(8px + (10 - 8) * ((100vw - 320px) / (1920 - 320))) calc(10px + (12 - 10) * ((100vw - 320px) / (1920 - 320)));
+          line-height: 1.2;
+          display: flex;
+          align-items: center;
+          gap: 4px;
+        }
+      }
+    }
+  }
+  .custom-data-label {
+    margin-top: -35px;
+    margin-bottom: -20px;
+    .apexcharts-datalabels {
+      translate: 0px -5px;
+      rect {
+        filter: drop-shadow(0 4px 4px rgba(var(--black), 0.3));
+        height: 25px;
+        width: 25px;
+        stroke: rgba(var(--white), 1);
+        stroke-width: 3px;
+      }
+      text {
+        translate: 1px 5px;
+      }
+      .apexcharts-data-labels {
+        &:first-child {
+          rect {
+            fill: rgba(39, 72, 134, 1);
+          }
+        }
+        &:nth-child(2) {
+          rect {
+            fill: rgba(211, 77, 63, 1);
+          }
+        }
+        &:nth-child(3) {
+          rect {
+            fill: rgba(218, 152, 23, 1);
+          }
+        }
+        &:nth-child(4) {
+          rect {
+            fill: rgba(14, 164, 186, 1);
+          }
+        }
+        &:nth-child(5) {
+          rect {
+            fill: rgba(71, 148, 71, 1);
+          }
+        }
+        &:nth-child(6) {
+          rect {
+            fill: rgba(39, 72, 134, 1);
+          }
+        }
+        &:nth-child(7) {
+          rect {
+            fill: rgba(214, 76, 89, 1);
+          }
+        }
+        &:nth-child(8) {
+          rect {
+            fill: rgba(218, 152, 23, 1);
+          }
+        }
+      }
+    }
+  }
+  .health-record {
+    margin-top: 10px;
+    @media (max-width: 575px) {
+      margin-top: 0;
+    }
+    p {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: $font-14;
+      margin-bottom: 4px;
+      i {
+        color: rgba(var(--theme-default), 0.8);
+        @media (max-width: 991px) {
+          font-size: calc(18px + (24 - 18) * ((100vw - 320px) / (1920 - 320)));
+        }
+      }
+    }
+    h5 {
+      display: flex;
+      align-items: flex-start;
+      gap: 4px;
+      span {
+        color: rgba(var(--success-color), 1);
+        font-weight: 500;
+      }
+    }
+  }
+  .report-table {
+    table {
+      border: 1px dashed rgba(var(--light-border), 1);
+      thead {
+        tr {
+          th {
+            background-color: rgba(var(--section-background), 1);
+            color: rgba(var(--theme-default), 1);
+          }
+        }
+      }
+      tbody {
+        tr {
+          td {
+            color: rgba(var(--theme-font-color), 1);
+            font-weight: 500;
+            white-space: nowrap;
+            vertical-align: middle;
+            text-transform: capitalize;
+            @media (max-width: 1199px) {
+              min-width: 150px;
+            }
+            &.status {
+              display: flex;
+              align-items: center;
+              gap: 12px;
+              span {
+                padding: 2px 8px;
+                color: rgba(var(--white), 1);
+                background-color: rgba(var(--success-color), 0.8);
+                border-radius: 4px;
+              }
+              .icon {
+                height: 36px;
+                width: 36px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                i {
+                  font-weight: 500;
+                }
+                &:first-child {
+                  background-color: rgba(var(--theme-default), 0.08);
+                  i {
+                    color: rgba(var(--theme-default), 1);
+                  }
+                }
+                &:last-child {
+                  background-color: rgba(var(--danger-color), 0.08);
+                  i {
+                    color: rgba(var(--danger-color), 1);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .overall-chart {
+    margin-bottom: -20px;
+  }
+  .preview-none {
+    margin-top: 20px;
+    justify-content: end;
+  }
+  .report-table {
+    .table {
+      tbody {
+        tr {
+          td {
+            .d-flex {
+              gap: 6px;
+              i {
+                color: rgba(var(--theme-default), 1);
+              }
+            }
+            &.status {
+              .icon {
+                background-color: rgba(var(--p-text-color), 0.1);
+                i {
+                  color: rgba(var(--p-text-color), 1);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

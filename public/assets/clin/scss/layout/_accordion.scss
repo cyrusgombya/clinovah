@@ -1,0 +1,59 @@
+/*=====================
+  4.24 accordion css start
+==========================*/
+.custom-accordion {
+  .accordion {
+    .accordion-item {
+      width: 100%;
+      border: none;
+      background-color: transparent;
+      margin-bottom: 10px;
+      &:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+        .accordion-body {
+          padding-bottom: 0;
+        }
+      }
+      .accordion-header {
+        .accordion-button {
+          background-color: rgba(var(--light-background), 1);
+          box-shadow: none;
+          position: relative;
+          padding: 16px;
+          &::after {
+            content: "\f068";
+            font-family: FontAwesome !important;
+            font-size: 20px;
+            color: rgba(var(--p-text-color), 1);
+            background-image: none;
+          }
+
+          span {
+            font-size: $font-16;
+            font-weight: 600;
+            color: rgba(var(--theme-font-color), 1);
+            transition: all 0.4s ease-in-out;
+          }
+
+          &.collapsed {
+            &::after {
+              content: "\2b";
+              font-family: FontAwesome !important;
+            }
+          }
+
+          &:hover {
+            span {
+              color: rgba(var(--theme-default), 1);
+            }
+          }
+        }
+      }
+      .accordion-body {
+        padding: 16px;
+      }
+    }
+  }
+}

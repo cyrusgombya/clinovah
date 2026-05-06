@@ -1,0 +1,27 @@
+doctype html
+html(lang='en')
+  include ../../components/header-files
+  body
+    .loader-wrapper
+      .text-center
+        img.img-fluid(src='../assets/images/Loader.gif' alt='loader')
+      .text-animation
+        svg
+          text(x='50%' y='50%' dy='.35em' text-anchor='middle')
+            | Physic template
+
+    section.error-500 
+      .custom-container.container 
+        .row.gy-4
+          .col-10.m-auto 
+            .error-img.text-center
+              img.img-fluid(src="../assets/images/others/500.png", alt="404 images")
+          .col-12 
+            .error-content
+              h3 page not found
+              p The page you are looking for doesn't exist or an other error occurred. Go back, or head over to choose a new direction.
+              a.btn.btn-md.sub-btn(href="index.html")
+                |  Back To Home page
+
+    
+    include ../../components/footer-files

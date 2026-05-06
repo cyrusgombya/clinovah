@@ -1,0 +1,257 @@
+/*=====================
+  5.01 Search css start
+==========================*/
+
+// Search
+.search-overlay {
+  width: 100%;
+  display: none;
+  position: fixed;
+  z-index: 10;
+  top: 58px;
+  left: 0;
+  background-color: rgba(var(--body-background), 1);
+  > div {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .overlay-content {
+      width: 100%;
+      .form-control {
+        &:focus {
+          box-shadow: none;
+        }
+      }
+      input {
+        background-color: transparent;
+        border: 0;
+        border: 1px solid #acb7c33d;
+        border-radius: 0;
+        padding: 20px 50px;
+        color: rgba(var(--p-text-color), 1);
+      }
+      button {
+        position: absolute;
+        top: 2px;
+        background-color: transparent;
+        border: 0;
+        font-size: 24px;
+        color: rgba(var(--p-text-color), 1);
+        left: 15px;
+        i {
+          font-size: 16px;
+        }
+      }
+      form {
+        position: relative;
+      }
+    }
+    .closebtn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      color: rgba(var(--p-text-color), 1);
+      font-size: 30px;
+      cursor: pointer;
+    }
+  }
+  &.search-two {
+    top: unset;
+    background-color: unset;
+    > div {
+      .overlay-content {
+        input {
+          background-color: rgba(var(--body-background), 1);
+          position: absolute;
+          top: -70px;
+          padding: 24px 50px;
+        }
+        button {
+          top: -63px;
+        }
+      }
+      .closebtn {
+        top: -50px;
+        right: 24px;
+      }
+    }
+  }
+}
+.search-box-2 {
+  padding: 12px;
+  box-shadow: 0px 2px 8px 0px rgba(var(--black), 0.08);
+  border-radius: 8px;
+  margin-top: calc(-12px + (-66 - -12) * ((100vw - 320px) / (1920 - 320)));
+  background-color: rgba(var(--body-background), 1);
+  position: relative;
+  .search-box {
+    position: relative;
+    padding: calc(8px + (10 - 8) * ((100vw - 320px) / (1920 - 320))) calc(12px + (16 - 12) * ((100vw - 320px) / (1920 - 320)));
+    border: 1px solid rgba(var(--light-border), 1);
+    border-radius: 4px;
+    font-family: $font_Montserrat;
+    font-weight: 500;
+    color: rgba(var(--theme-font-color), 1);
+    background-color: rgba(var(--section-background), 1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    input {
+      width: 100%;
+      padding: 0;
+      border: none;
+      background-color: transparent;
+      &[type="date"]::-webkit-inner-spin-button,
+      &[type="date" i]::-webkit-calendar-picker-indicator {
+        width: 19px;
+        height: 19px;
+        padding-left: 12px;
+        border-left: 1px solid rgba(var(--p-text-color), 0.5);
+        filter: brightness(0) saturate(100%) invert(69%) sepia(7%) saturate(437%) hue-rotate(176deg) brightness(91%) contrast(84%);
+      }
+      &::placeholder {
+        font-size: 16px;
+      }
+    }
+
+    i {
+      position: relative;
+      font-size: $font-18;
+      color: rgba(var(--p-text-color), 0.8);
+      padding-left: 16px;
+      display: flex;
+      align-items: center;
+      [dir="rtl"] & {
+        padding-right: 16px;
+        padding-left: 0;
+      }
+      &:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        height: 80%;
+        width: 1px;
+        background-color: rgba(var(--p-text-color), 0.5);
+        [dir="rtl"] & {
+          right: 0;
+          left: unset;
+        }
+      }
+    }
+  }
+  ul {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-top: 12px;
+    border-top: 1px dashed rgba(var(--light-border), 1);
+    flex-wrap: wrap;
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: calc(8px + (10 - 8) * ((100vw - 320px) / (1920 - 320)));
+      background-color: rgba(var(--section-background), 1);
+      border-radius: 6px;
+      p {
+        color: rgba(var(--theme-font-color), 1);
+        text-transform: capitalize;
+      }
+      i {
+        cursor: pointer;
+        color: rgba(var(--theme-font-color), 1);
+      }
+    }
+  }
+}
+.search-items-box {
+  margin-top: calc(26px + (30 - 26) * ((100vw - 320px) / (1920 - 320)));
+}
+.search-product {
+  padding: 0 calc(15px + (25 - 15) * ((100vw - 320px) / (1920 - 320))) calc(15px + (20 - 15) * ((100vw - 320px) / (1920 - 320)));
+  text-align: center;
+  border: 1px solid rgba(var(--light-border), 1);
+  border-radius: 10px;
+  margin-top: 40px;
+  transition: all 0.6s ease-in-out;
+  .img {
+    position: relative;
+    width: fit-content;
+    margin: auto;
+    &::before {
+      height: 128%;
+      width: 105%;
+      content: "";
+      position: absolute;
+      top: 37%;
+      left: 50%;
+      transform: translate(-50%, -50%) translateY(-18px);
+      border: 1px dashed rgba(var(--theme-default), 1);
+      border-radius: 50%;
+      display: none;
+      transition: all 0.6s ease-in-out;
+    }
+    img {
+      margin-top: -15px;
+      border-radius: 50%;
+      transform: translateY(-18px);
+      border: 4px solid rgba(var(--body-background), 1);
+    }
+  }
+  .content {
+    h6 {
+      margin-bottom: calc(4px + (7 - 4) * ((100vw - 320px) / (1920 - 320)));
+    }
+    p {
+      color: rgba(var(--theme-font-color), 0.8);
+    }
+    ul {
+      text-align: start;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(var(--light-border), 1);
+      li {
+        padding: 2px 0;
+        i {
+          padding-right: 6px;
+          color: rgba(var(--p-text-color), 1);
+        }
+      }
+    }
+    .d-flex {
+      justify-content: center;
+      gap: 10px;
+      margin-top: 12px;
+      @media (max-width: 767px) and (min-width: 576px) {
+        flex-direction: column;
+      }
+      .btn {
+        border: 1px solid rgba(var(--theme-default), 1);
+        background: rgba(var(--theme-default), 1);
+        color: rgba(var(--white), 1);
+        text-transform: capitalize;
+        &:first-child {
+          border: 1px solid rgba(var(--black), 0.08);
+          background: linear-gradient(90deg, rgb(85 85 85 / 80%) 0%, rgb(51 49 49) 100%);
+        }
+      }
+    }
+  }
+  &:hover {
+    box-shadow: 0px 4px 12px rgba(var(--black), 0.1);
+    .img {
+      &::before {
+        display: block;
+      }
+    }
+  }
+}
+/*=====================
+12. Search css End
+==========================*/

@@ -1,0 +1,80 @@
+- var countdown       = true; 
+
+doctype html
+html(lang='en')
+  include ../../components/header-files
+  body.coming-soon-section
+    .loader-wrapper
+      .text-center
+        img.img-fluid(src='../assets/images/Loader.gif' alt='loader')
+      .text-animation
+        svg
+          text(x='50%' y='50%' dy='.35em' text-anchor='middle')
+            | Physic template
+    video.video-tag(loop='' autoplay='' muted='')
+        source(src='../assets/images/video/2.mp4' type='video/mp4')
+        |  Your browser does not support the video tag.
+    header 
+        .container.header-1
+            .main-menu 
+                a.brand-logo(href="index.html") 
+                    img.img-fluid(src="../assets/images/logo/white-logo5.svg", alt="logo")
+                .sub_header
+                    ul.justify-content-end
+                        li 
+                            a(href="https://www.instagram.com/" target="_blank") 
+                                i.ri-instagram-line
+
+                        li 
+                            a(href="https://www.facebook.com/" target="_blank")
+                                i.ri-facebook-circle-line
+                        li
+                            a(href="https://www.google.com/" target="_blank")
+                                i.ri-google-line
+    section.p-0 
+        .coming-soon-box
+            h3 Coming Soon!
+            h5 We're Working in Backstage Work
+            p  I'll be back soon!
+            .countdown
+                ul.clockdiv2
+                    li 
+                        div
+                            .timer
+                                .days
+                            span.title Days
+                    li 
+                        div
+                            .timer
+                                .hours
+                            span.title Hours
+                    li 
+                        div 
+                            .timer
+                                .minutes
+                            span.title Min
+                    li 
+                        div
+                            .timer
+                                .seconds
+                            span.title Sec
+            a.btn.btn-md.sub-btn(href="index.html")  Back to Home 
+    
+    //- tap top 
+    .scroll-progress.d-none
+      a.scroll-top(href='#' aria-label='scroll')
+        span.scroll-text Scroll
+        span.scroll-line
+          span.scroll-point(style='height: 0%;')
+    
+    //- dark - rtl
+    .theme-btns
+      .theme-setting#rtl-btn.btntheme(data-bs-toggle="tooltip" data-bs-title="Rtl Mode")
+        i.fa-solid.fa-repeat
+
+    footer   
+        p Copyright © 2025 
+            a(href="index.html") Physic.   
+            |  All Rights Reserved.
+    
+    include ../../components/footer-files

@@ -1,0 +1,37 @@
+/*=====================
+   1.01 mixin css start
+==========================*/
+
+@mixin display($dis: flex, $align: center, $justify: center) {
+  display: $dis;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin text-ellipsis($line: 1) {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box !important;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+}
+@mixin after_before {
+  @include pos_absolute;
+  @include width_height;
+  top: 0;
+  left: 0;
+  transition: all 0.4s ease-in-out;
+}
+@mixin pos_absolute($pos: absolute, $content: "") {
+  content: $content;
+  position: $pos;
+}
+
+@mixin width_height($width: 100%, $height: 100%) {
+  width: $width;
+  height: $height;
+}
+/*=====================
+mixin css End
+==========================*/

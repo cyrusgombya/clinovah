@@ -1,0 +1,76 @@
+/*=====================
+  4.11 map css start
+==========================*/
+.map-section {
+  position: relative;
+  overflow: hidden;
+  iframe{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+  &.appointment-bg {
+    height: unset;
+  }
+  .map {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    iframe {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .map-bg {
+    background-color: rgba(var(--black), 0.2);
+    padding: calc(20px + (100 - 20) * ((100vw - 320px) / (1920 - 320)));
+    .appointment-bg {
+      background-color: rgba(var(--body-background), 1);
+      padding: calc(20px + (65 - 20) * ((100vw - 320px) / (1920 - 320)));
+      border-radius: 6px;
+      span {
+        font-size: $font-16;
+        font-weight: 500;
+      }
+      h4 {
+        color: rgba(var(--theme-default), 1);
+        font-weight: 600;
+        @include display($dis: flex, $align: center, $justify: start);
+        margin-top: calc(15px + (30 - 15) * ((100vw - 320px) / (1920 - 320)));
+        i {
+          color: rgba(var(--white), 1);
+          padding: calc(13px + (13 - 13) * ((100vw - 320px) / (1920 - 320)))
+            calc(15px + (15 - 15) * ((100vw - 320px) / (1920 - 320)));
+          background-color: rgba(var(--theme-default), 1);
+          margin-right: calc(
+            15px + (15 - 15) * ((100vw - 320px) / (1920 - 320))
+          );
+          border-radius: 4px;
+          box-shadow: 0px 6px 10px 0px rgba(var(--theme-default), 0.2);
+          [dir="rtl"] & {
+            margin-right: unset;
+            margin-left: calc(
+              15px + (15 - 15) * ((100vw - 320px) / (1920 - 320))
+            );
+          }
+        }
+      }
+      h3 {
+        font-size: $font-30;
+        margin-top: calc(15px + (30 - 15) * ((100vw - 320px) / (1920 - 320)));
+      }
+      p {
+        margin: calc(15px + (30 - 15) * ((100vw - 320px) / (1920 - 320))) 0;
+        @include text-ellipsis($line: 3);
+      }
+    }
+  }
+  &.map-three {
+    .map-bg {
+      height: 780px;
+    }
+  }
+}

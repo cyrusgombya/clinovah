@@ -1,0 +1,537 @@
+/*=====================
+  4.05 appointment css start
+==========================*/
+.appointment-section {
+  [dir="rtl"] & {
+    transform: scaleX(-1);
+  }
+  > div {
+    [dir="rtl"] & {
+      transform: scaleX(-1);
+    }
+  }
+  .cosmetic-appointment {
+    background-color: rgba(var(--body-background), 1);
+    padding: calc(18px + (65 - 18) * ((100vw - 320px) / (1920 - 320)));
+    position: relative;
+    border-radius: 6px;
+    .d-flex {
+      p {
+        margin: 0;
+        color: rgba(var(--theme-default), 1);
+        font-weight: 700;
+        font-family: $font_Montserrat;
+      }
+      .icon {
+        height: 40px;
+        width: 40px;
+        background-color: rgba(var(--theme-default), 0.1);
+        @include display($dis: flex, $align: center, $justify: center);
+        border-radius: 50%;
+        position: relative;
+        &::after {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          border-radius: 50%;
+          border: 1px solid rgba(var(--theme-default), 0.4);
+          animation: effect-round 2s linear 1s infinite;
+        }
+        i {
+          font-size: 20px;
+          color: rgba(var(--theme-default), 1);
+        }
+      }
+    }
+    h4 {
+      margin-top: 10px;
+      line-height: 1.3;
+    }
+    p {
+      margin-top: 12px;
+      @include text-ellipsis($line: 3);
+    }
+    h5 {
+      color: rgba(var(--theme-font-color), 1);
+      font-weight: 700;
+      @include display($dis: flex, $align: center, $justify: start);
+      margin-top: calc(18px + (30 - 18) * ((100vw - 320px) / (1920 - 320)));
+      margin-bottom: calc(22px + (40 - 22) * ((100vw - 320px) / (1920 - 320)));
+      gap: 15px;
+      i {
+        color: rgba(var(--white), 1);
+        padding: 8px 10px;
+        background-color: rgba(var(--theme-default), 1);
+        box-shadow: 0px 6px 10px 0px rgba(var(--theme-default), 0.2);
+        border-radius: 2px;
+        [dir="rtl"] & {
+          margin-right: unset;
+          margin-left: 15px;
+        }
+      }
+    }
+    .cosmetic-btn {
+      @include display($dis: flex, $align: center, $justify: start);
+      @media (max-width: 480px) {
+        flex-direction: column;
+      }
+    }
+  }
+  .dots-img {
+    position: relative;
+    img {
+      position: absolute;
+      @media (max-width: 991px) {
+        display: none;
+      }
+      &.top-img {
+        right: -3%;
+        top: -5%;
+      }
+      &.bottom-img {
+        left: -3%;
+        bottom: -5%;
+      }
+    }
+  }
+}
+.dental-appointment {
+  .h-100 {
+    border-radius: 4px 0 0 4px;
+    [dir="rtl"] & {
+      border-radius: 0 4px 4px 0;
+    }
+    @media (max-width: 1199px) {
+      border-radius: 4px;
+      [dir="rtl"] & {
+        border-radius: 4px;
+      }
+    }
+  }
+  .appointment-form {
+    border-radius: 0 4px 4px 0;
+    @media (max-width: 1199px) {
+      border-radius: 4px;
+      [dir="rtl"] & {
+        border-radius: 4px;
+      }
+    }
+    [dir="rtl"] & {
+      border-radius: 4px 0 0 4px;
+    }
+  }
+}
+.appointment-img {
+  &.style-6 {
+    img {
+      border-radius: 4px 0 0 4px;
+      [dir="rtl"] & {
+        border-radius: 0 4px 4px 0;
+      }
+    }
+  }
+}
+.appointment-form {
+  background-color: rgba(var(--body-background), 1);
+  height: 100%;
+  padding-inline: calc(16px + (50 - 16) * ((100vw - 320px) / (1920 - 320)));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-block: 15px;
+  @media (max-width: 1199px) {
+    padding: calc(16px + (30 - 16) * ((100vw - 320px) / (1920 - 320))) calc(16px + (50 - 16) * ((100vw - 320px) / (1920 - 320)));
+  }
+  @media (max-width: 991px) {
+    padding-block: calc(16px + (50 - 16) * ((100vw - 320px) / (1920 - 320)));
+  }
+  @media (max-width: 575px) {
+    padding-block: calc(16px + (50 - 16) * ((100vw - 320px) / (1920 - 320)));
+    padding-inline: calc(16px + (50 - 16) * ((100vw - 320px) / (1920 - 320)));
+  }
+  h4 {
+    font-size: $font-28;
+    color: rgba(var(--theme-default), 1);
+    position: relative;
+    padding-bottom: calc(12px + (18 - 12) * ((100vw - 320px) / (1920 - 320)));
+    margin-bottom: calc(12px + (30 - 12) * ((100vw - 320px) / (1920 - 320)));
+    &::after {
+      position: absolute;
+      content: "";
+      height: 2px;
+      width: 7%;
+      bottom: 0;
+      left: 0;
+      background-color: rgba(var(--theme-default), 1);
+      [dir="rtl"] & {
+        left: unset;
+        right: 0;
+      }
+    }
+  }
+  form {
+    .form-label {
+      font-size: $font-14;
+      font-weight: 600;
+      font-family: $font_Montserrat;
+      color: rgba(var(--theme-font-color), 1);
+      margin-bottom: calc(10px + (12 - 10) * ((100vw - 320px) / (1920 - 320)));
+    }
+    .form-control {
+      padding: calc(10px + (16 - 10) * ((100vw - 320px) / (1920 - 320)));
+      background-color: rgba(var(--theme-default), 0.051);
+      border: none;
+      border-radius: 4px;
+      &::placeholder {
+        font-size: $font-14;
+        font-weight: 400;
+        color: rgba(var(--p-text-color), 1);
+      }
+    }
+  }
+  .appointment-btn {
+    padding: calc(10px + (12 - 10) * ((100vw - 320px) / (1920 - 320)));
+    background-image: linear-gradient(90deg, rgba(var(--theme-default), 0.9) 0%, rgba(var(--theme-default), 1) 100%);
+    color: rgba(var(--white), 1);
+    width: 100%;
+    font-weight: 700;
+    border-radius: 0;
+    box-shadow: 0px 5px 12.5px rgba(var(--theme-default), 0.35);
+    border-radius: 4px;
+    &:active {
+      color: rgba(var(--white), 1);
+      border-color: transparent;
+    }
+  }
+  &.style-6 {
+    background: rgba(var(--theme-default), 0.06);
+    position: relative;
+    border-radius: 0 4px 4px 0;
+    [dir="rtl"] & {
+      border-radius: 4px 0 0 4px;
+    }
+    @media (max-width: 991px) {
+      border-radius: 4px;
+      [dir="rtl"] & {
+        border-radius: 4px 0 0 4px;
+      }
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: 4px;
+      background-color: rgba(var(--theme-default), 1);
+      border-radius: 4px;
+      transform: scale(0);
+      transition: all 0.4s ease-in-out;
+      [dir="rtl"] & {
+        right: unset;
+        left: 0;
+      }
+    }
+    .appointment-img {
+      overflow: hidden;
+      &::after {
+        content: "";
+        position: absolute;
+        width: 200%;
+        height: 0%;
+        left: 50%;
+        top: 50%;
+        background-color: rgba(var(--body-background), 0.2);
+        transform: translate(-50%, -50%) rotate(-45deg);
+        z-index: 1;
+      }
+    }
+    form {
+      .form-control {
+        background-color: rgba(var(--body-background), 1);
+      }
+    }
+    .appointment-form-btn {
+      margin-top: calc(12px + (36 - 12) * ((100vw - 320px) / (1920 - 320)));
+    }
+    &:hover {
+      .appointment-img {
+        &::after {
+          height: 250%;
+          transition: all 600ms linear;
+          background-color: transparent;
+        }
+      }
+      &::before {
+        transform: scale(1);
+      }
+    }
+  }
+}
+.appointment-modal {
+  .modal-body {
+    padding: 25px;
+    border-radius: 10px 0 0 0;
+    .appointment-form {
+      padding: 0;
+      h5 {
+        color: rgba(var(--theme-default), 1);
+        position: relative;
+        padding-bottom: calc(12px + (18 - 12) * ((100vw - 320px) / (1920 - 320)));
+        margin-bottom: calc(12px + (30 - 12) * ((100vw - 320px) / (1920 - 320)));
+        &::after {
+          position: absolute;
+          content: "";
+          height: 2px;
+          width: 7%;
+          bottom: 0;
+          left: 0;
+          background-color: rgba(var(--theme-default), 1);
+        }
+      }
+    }
+  }
+}
+@keyframes effect {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.4;
+  }
+
+  75% {
+    transform: translate(-50%, -50%) scale(1.3);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.4);
+    opacity: 0;
+  }
+}
+.appointment-item {
+  &.style-8 {
+    background-color: rgba(var(--theme-default), 0.1);
+    height: 100%;
+    padding: 12px calc(12px + (50 - 12) * ((100vw - 320px) / (1920 - 320)));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    .icon-4 {
+      position: absolute;
+      top: 9%;
+      left: 32%;
+      animation: lef 6s linear infinite;
+      @media (max-width: 575px) {
+        display: none;
+      }
+    }
+    .icon-5 {
+      position: absolute;
+      bottom: 14%;
+      right: 24%;
+      animation: lef 8s linear infinite;
+      @media (max-width: 575px) {
+        display: none;
+      }
+    }
+    div {
+      span {
+        background-color: rgba(var(--theme-default), 1);
+        display: block;
+        height: 6px;
+        width: 10%;
+        margin-bottom: calc(12px + (26 - 12) * ((100vw - 320px) / (1920 - 320)));
+      }
+      h2 {
+        width: 78%;
+        font-weight: 600;
+        margin-bottom: calc(8px + (12 - 8) * ((100vw - 320px) / (1920 - 320)));
+        @media (max-width: 1600px) {
+          width: 100%;
+        }
+      }
+      p {
+        width: 68%;
+        font-family: $font_Montserrat;
+        margin-bottom: calc(12px + (26 - 12) * ((100vw - 320px) / (1920 - 320)));
+        @media (max-width: 1600px) {
+          width: 90%;
+        }
+        @media (max-width: 1199px) {
+          width: 100%;
+        }
+      }
+      .d-flex {
+        align-items: center;
+        gap: calc(12px + (20 - 12) * ((100vw - 320px) / (1920 - 320)));
+        margin-bottom: calc(12px + (80 - 12) * ((100vw - 320px) / (1920 - 320)));
+        .icon {
+          height: calc(25px + (50 - 25) * ((100vw - 320px) / (1920 - 320)));
+          width: calc(25px + (50 - 25) * ((100vw - 320px) / (1920 - 320)));
+          background-color: rgba(var(--theme-default), 1);
+          @include display($dis: flex, $align: center, $justify: center);
+          border-radius: 4px;
+          img {
+            width: calc(18px + (24 - 18) * ((100vw - 320px) / (1920 - 320)));
+            height: calc(18px + (24 - 18) * ((100vw - 320px) / (1920 - 320)));
+          }
+        }
+        h4 {
+          font-size: calc(20px + (40 - 20) * ((100vw - 320px) / (1920 - 320)));
+          color: rgba(var(--theme-default), 1);
+          font-weight: 600;
+        }
+      }
+    }
+  }
+  &.style-9 {
+    background-color: transparent;
+    padding: 0;
+    div {
+      span {
+        background-color: rgba(var(--theme-default), 1);
+        display: block;
+        height: 6px;
+        width: 10%;
+        margin-bottom: calc(12px + (26 - 12) * ((100vw - 320px) / (1920 - 320)));
+      }
+      h3 {
+        font-weight: 600;
+        margin-bottom: 12px;
+      }
+      p {
+        font-family: $font_Montserrat;
+        margin-bottom: calc(12px + (26 - 12) * ((100vw - 320px) / (1920 - 320)));
+      }
+      .d-flex {
+        align-items: center;
+        gap: calc(10px + (15 - 10) * ((100vw - 320px) / (1920 - 320)));
+        margin-bottom: calc(12px + (65 - 12) * ((100vw - 320px) / (1920 - 320)));
+        .icon {
+          height: 40px;
+          width: 40px;
+          background-color: rgba(var(--theme-default), 1);
+          @include display($dis: flex, $align: center, $justify: center);
+          border-radius: 4px;
+          img {
+            width: calc(18px + (22 - 18) * ((100vw - 320px) / (1920 - 320)));
+            height: calc(18px + (22 - 18) * ((100vw - 320px) / (1920 - 320)));
+          }
+        }
+        h4 {
+          color: rgba(var(--theme-default), 1);
+          font-weight: 600;
+          letter-spacing: 1.5px;
+        }
+      }
+    }
+  }
+}
+.appointment-item-img {
+  @media (max-width: 1199px) {
+    height: 100%;
+  }
+  img {
+    @media (max-width: 1199px) {
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+@keyframes lef {
+  0% {
+    transform: rotate(-2deg) translate(0, 0);
+  }
+
+  50% {
+    transform: rotate(5deg);
+    transform-origin: left;
+  }
+  75% {
+    transform: rotate(-5deg);
+    transform-origin: right;
+  }
+  100% {
+    transform: rotate(-2deg) translate(0, 0);
+  }
+}
+.cosmetic-appointment {
+  .order {
+    @media (max-width: 991px) {
+      order: 1;
+    }
+  }
+  a.bg-size {
+    border-radius: 6px;
+  }
+  .banner-details {
+    .banner-content {
+      height: 100%;
+      padding-inline: calc(35px + (52 - 35) * ((100vw - 320px) / (1920 - 320)));
+      position: relative;
+      @media (max-width: 991px) {
+        padding-block: calc(35px + (52 - 35) * ((100vw - 320px) / (1920 - 320)));
+        text-align: center;
+      }
+      ul {
+        @include display($dis: flex, $align: center, $justify: start);
+        gap: calc(6px + (20 - 6) * ((100vw - 320px) / (1920 - 320)));
+        margin-bottom: calc(15px + (30 - 15) * ((100vw - 320px) / (1920 - 320)));
+        @media (max-width: 991px) {
+          justify-content: center;
+        }
+        li {
+          a {
+            width: calc(30px + (40 - 30) * ((100vw - 320px) / (1920 - 320)));
+            height: calc(30px + (40 - 30) * ((100vw - 320px) / (1920 - 320)));
+            @include display($dis: flex, $align: end, $justify: center);
+            border-radius: 50%;
+            border: none;
+            transition: all 0.4s ease;
+            i {
+              font-size: calc(12px + (18 - 12) * ((100vw - 320px) / (1920 - 320)));
+              color: rgba(var(--white), 1);
+            }
+            &.google {
+              background-color: rgba(var(--google), 1);
+              box-shadow: 0px 5px 7.5px rgba(var(--google), 0.29);
+            }
+            &.twitter {
+              background-color: rgba(var(--twitter), 1);
+              box-shadow: 0px 5px 7.5px rgba(var(--twitter), 0.29);
+            }
+            &.facebook {
+              background-color: rgba(var(--facebook), 1);
+              box-shadow: 0px 5px 7.5px rgba(var(--facebook), 0.29);
+            }
+            &:hover {
+              transform: translateY(-4px);
+            }
+          }
+          span {
+            font-weight: 700;
+          }
+        }
+      }
+      h2 {
+        line-height: 1.5;
+        margin-bottom: calc(15px + (30 - 15) * ((100vw - 320px) / (1920 - 320)));
+        transition: all 0.4s ease;
+      }
+      p {
+        margin-bottom: calc(15px + (30 - 15) * ((100vw - 320px) / (1920 - 320)));
+        // @include text-ellipsis ( $line: 2,);
+      }
+    }
+  }
+}
+/*=====================
+06. appointment css End
+==========================*/

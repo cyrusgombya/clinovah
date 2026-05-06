@@ -1,0 +1,2788 @@
+- var popper                = true;
+- var apexcharts            = true;
+- var custom_chart          = true;
+- var home_slider           = true;
+- var prism                 = true;
+- var clipboard             = true;
+- var rating                = true;
+- var profile_img           = true;
+- var dashboard_left        = true;
+
+doctype html
+html(lang='en')
+  include ../../components/header-files
+  body
+    .loader-wrapper
+      .text-center
+        img.img-fluid(src='../assets/images/Loader.gif' alt='loader')
+      .text-animation
+        svg
+          text(x='50%' y='50%' dy='.35em' text-anchor='middle')
+            | Physic template
+    header 
+      .top-header 
+        .custom-container.container 
+          .header-items
+            .top-header-left
+              a(href="tel:+800-585-8001")
+                i.fa.fa-phone
+                |  800-585-800 / 652-545-526
+              a(href="#!")
+                i.fa-regular.fa-clock
+                | We Are Open 24 Hours
+            .top-header-right
+                a(href="contact.html") 
+                  | How to Find Us
+                a(href="#" data-bs-toggle='modal' data-bs-target='#feedback')
+                  | Give Feedback
+                a(href="#" data-bs-toggle='modal' data-bs-target='#appointment')
+                  | Request An Appointment
+      .main-header
+        .custom-container.container
+          .row 
+            .col-12 
+              .mobile-fix-option 
+                ul 
+                  li 
+                    a(href="index.html")
+                      svg
+                        use(xlink:href='../assets/svg/mobile-icon.svg#home')
+                      | Home 
+                  li 
+                    a(href="search-1.html")
+                      svg
+                        use(xlink:href='../assets/svg/mobile-icon.svg#search')
+                      | Search 
+                  li 
+                    a(href="cart.html")
+                      svg
+                        use(xlink:href='../assets/svg/mobile-icon.svg#cart')
+                      | Cart 
+                  li 
+                    a(href="wishlist.html")
+                      svg
+                        use(xlink:href='../assets/svg/mobile-icon.svg#heart')
+                      | Wishlist
+                  li 
+                    a(href="doctor-dashboard.html", class="active")
+                      svg
+                        use(xlink:href='../assets/svg/mobile-icon.svg#user')
+                      | Account 
+            .col-lg-12.p-0 
+              .main-menu
+                .menu-left 
+                  .brand-logo 
+                    a(href="index.html") 
+                      img.img-fluid.light(src="../assets/images/logo/logo5.svg" alt='Logo')
+                      img.img-fluid.dark(src="../assets/images/logo/white-logo5.svg" alt='Logo')
+                nav#main-nav
+                  .main-navbar
+                    ul#sm-horizontal.nav-menu.sm-horizontal.custom-scrollbar
+                      li.back-btn
+                        .mobile-back.text-right
+                          h5 Back
+                          i.fa.fa-angle-right.ps-2
+                      li 
+                        a.nav-link(href="javascript:void(0)") Home
+                          span.sub-arrow
+                            i.ri-arrow-down-s-line
+                        .mega-menu
+                          .row.gy-4.row-cols-1.row-cols-xl-5
+                            .col
+                              .layout-images.dental-care
+                                a(href="layout-2.html") 
+                                  img.img-fluid(src="../assets/images/header/2.jpg", alt="demo-2")
+                                  h6 Dental Care
+                            .col
+                              .layout-images.homeopathy-demo  
+                                a(href="index.html") 
+                                  img.img-fluid(src="../assets/images/header/1.jpg", alt="demo-1")
+                                  h6 Homeopathy
+                            .col
+                              .layout-images.nutritionist-demo
+                                a(href="layout-3.html") 
+                                  img.img-fluid(src="../assets/images/header/3.jpg", alt="demo-3")
+                                  h6 Nutritionist
+                            .col
+                              .layout-images.children-care 
+                                a(href="layout-4.html") 
+                                  img.img-fluid(src="../assets/images/header/4.jpg", alt="demo-4")
+                                  h6 Children Care
+                            .col
+                              .layout-images.eyes-care 
+                                a(href="layout-5.html") 
+                                  img.img-fluid(src="../assets/images/header/5.jpg", alt="demo-5")
+                                  h6 Eyes Care
+                            .col
+                              .layout-images
+                                a(href="layout-6.html") 
+                                  img.img-fluid(src="../assets/images/header/6.jpg", alt="demo-6")
+                                  h6 Medicine
+                            .col
+                              .layout-images.physiotherapy-demo  
+                                a(href="layout-7.html") 
+                                  img.img-fluid(src="../assets/images/header/7.jpg", alt="demo-7")
+                                  h6 Physiotherapy
+                            .col
+                              .layout-images.dermatology-demo
+                                a(href="layout-8.html") 
+                                  img.img-fluid(src="../assets/images/header/8.jpg", alt="demo-8")
+                                  h6 Dermatology
+                            .col
+                              .layout-images.cardiologist-demo
+                                a(href="layout-9.html") 
+                                  img.img-fluid(src="../assets/images/header/9.jpg", alt="demo-9")
+                                  h6 Cardiologist
+                      li 
+                        a.nav-link(href="javascript:void(0)") Shop
+                          span.sub-arrow
+                            i.ri-arrow-down-s-line
+                        ul.sub-menu 
+                          li 
+                            a.nav-link(href="shop.html") Shop Left Sidebar
+                          li 
+                            a.nav-link(href="shop-right-sidebar.html") Shop Right Sidebar
+                          li 
+                            a.nav-link(href="shop-no-sidebar.html") Shop No Sidebar
+                          li 
+                            a.nav-link(href="shop-slider.html") Shop Slider
+                          li 
+                            a.nav-link(href="shop-details.html") Shop Detail
+                          li 
+                            a.nav-link(href="shop-images.html") Shop Images
+                          li 
+                            a.nav-link(href="shop-bundle.html") Shop Bundle
+                          li 
+                            a.nav-link(href="shop-variant-accordion.html") Shop Variant Accordion
+
+                      li 
+                        a.nav-link(href="javascript:void(0)") ShortCode
+                          span.sub-arrow
+                            i.ri-arrow-down-s-line
+                        .mega-menu
+                          .row 
+                            .col-xl-3  
+                              ul 
+                                li 
+                                  a(href="element_services.html") Services Element
+                                li 
+                                  a(href="element_title.html") title Element
+                                li 
+                                  a(href="element_product_box.html") product Box Element
+                                li 
+                                  a(href="element_label.html") label Element
+                                li 
+                                  a(href="element_about-us.html") about Us Element
+                                li 
+                                  a(href="element_form.html") form Element
+                            .col-xl-3 
+                              ul 
+                                li 
+                                  a(href="element_breadcrumb.html") breadcrumb Element
+                                li 
+                                  a(href="element_button.html") button Element
+                                li 
+                                  a(href="element_after-before.html") after-before Element
+                                li 
+                                  a(href="element_book-appointment.html") book-appointment Element
+                                li 
+                                  a(href="element_doctor-team.html") doctor-team Element
+                                li 
+                                  a(href="element_footer.html") footer Element
+                            .col-xl-3  
+                              ul 
+                                li 
+                                  a(href="element_ratio.html") ratio Element
+                                li 
+                                  a(href="element_subscribe.html") subscribe Element
+                                li 
+                                  a(href="element_map.html") Map Element
+                                li 
+                                  a(href="element_testimonial.html") testimonial Element
+                                li 
+                                  a(href="element_blog.html") blog Element
+                                li 
+                                  a(href="element_product_banner.html") product Banner Element
+                            .col-xl-3  
+                              ul 
+                                li 
+                                  a(href="element_emergency.html") emergency Element
+                                li 
+                                  a(href="element_gallery.html") gallery Element
+                                li 
+                                  a(href="element_counter.html") counter Element
+                                li 
+                                  a(href="element_facilities.html") facilities Element
+                            .col-12  
+                              .video-section-2.d-none.d-xl-block
+                                video(autoplay='' loop='' muted='')
+                                  source(src='../assets/video/1.mp4' type='video/mp4')
+                                  source(src='../assets/video/1.mp4' type='video/ogg')
+                                p "Create a unique physiotherapy blog layout that supports patient education and professional branding."
+
+                      li 
+                        a.nav-link(href="javascript:void(0)") Pages 
+                          span.sub-arrow
+                            i.ri-arrow-down-s-line
+                        .mega-menu
+                          .all-pages 
+                            .row
+                              .col-xl-2
+                                h5 Booking Page
+                                ul 
+                                  li 
+                                    a(href="booking-1.html") Booking 1
+                                  li 
+                                    a(href="booking-2.html") Booking 2
+                                h5 Service Page
+                                ul 
+                                  li 
+                                    a(href="service-1.html") Service 1
+                                  li 
+                                    a(href="service-2.html") Service 2
+                                  li 
+                                    a(href="service-details.html") Service Details
+                                h5 Sortable Page
+                                ul 
+                                  li 
+                                    a(href="sortable-list.html") Sortable List
+                                  li 
+                                    a(href="sortable-2.html") Sortable 2
+                                  li 
+                                    a(href="sortable-3.html") Sortable 3
+                                h5 Search Page
+                                ul 
+                                  li 
+                                    a(href="search-1.html") Search
+                                  li 
+                                    a(href="search-2.html") Search 2
+                                  li 
+                                    a(href="search-3.html") Search 3
+                              .col-xl-2
+                                h5 Doctors Page
+                                ul 
+                                  li 
+                                    a(href="doctor-details.html") Doctor Details
+                                  li 
+                                    a(href="doctors-list.html") Doctor List
+                                  li 
+                                    a(href="doctor-dashboard.html") Doctor Dashboard
+                                  li 
+                                    a(href="patient-dashboard.html") Patient Dashboard
+                                  li 
+                                    a(href="patients-list.html") Patient list
+                                  li 
+                                    a(href="our-history.html") Our History
+                                  li 
+                                    a(href="our-timetable.html") Our Timetable
+                                  li 
+                                    a(href="chat.html") Doctor Chat
+                                  li 
+                                    a(href="doctor-blog.html") Doctor Blog 
+                                  li 
+                                    a(href="add-blog.html") Add Doctor Blog 
+                                  li 
+                                    a(href="doctor-profile.html") Doctor Profile
+                                  li 
+                                    a(href="doctor-signup.html") Doctor Sign Up
+                                  li 
+                                    a(href="patient-signup.html") Patient Sign Up
+                              .col-xl-2
+                                h5 Hospitals Page
+                                ul 
+                                  li 
+                                    a(href="hospitals.html") Hospitals
+                                  li 
+                                    a(href="specialty.html") Specialty
+                                h5 portfolio Page
+                                ul 
+                                  li 
+                                    a(href="portfolio.html") Portfolio
+                                  li 
+                                    a(href="portfolio-details.html") Portfolio Details 
+                                h5 Other Page
+                                ul 
+                                  li 
+                                    a(href="about-us.html")  About Us
+                                  li 
+                                    a(href="faq.html") Faq
+                                  li 
+                                    a(href="checkout.html") Checkout
+                                  li 
+                                    a(href="payment-success.html") Payment Success
+                                  li 
+                                    a(href="login.html") Login
+                                  li 
+                                    a(href="login-phone.html") Login Phone
+                                  li 
+                                    a(href="otp.html") Otp 
+                              .col-xl-2   
+                                ul 
+                                  li 
+                                    a(href="sign-up.html") Sign Up
+                                  li 
+                                    a(href="forget-password.html") Forget Password
+                                  li 
+                                    a(href="forget-password-2.html") Forget Password 2
+                                  li 
+                                    a(href="compare.html") Compare
+                                  li 
+                                    a(href="404.html") 404
+                                  li 
+                                    a(href="500.html") 500
+                                  li 
+                                    a(href="wishlist.html") Wishlist
+                                  li 
+                                    a(href="cart.html") Cart
+                                  li 
+                                    a(href="pricing-plan.html") Pricing plan
+                                  li 
+                                    a(href="maintenance.html") Maintenance
+                                  li 
+                                    a(href="voice-call.html") Voice Call
+                                  li 
+                                    a(href="video-call.html") Video Call
+                                  li 
+                                    a(href="terms-condition.html") Terms Condition
+                                  li 
+                                    a(href="privacy-policy.html") Privacy Policy
+                                  
+                              .col-xl-4.d-none.d-xl-block 
+                                .header-banner-2  
+                                  .d-flex 
+                                    h5 Your Health, Our Expert Care
+                                    svg 
+                                      use(xlink:href="../assets/images/svg/calling.svg#calling-1")
+                                  a.btn.btn-lg(href="contact.html")  
+                                    | Appointment
+                                    span 
+                                        i.fa-solid.fa-arrow-right
+
+                      li 
+                        a.nav-link(href="javascript:void(0)") Blog
+                          span.sub-arrow
+                            i.ri-arrow-down-s-line
+                        ul.sub-menu 
+                          li 
+                            a.nav-link(href="blog-left-sidebar.html") Blog Left Sidebar
+                          li 
+                            a.nav-link(href="blog-right-sidebar.html") Blog Right Sidebar
+                          li 
+                            a.nav-link(href="blog-details.html") Blog Details
+                          li 
+                            a.nav-link(href="blog-no-sidebar.html") Blog No Sidebar
+                          li 
+                            a.nav-link(href="blog-list-left-sidebar.html") Blog List Left Sidebar
+                          li 
+                            a.nav-link(href="blog-list-right-sidebar.html") Blog List Right Sidebar
+                          li 
+                            a.nav-link(href="blog-list-no-sidebar.html") Blog List No Sidebar
+                      li 
+                        a.nav-link(href="contact.html") Contact
+                .menu-right 
+                  .icon-nav
+                    .default-btn.mode.me-2
+                      img.img-fluid(src='../assets/svg/moon.svg' alt="svg")
+                    .toggle-nav#toggle-nav
+                      .icon
+                        i.ri-align-center
+                    ul.d-flex.gap-2 
+                      li.onhover-div.mobile-search
+                        button.btn.default-btn(data-bs-toggle='modal' data-bs-target='#search')
+                          img.img-fluid(src='../assets/svg/search.svg' alt="search")
+                      li
+                        button.btn.default-btn(type='button' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRight' aria-controls='offcanvasRight')
+                          img.img-fluid(src='../assets/svg/grid.svg' alt="svg")
+                      li.onhover-dropdown
+                        button.btn.default-btn
+                          img.img-fluid(src='../assets/svg/user.svg' alt="user")
+                        ul.user-dropdown
+                          li 
+                            a(href="login.html") Login
+                          li 
+                            a(href="sign-up.html") Register
+                      li
+                        button.btn.default-btn(type='button' data-bs-toggle='offcanvas' data-bs-target='#offcanvasCart' aria-controls='offcanvasCart')
+                          img.img-fluid(src='../assets/svg/cart.svg' alt="cart")
+ 
+    .breadcrumb-section
+      .img-overlay
+        .custom-container.container
+          .row.g-0
+            .col-12
+              .page-title
+                h3 Doctor Dashboard
+            .col-12
+              .icon-breadcrumb
+                ol.breadcrumb.mb-0
+                  li.breadcrumb-item
+                    a(href='index.html')
+                      svg
+                        use(xlink:href='../assets/svg/home1.svg#home')
+                  li.breadcrumb-item.active Doctor Dashboard
+ 
+    section 
+      .custom-container.container 
+        .row 
+          .col-xl-3.col-lg-4 
+            .left-dashboard-show
+              button.btn.sub-btn Show Menu
+            .dashboard-left-sidebar.custom-sticky
+              .profile-box
+                .dashboard-left-sidebar-close
+                  i.fa-solid.fa-xmark
+                .img-content
+                  .img 
+                    a(href="#!") 
+                      img.img-fluid(src="../assets/images/dashboard/profile.jpg", alt="profile")
+                    .check-img  
+                      img.img-fluid(src="../assets/images/svg/check.svg", alt="svg")
+                  .content 
+                    a(href="#!") 
+                      h5 Dr. Edalin Hendry
+                    p.mb-0 BDS, MDS - Oral & Maxillofacial Surgery
+                    h6 
+                      span
+                      | Dentist
+              .dashboard-nav-box.d-flex
+                #v-pills-tab.nav.flex-column.nav-pills(role='tablist' aria-orientation='vertical')
+                  button#dashboard-tab.nav-link.active(data-bs-toggle='pill' data-bs-target='#dashboard' role='tab' aria-controls='dashboard' aria-selected='true') 
+                    i.ri-shapes-fill
+                    | Dashboard
+                  button#profile-settings-tab.nav-link(data-bs-toggle='pill' data-bs-target='#profile-settings' role='tab' aria-controls='profile-settings' aria-selected='false') 
+                    i.ri-user-settings-fill
+                    | Profile Settings
+                  button#patient-Profile-tab.nav-link(data-bs-toggle='pill' data-bs-target='#patient-Profile' role='tab' aria-controls='patient-Profile' aria-selected='false') 
+                    i.ri-user-6-fill
+                    | Patient Profile
+                  button#timings-tab.nav-link(data-bs-toggle='pill' data-bs-target='#timings' role='tab' aria-controls='timings' aria-selected='false')
+                    i.ri-calendar-schedule-fill
+                    | Available Timings
+                  button#account-tab.nav-link(data-bs-toggle='pill' data-bs-target='#account' role='tab' aria-controls='account' aria-selected='false')
+                    i.ri-account-pin-box-fill
+                    | Accounts
+                  button#patients-tab.nav-link(data-bs-toggle='pill' data-bs-target='#patients' role='tab' aria-controls='patients' aria-selected='false')
+                    i.ri-group-2-fill
+                    | My Patients
+                  button#appointments-tab.nav-link(data-bs-toggle='pill' data-bs-target='#appointments' role='tab' aria-controls='appointments' aria-selected='false')
+                    i.ri-calendar-2-line
+                    | Appointments
+                  button#reviews-tab.nav-link(data-bs-toggle='pill' data-bs-target='#reviews' role='tab' aria-controls='reviews' aria-selected='false')
+                    i.ri-star-fill
+                    | Reviews
+                  button#change-password-tab.nav-link(data-bs-toggle='pill' data-bs-target='#change-password' role='tab' aria-controls='change-password' aria-selected='false')
+                    i.ri-key-2-fill
+                    | Change Password  
+                  .dashboard-login-button 
+                    a.btn.btn-md.sub-btn(href="#" data-bs-toggle='modal' data-bs-target='#dashboard-logout') Logout
+          .col-xl-9.col-lg-8
+              #v-pills-tabContent.tab-content.dashboard-main-box
+                #dashboard.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='dashboard-tab') 
+                  .dashboard-main-title   
+                    h5 Dashboard
+                  .row 
+                    .col-xl-7
+                      .dashboard-card
+                        .card-header
+                          h5 Appointment 
+                          select.form-select(aria-label='Default select example')
+                            option(selected='') Today
+                            option(value='1') This Month
+                            option(value='2') Last 7 Day
+                        .card-body.pt-0 
+                          .table-responsive.custom-scrollbar
+                            table.table.patient-table 
+                              tbody 
+                                tr 
+                                  td 
+                                    .patient-info
+                                      a(href="#!")
+                                        img.img-fluid(src="../assets/images/avtar/team/1.jpg", alt="team")  
+                                      .patient-content  
+                                        p #Apt0001
+                                        a(href="patients-list.html") 
+                                          h6 Kelly Green
+                                  td 
+                                    p 10.45 AM, 12nov
+                                    span General
+                                  td 
+                                    .actions-button 
+                                      a.right(href="#!")
+                                        i.ri-check-fill
+                                      a.close(href="#!") 
+                                        .ri-close-fill 
+                                tr 
+                                  td 
+                                    .patient-info
+                                      a(href="#!")
+                                        img.img-fluid(src="../assets/images/avtar/team/2.jpg", alt="team2")  
+                                      .patient-content  
+                                        p #Apt0002
+                                        a(href="patients-list.html") 
+                                          h6 Henry Moore
+                                  td 
+                                    p 12.45 AM, 13aug
+                                    span General
+                                  td 
+                                    .actions-button 
+                                      a.right(href="#!")
+                                        i.ri-check-fill
+                                      a.close(href="#!") 
+                                        .ri-close-fill
+                                tr 
+                                  td 
+                                    .patient-info
+                                      a(href="#!")
+                                        img.img-fluid(src="../assets/images/avtar/team/3.jpg", alt="team3")  
+                                      .patient-content  
+                                        p #Apt0003
+                                        a(href="patients-list.html") 
+                                          h6 John Doe
+                                  td 
+                                    p 01.45 AM, 05aug
+                                    span General
+                                  td 
+                                    .actions-button 
+                                      a.right(href="#!")
+                                        i.ri-check-fill
+                                      a.close(href="#!") 
+                                        .ri-close-fill
+                                tr 
+                                  td 
+                                    .patient-info
+                                      a(href="#!")
+                                        img.img-fluid(src="../assets/images/avtar/team/4.jpg", alt="team4")  
+                                      .patient-content  
+                                        p #Apt0004
+                                        a(href="patients-list.html") 
+                                          h6 Alice Brown
+                                  td 
+                                    p 10.45 AM, 22nov
+                                    span General
+                                  td 
+                                    .actions-button 
+                                      a.right(href="#!")
+                                        i.ri-check-fill
+                                      a.close(href="#!") 
+                                        .ri-close-fill
+                                tr 
+                                  td 
+                                    .patient-info
+                                      a(href="#!")
+                                        img.img-fluid(src="../assets/images/avtar/team/5.jpg", alt="team5")  
+                                      .patient-content  
+                                        p #Apt0001
+                                        a(href="patients-list.html") 
+                                          h6 Peter Anderson
+                                  td 
+                                    p 12.45 AM, 14sep
+                                    span General
+                                  td 
+                                    .actions-button 
+                                      a.right(href="#!")
+                                        i.ri-check-fill
+                                      a.close(href="#!") 
+                                        .ri-close-fill       
+                    .col-xl-5
+                      .row
+                        .col-xl-12.col-lg-6 
+                          .dashboard-card.widget-box  
+                            .d-flex 
+                              .content 
+                                p Total Patient
+                                h6 978
+                                span.font-success 
+                                  i.font-success.ri-arrow-up-s-fill 
+                                  | 15% From Last Week
+                              a(href="#!")
+                                img.img-fluid(src="../assets/images/dashboard/icon/1.png", alt="icon")
+                        .col-xl-12.col-lg-6 
+                          .dashboard-card.widget-box   
+                            .d-flex 
+                              .content 
+                                p Active Patients
+                                h6 102
+                                span.font-primary 
+                                  i.font-primary.ri-arrow-up-s-fill 
+                                  | 15% From Last Week
+                              a(href="#!")
+                                img.img-fluid(src="../assets/images/dashboard/icon/2.png", alt="icon")
+                        .col-12 
+                          .dashboard-card.widget-box  
+                            .d-flex 
+                              .content 
+                                p Scheduled Appointments
+                                h6 56
+                                span.font-success 
+                                  i.font-success.ri-arrow-up-s-fill 
+                                  | 15% From Last Week
+                              a(href="#!")
+                                img.img-fluid(src="../assets/images/dashboard/icon/3.png", alt="icon")
+                    .col-xl-5 
+                      .dashboard-card
+                        h5 Weekly Overview
+                        div#revenue-chart.revenue-chart
+                    .col-xl-7
+                      .dashboard-card.appointment-card
+                        h5 Impending appointment 
+                        .d-flex       
+                          .img 
+                            a(href="#!")                   
+                              img.img-fluid(src="../assets/images/avtar/team/2.jpg", alt="team2")
+                          .content 
+                            span #Apt1001
+                            a(href="#!") 
+                              h6 Adrian Marshall
+                          .timing 
+                            p General visit
+                            p Today, 10:45 AM
+                        .video-call   
+                          h6 
+                            i.ri-video-on-fill
+                            | Video Appointment
+                          a(href="#!") Start Appointment
+                    .col-xl-6  
+                      .dashboard-card 
+                        .card-header  
+                          h5 Notifications
+                          a.font-primary(href="#!") view all 
+                        .card-body 
+                          ul.notifications-box 
+                            li 
+                              .d-flex 
+                                a(href="#!")
+                                  i.ri-notification-fill
+                                .notifications-content  
+                                  a(href="#!") 
+                                    h6 Booking Confirmed on
+                                    span 21 Mar 2025 10:30 AM Just Now
+                            li 
+                              .d-flex 
+                                a(href="#!")
+                                  i.ri-star-fill
+                                .notifications-content  
+                                  a(href="#!") 
+                                    h6 You have a New Review for your 
+                                    span Appointment 5 Days ago
+                            li 
+                              .d-flex 
+                                a(href="#!")
+                                  i.ri-calendar-fill
+                                .notifications-content  
+                                  a(href="#!") 
+                                    h6 You have Appointment 
+                                    span 01:20 PM 12:55 PM 
+                            li 
+                              .d-flex 
+                                a(href="#!")
+                                  i.ri-money-cny-box-fill
+                                .notifications-content  
+                                  a(href="#!") 
+                                    h6 Sent an amount of $200 an Appointment
+                                    span 01:20 PM 2 Days ago
+                            li 
+                              .d-flex 
+                                a(href="#!")
+                                  i.ri-star-fill
+                                .notifications-content  
+                                  a(href="#!") 
+                                    h6 You have a New Review in Appointment
+                                    span 5 Days ago
+                    .col-xl-6
+                      .dashboard-card.pb-0 
+                        .card-header
+                          h5 Revenue
+                        #weekly-overview
+                    .col-xl-5 
+                      .dashboard-card 
+                        .card-header 
+                          h5 Medical Care Accessibility
+                        .card-body
+                          .accessibility-box 
+                            .d-flex 
+                              .img 
+                                img.img-fluid(src="../assets/images/layout-2/surgery/1.jpg", alt="surgery1")
+                              .content 
+                                a(href="#!")  Sofi’s Health Hub
+                                  span $750
+                            .timing-box 
+                              p Mon :
+                                span 08:00 AM - 07:00 PM
+                              p Tue :
+                                span 09:00 AM - 06:00 PM
+                          .accessibility-box 
+                            .d-flex 
+                              .img 
+                                img.img-fluid(src="../assets/images/layout-2/surgery/3.jpg", alt="surgery2")
+                              .content 
+                                a(href="#!")  Family Dental Services
+                                  span $700
+                            .timing-box.mb-0 
+                              p Mon :
+                                span 08:00 AM - 07:00 PM
+                              p Tue :
+                                span 09:00 AM - 06:00 PM
+                    .col-xl-7 
+                      .dashboard-card 
+                        .card-header 
+                          h5 Current Patients  
+                          a.font-primary(href="#!") view all 
+                        .card-body  
+                          .current-patients-box   
+                            div 
+                              a(href="#!")  
+                                img.img-fluid(src="../assets/images/avtar/team/2.jpg", alt="team2")   
+                              .content 
+                                a(href="#!")
+                                  h6 Peter Anderson
+                                p Patient ID : P1001
+                                span
+                                  i.ri-map-pin-user-line
+                                  | Alabama, USA
+                              .appointment-timing
+                                span Recent Appointment March 15, 2025
+                            div 
+                              a(href="#!")  
+                                img.img-fluid(src="../assets/images/avtar/team/3.jpg", alt="team3")   
+                              .content 
+                                a(href="#!")
+                                  h6 Jane Smith
+                                p Patient ID : P1001
+                                span
+                                  i.ri-map-pin-user-line
+                                  | Alabama, USA
+                              .appointment-timing
+                                span Recent Appointment March 15, 2025
+                    .col-xl-7  
+                      .dashboard-card.mb-0 
+                        .card-header 
+                          h5 Recent Billing Statements
+                          select.form-select(aria-label='Default select example')
+                            option(selected='') Today
+                            option(value='1') This Month
+                            option(value='2') Last 7 Day
+                        .card-body
+                          .table-responsive.custom-scrollbar
+                            table.table.statements-table 
+                              tbody 
+                                tr 
+                                  td 
+                                    .patient-info
+                                      a(href="#!")
+                                        img.img-fluid(src="../assets/images/avtar/team/1.jpg", alt="team")  
+                                      .patient-content  
+                                        a(href="patients-list.html") 
+                                          h6 Kelly Green
+                                        p #Apt0001
+                                  td 
+                                    span Amount
+                                    p $450
+                                  td 
+                                    span Paid On
+                                    p 12 Nov 2025
+                                  td 
+                                    .actions-button 
+                                      a.right(href="#!")
+                                        i.ri-eye-fill
+                                tr 
+                                  td 
+                                    .patient-info
+                                      a(href="#!")
+                                        img.img-fluid(src="../assets/images/avtar/team/2.jpg", alt="team2")  
+                                      .patient-content  
+                                        p #Apt0002
+                                        a(href="patients-list.html") 
+                                          h6 Henry Moore
+                                  td 
+                                    span Amount
+                                    p $500
+                                  td 
+                                    span Paid On
+                                    p 14 Nov 2025
+                                  td 
+                                    .actions-button 
+                                      a.right(href="#!")
+                                        i.ri-eye-fill
+                                tr 
+                                  td 
+                                    .patient-info
+                                      a(href="#!")
+                                        img.img-fluid(src="../assets/images/avtar/team/3.jpg", alt="team3")  
+                                      .patient-content  
+                                        a(href="patients-list.html") 
+                                          h6 John Doe
+                                        p #Apt0003
+                                  td 
+                                    span Amount
+                                    p $350
+                                  td 
+                                    span Paid On
+                                    p 23 Nov 2025
+                                  td 
+                                    .actions-button 
+                                      a.right(href="#!")
+                                        i.ri-eye-fill
+                                tr 
+                                  td 
+                                    .patient-info
+                                      a(href="#!")
+                                        img.img-fluid(src="../assets/images/avtar/team/4.jpg", alt="team4")  
+                                      .patient-content  
+                                        a(href="patients-list.html") 
+                                          h6 Alice Brown
+                                        p #Apt0004
+                                  td 
+                                    span Amount
+                                    p $560
+                                  td 
+                                    span Paid On
+                                    p 18 Nov 2025
+                                  td 
+                                    .actions-button 
+                                      a.right(href="#!")
+                                        i.ri-eye-fill
+                                tr 
+                                  td 
+                                    .patient-info
+                                      a(href="#!")
+                                        img.img-fluid(src="../assets/images/avtar/team/5.jpg", alt="team5")  
+                                      .patient-content  
+                                        a(href="patients-list.html") 
+                                          h6 Peter Anderson
+                                        p #Apt0001
+                                  td 
+                                    span Amount
+                                    p $720
+                                  td 
+                                    span Paid On
+                                    p 17 Nov 2025
+                                  td 
+                                    .actions-button 
+                                      a.right(href="#!")
+                                        i.ri-eye-fill
+                    .col-xl-5 
+                      .dashboard-card.pb-0.mb-0 
+                        .card-header 
+                          h5 Monthly Overview
+                        .card-body
+                          #overview-chart.overview-chart
+                #profile-settings.tab-pane.fade(role='tabpanel' aria-labelledby='profile-settings-tab')
+                  .dashboard-main-title   
+                    h5 Profile Settings
+                  .profile-setting-box 
+                    h6 Profile 
+                    .profile
+                      .circle
+                        img.img-fluid.profile-pic(src='../assets/images/dashboard/Placeholder.jpg' alt="Profile")
+                      .p-image
+                        h6 Profile Image
+                        input.file-upload(type='file' accept='image/*')
+                        span Your image should be under 4 MB and in jpg, png, or SVG format*
+                    h6 Information 
+                    .profile-info
+                      .row.gy-4 
+                        .col-xl-6 
+                          .form-group
+                            label(for='name') First Name 
+                              sup *
+                            input(type='text' id='name' placeholder='Enter your name')
+                        .col-xl-6 
+                          .form-group
+                            label(for='name-1') Last Name 
+                              sup *
+                            input(type='text' id='name-1' placeholder='Enter Last Name')
+                        .col-xl-6 
+                          .form-group
+                            label(for='name-2') Display Name 
+                              sup *
+                            input(type='text' id='name-2' placeholder='Enter Display Name')
+                        .col-xl-6 
+                          .form-group
+                            label(for='name-3') Designation 
+                              sup *
+                            input(type='text' id='name-3' placeholder='Enter Designation')
+                        .col-xl-6 
+                          .form-group
+                            label(for='name-4') Phone Numbers 
+                              sup *
+                            input(type='text' id='name-4' placeholder='Enter Phone Number')
+                        .col-xl-6 
+                          .form-group
+                            label(for='name-5') Email Address 
+                              sup *
+                            input(type='text' id='name-5' placeholder='Enter Email Address')
+                        .col-12 
+                          .form-group
+                            label(for='name-6') Known Languages 
+                              sup *
+                            textarea(cols='30' id="name-6" rows='4' placeholder="Write your Known Languages...")
+                    .preview-none.theme-btn
+                      a.btn.btn-md.modal-cancel-btn(href="") Cancel
+                      a.btn.btn-md.sub-btn(href="") Save Changes
+                #patient-Profile.tab-pane.fade(role='tabpanel' aria-labelledby='patient-Profile-tab')
+                  .dashboard-main-title   
+                    h5 Patient Profile
+                  .row 
+                    .col-xxl-8
+                      .dashboard-card
+                        .patient-Profile  
+                          .row.align-items-center.gy-sm-0.gy-sm-4
+                            .col-md-6
+                              .text-center
+                                .img 
+                                  img.img-fluid(src="../assets/images/avtar/team/3.jpg", alt="team3")
+                                h6 Peter Anderson
+                                span peter.andersson@gmail.com
+                                p Appointments
+                                ul 
+                                  li 
+                                    h4 4
+                                    span Post
+                                  li 
+                                    h4 2
+                                    span Upcoming
+                            .col-md-6 
+                              ul.information 
+                                li 
+                                  span Gender
+                                  p Female
+                                li 
+                                  span Birthday
+                                  p Aug. 1 2000
+                                li 
+                                  span Address
+                                  p Springfield, USA
+                                li 
+                                  span Phone Number
+                                  p (523) 547 589
+                                li 
+                                  span City
+                                  p USA
+                                li 
+                                  span Registration 
+                                  p apr. 1 2025
+                    .col-xxl-4 
+                      .dashboard-card
+                        .card-header
+                          h5 All Files
+                          a(href="#!")
+                            p.text-primary Add Files
+                        .card-body 
+                          ul.document-box
+                            li 
+                              .d-flex 
+                                .icon 
+                                  .fa-regular.fa-file-lines
+                                .content 
+                                  p Emergency Med Report
+                                  span 20kb
+                            li 
+                              .d-flex 
+                                .icon 
+                                  .fa-regular.fa-file-lines
+                                .content 
+                                  p blood report
+                                  span 27kb
+                            li 
+                              .d-flex 
+                                .icon 
+                                  .fa-regular.fa-file-lines
+                                .content 
+                                  p Routine Checkup Report
+                                  span 7kb
+                            li 
+                              .d-flex 
+                                .icon 
+                                  .fa-regular.fa-file-lines
+                                .content 
+                                  p Diagnostic Test Report
+                                  span 8kb
+                    .col-12 
+                      h6 Upcoming Appointments 
+                      .account-table.table-responsive.custom-scrollbar 
+                        table.table.patient-table
+                          thead 
+                            tr 
+                              th id
+                              th Doctor
+                              th Appt Date
+                              th Booking Date
+                              th Amount
+                              th Status
+                          tbody   
+                            tr 
+                              td.id #AC-5478
+                              td 
+                                .d-flex 
+                                  img.img-fluid(src="../assets/images/avtar/1.jpg", alt="avtar")
+                                  h6 Dr. John Smith
+                              td 03 aug 2025
+                              td 01 aug 2025
+                              td $500
+                              td
+                                .status Upcoming
+                            tr 
+                              td.id #AC-5479
+                              td 
+                                .d-flex 
+                                  img.img-fluid(src="../assets/images/avtar/2.jpg", alt="avtar2")
+                                  h6 Dr. John Smith
+                              td 08 aug 2025
+                              td 04 aug 2025
+                              td $800
+                              td
+                                .cancelled Cancelled
+                            tr 
+                              td.id #AC-54710
+                              td  
+                                .d-flex 
+                                  img.img-fluid(src="../assets/images/avtar/3.jpg", alt="avtar3")
+                                  h6 Dr. John Smith
+                              td 11 aug 2025
+                              td 07 aug 2025
+                              td $600
+                              td
+                                .status Upcoming
+                            tr 
+                              td.id #AC-54711
+                              td 
+                                .d-flex 
+                                  img.img-fluid(src="../assets/images/avtar/4.jpg", alt="avtar4")
+                                  h6 Dr. John Smith
+                              td 15 aug 2025
+                              td 10 aug 2025
+                              td $300
+                              td
+                                .cancelled Cancelled
+                            tr 
+                              td.id #AC-54712
+                              td 
+                                .d-flex 
+                                  img.img-fluid(src="../assets/images/avtar/5.jpg", alt="avtar5")
+                                  h6 Dr. John Smith
+                              td 18 aug 2025
+                              td 12 aug 2025
+                              td $900
+                              td
+                                .status Upcoming
+                #timings.tab-pane.fade(role='tabpanel' aria-labelledby='timings-tab') 
+                  .dashboard-main-title   
+                    h5 Available Timings
+                    .timing-box 
+                      h6 Select Appointment Booking
+                      ul#pills-tab.nav.nav-pills.days-tab
+                        li.nav-item(role="presentation")
+                          button#monday-tab.nav-link.active(data-bs-toggle='pill' data-bs-target='#monday' role='tab' aria-controls='monday' aria-selected='true') Monday
+                        li.nav-item(role="presentation")
+                          button#tuesday-tab.nav-link(data-bs-toggle='pill' data-bs-target='#tuesday' role='tab' aria-controls='tuesday' aria-selected='false') Tuesday
+                        li.nav-item(role="presentation")
+                          button#wednesday-tab.nav-link(data-bs-toggle='pill' data-bs-target='#wednesday' role='tab' aria-controls='wednesday' aria-selected='true') Wednesday
+                        li.nav-item(role="presentation")
+                          button#thursday-tab.nav-link(data-bs-toggle='pill' data-bs-target='#thursday' role='tab' aria-controls='thursday' aria-selected='false') Thursday
+                        li.nav-item(role="presentation")
+                          button#friday-tab.nav-link(data-bs-toggle='pill' data-bs-target='#friday' role='tab' aria-controls='friday' aria-selected='true') Friday
+                        li.nav-item(role="presentation")
+                          button#saturday-tab.nav-link(data-bs-toggle='pill' data-bs-target='#saturday' role='tab' aria-controls='saturday' aria-selected='false') Saturday
+                        li.nav-item(role="presentation")
+                          button#sunday-tab.nav-link(data-bs-toggle='pill' data-bs-target='#sunday' role='tab' aria-controls='sunday' aria-selected='true') Sunday
+                      #pills-tabContent.tab-content
+                        #monday.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='monday-tab' tabindex='0') 
+                          .timing-schedule
+                            .days 
+                              h6 Monday 
+                              .details-box-1.mt-0
+                                a.add(href="#" data-bs-toggle='modal' data-bs-target='#add-appointment') Add Slots 
+                                a.delete(href="#" data-bs-toggle='modal' data-bs-target='#delete-appointment') Delete All 
+                            ul 
+                              li 
+                                a(href="#!") 
+                                  i.ri-time-line
+                                  | 08:00 Am  
+                              li 
+                                a(href="#!") 
+                                  i.ri-time-line
+                                  | 09:00 Am 
+                              li 
+                                a(href="#!") 
+                                  i.ri-time-line
+                                  | 09:30 Am 
+                              li 
+                                a(href="#!") 
+                                  i.ri-time-line
+                                  | 12:00 Pm
+                              li 
+                                a(href="#!") 
+                                  i.ri-time-line
+                                  | 04:00 Pm 
+                        #tuesday.tab-pane.fade(role='tabpanel' aria-labelledby='tuesday-tab' tabindex='0') 
+                          .timing-schedule
+                            .days 
+                              h6 Tuesday 
+                              .details-box-1
+                                a.add(href="#" data-bs-toggle='modal' data-bs-target='#add-appointment') Add Slots 
+                                a.delete(href="#" data-bs-toggle='modal' data-bs-target='#delete-appointment') Delete All  
+                            p No Slots Available
+                        #wednesday.tab-pane.fade(role='tabpanel' aria-labelledby='wednesday-tab' tabindex='0') 
+                          .timing-schedule
+                            .days 
+                              h6 Wednesday 
+                              .details-box-1
+                                a.add(href="#" data-bs-toggle='modal' data-bs-target='#add-appointment') Add Slots 
+                                a.delete(href="#" data-bs-toggle='modal' data-bs-target='#delete-appointment') Delete All  
+                            p No Slots Available
+                        #thursday.tab-pane.fade(role='tabpanel' aria-labelledby='thursday-tab' tabindex='0') 
+                          .timing-schedule
+                            .days 
+                              h6 Thursday 
+                              .details-box-1
+                                a.add(href="#" data-bs-toggle='modal' data-bs-target='#add-appointment') Add Slots 
+                                a.delete(href="#" data-bs-toggle='modal' data-bs-target='#delete-appointment') Delete All 
+                            ul 
+                              li 
+                                a(href="#!") 
+                                  i.ri-time-line
+                                  | 08:00 Am  
+                              li 
+                                a(href="#!") 
+                                  i.ri-time-line
+                                  | 09:00 Am 
+                              li 
+                                a(href="#!") 
+                                  i.ri-time-line
+                                  | 09:30 Am 
+                              li 
+                                a(href="#!") 
+                                  i.ri-time-line
+                                  | 12:00 Pm
+                              li 
+                                a(href="#!") 
+                                  i.ri-time-line
+                                  | 04:00 Pm 
+                        #friday.tab-pane.fade(role='tabpanel' aria-labelledby='friday-tab' tabindex='0') 
+                          .timing-schedule
+                            .days 
+                              h6 Friday 
+                              .details-box-1 
+                                a.add(href="#" data-bs-toggle='modal' data-bs-target='#add-appointment') Add Slots 
+                                a.delete(href="#" data-bs-toggle='modal' data-bs-target='#delete-appointment') Delete All 
+                            p No Slots Available
+                        #saturday.tab-pane.fade(role='tabpanel' aria-labelledby='saturday-tab' tabindex='0') 
+                          .timing-schedule
+                            .days 
+                              h6 Saturday 
+                              .details-box-1
+                                a.add(href="#" data-bs-toggle='modal' data-bs-target='#add-appointment') Add Slots 
+                                a.delete(href="#" data-bs-toggle='modal' data-bs-target='#delete-appointment') Delete All 
+                            p No Slots Available
+                        #sunday.tab-pane.fade(role='tabpanel' aria-labelledby='sunday-tab' tabindex='0') 
+                          .timing-schedule
+                            .days 
+                              h6 Sunday 
+                              .details-box-1
+                                a.add(href="#" data-bs-toggle='modal' data-bs-target='#add-appointment') Add Slots 
+                                a.delete(href="#" data-bs-toggle='modal' data-bs-target='#delete-appointment') Delete All 
+                            p No Slots Available
+                    .form-group
+                      label(for='nam-7') Appointment Fees ($) *
+                      input(type='text' id='nam-7' value="254")
+                    .preview-none.theme-btn
+                      a.btn.btn-md.modal-cancel-btn(href="") Cancel
+                      a.btn.btn-md.sub-btn(href="") Save Changes
+                #account.tab-pane.fade(role='tabpanel' aria-labelledby='account-tab') 
+                  .dashboard-main-title   
+                    h5 Accounts
+                    .account-details 
+                      .row.gy-4.align-items-center 
+                        .col-xl-7.col-lg-6 
+                          .bank-details 
+                            h6 Bank Details
+                            ul 
+                              li 
+                                span Bank Name : 
+                                p Citi Bank Inc
+                              li 
+                                span Account Number : 
+                                p 5396 5250 1908 XXXX
+                              li 
+                                span Branch Name : 
+                                p canada
+                              li 
+                                span Account Name : 
+                                p Edalin Hendry
+                            .details-box-1
+                              a.add(href="#" data-bs-toggle='modal' data-bs-target='#account-details') Edit Details
+                              a.delete(href="#" data-bs-toggle='modal' data-bs-target='#other-account') Other Account
+                        .col-xl-5.col-lg-6.d-none.d-lg-block 
+                          img.img-fluid(src="../assets/images/dashboard/account.png", alt="account") 
+                    h6.mt-3 Accounts Request
+                    .account-table.table-responsive.custom-scrollbar 
+                      table.table 
+                        thead 
+                          tr 
+                            th id
+                            th Requested Date
+                            th Credited On
+                            th Account No
+                            th Amount
+                            th Status
+                        tbody   
+                          tr 
+                            td.id #AC-5478
+                            td 01 aug 2025
+                            td 03 aug 2025
+                            td 8547 9685 6248 XXXX
+                            td $500
+                            td
+                              .status Completed
+                          tr 
+                            td.id #AC-5479
+                            td 05 aug 2025
+                            td 08 aug 2025
+                            td 6478 8741 2563 XXXX
+                            td $800
+                            td
+                              .cancelled Cancelled
+                          tr 
+                            td.id #AC-54710
+                            td 09 aug 2025
+                            td 11 aug 2025
+                            td 9546 8762 3458 XXXX
+                            td $600
+                            td
+                              .status Completed
+                          tr 
+                            td.id #AC-54711
+                            td 12 aug 2025
+                            td 15 aug 2025
+                            td 8745 3526 9426 XXXX
+                            td $300
+                            td
+                              .pending Pending
+                          tr 
+                            td.id #AC-54712
+                            td 16 aug 2025
+                            td 18 aug 2025
+                            td 6415 2728 3839 XXXX
+                            td $900
+                            td
+                              .status Completed
+                    ul.pagination-1
+                      li 
+                        a(href="#!") 
+                          i.ri-arrow-left-s-line
+                      li 
+                        a.active(href="#!") 1
+                      li 
+                        a(href="#!") 2
+                      li 
+                        a(href="#!") 3
+                      li 
+                        a(href="#!") ...
+                      li 
+                        a(href="#!") 
+                          i.ri-arrow-right-s-line
+                #patients.tab-pane.fade(role='tabpanel' aria-labelledby='patients-tab')
+                  .dashboard-main-title   
+                    h5 My patients
+                    .row.gy-3
+                      .col-lg-6.patient-remove
+                        .patients-box
+                          .top-content 
+                            .icon 
+                              i.ri-dossier-fill
+                            p #57489
+                            span.badge.success Member
+                          .body-content 
+                            ul 
+                              li 
+                                .d-flex
+                                  .img   
+                                    img.img-fluid(src="../assets/images/avtar/team/1.jpg", alt="patients img")
+                                  .content 
+                                    span patients name 
+                                    p Jonathan Alexander
+                              li 
+                                span Date of register
+                                p 11 Dec, 2025 
+                              li 
+                                span Phone number 
+                                p +42 4587 9854 547
+                              li 
+                                span E-mail 
+                                p Jonath85@gmail.com
+                          .body-content 
+                            ul 
+                              li 
+                                .d-flex
+                                  .img   
+                                    img.img-fluid(src="../assets/images/doctor/team-1/1.jpg", alt="patients img")
+                                  .content 
+                                    span Doctor name
+                                    p Dr. Emily Carter
+                              li 
+                                span Estimation Achedule
+                                p 4 jan, 2025 11:30
+                          .button-group 
+                            a.btn.decline(href="#!")  
+                              i.ri-close-fill
+                              | Decline   
+                            a.btn.approve(href="#" data-bs-toggle='modal' data-bs-target='#success-conform')  
+                              i.ri-check-fill
+                              | Approve 
+                      .col-lg-6.patient-remove
+                        .patients-box
+                          .top-content 
+                            .icon 
+                              i.ri-dossier-fill
+                            p #95478
+                            span.badge.assurence Assurence 
+                          .body-content 
+                            ul 
+                              li 
+                                .d-flex
+                                  .img   
+                                    img.img-fluid(src="../assets/images/avtar/team/2.jpg", alt="patients img")
+                                  .content 
+                                    span patients name 
+                                    p Isabella Grace
+                              li 
+                                span Date of register
+                                p 08 Dec, 2025 
+                              li 
+                                span Phone number 
+                                p +42 8745 5896 241
+                              li 
+                                span E-mail 
+                                p Isabella587@gmail.com
+                          .body-content 
+                            ul 
+                              li 
+                                .d-flex
+                                  .img   
+                                    img.img-fluid(src="../assets/images/doctor/team-1/2.jpg", alt="patients img")
+                                  .content 
+                                    span Doctor name
+                                    p Dr. James Patel
+                              li 
+                                span Estimation Achedule
+                                p 8 jan, 2025 08:30
+                          .button-group 
+                            a.btn.decline(href="#!")   
+                              i.ri-close-fill
+                              | Decline   
+                            a.btn.approve(href="#" data-bs-toggle='modal' data-bs-target='#success-conform')  
+                              i.ri-check-fill
+                              | Approve 
+                      .col-lg-6.patient-remove
+                        .patients-box
+                          .top-content 
+                            .icon 
+                              i.ri-dossier-fill
+                            p #32541
+                            span.badge.regular Regular
+                          .body-content 
+                            ul 
+                              li 
+                                .d-flex
+                                  .img   
+                                    img.img-fluid(src="../assets/images/avtar/team/3.jpg", alt="patients img")
+                                  .content 
+                                    span patients name 
+                                    p Christopher Nathaniel 
+                              li 
+                                span Date of register
+                                p 01 Dec, 2025 
+                              li 
+                                span Phone number 
+                                p +42 6541 2541 365
+                              li 
+                                span E-mail 
+                                p Christr584@gmail.com
+                          .body-content 
+                            ul 
+                              li 
+                                .d-flex
+                                  .img   
+                                    img.img-fluid(src="../assets/images/doctor/team-1/3.jpg", alt="patients img")
+                                  .content 
+                                    span Doctor name
+                                    p Dr. Olivia Zhang 
+                              li 
+                                span Estimation Achedule
+                                p 10 jan, 2025 12:30
+                          .button-group 
+                            a.btn.decline(href="#!")   
+                              i.ri-close-fill
+                              | Decline   
+                            a.btn.approve(href="#" data-bs-toggle='modal' data-bs-target='#success-conform')  
+                              i.ri-check-fill
+                              | Approve 
+                      .col-lg-6.patient-remove
+                        .patients-box
+                          .top-content 
+                            .icon 
+                              i.ri-dossier-fill
+                            p #98487
+                            span.badge.assurence Assurence 
+                          .body-content 
+                            ul 
+                              li 
+                                .d-flex
+                                  .img   
+                                    img.img-fluid(src="../assets/images/avtar/team/4.jpg", alt="patients img")
+                                  .content 
+                                    span patients name 
+                                    p Benjamin Elijah
+                              li 
+                                span Date of register
+                                p 18 Dec, 2025 
+                              li 
+                                span Phone number 
+                                p +42 3652 1523 965
+                              li 
+                                span E-mail 
+                                p Benjam20@gmail.com
+                          .body-content 
+                            ul 
+                              li 
+                                .d-flex
+                                  .img   
+                                    img.img-fluid(src="../assets/images/doctor/team-1/4.jpg", alt="patients img")
+                                  .content 
+                                    span Doctor name
+                                    p Dr. Sarah Khan
+                              li 
+                                span Estimation Achedule
+                                p 12 jan, 2025 7:30
+                          .button-group 
+                            a.btn.decline(href="#!")   
+                              i.ri-close-fill
+                              | Decline   
+                            a.btn.approve(href="#" data-bs-toggle='modal' data-bs-target='#success-conform')  
+                              i.ri-check-fill
+                              | Approve 
+                      .col-lg-6.patient-remove
+                        .patients-box
+                          .top-content 
+                            .icon 
+                              i.ri-dossier-fill
+                            p #98786
+                            span.badge.regular Regular
+                          .body-content 
+                            ul 
+                              li 
+                                .d-flex
+                                  .img   
+                                    img.img-fluid(src="../assets/images/avtar/team/5.jpg", alt="patients img")
+                                  .content 
+                                    span patients name 
+                                    p Nicholas Emmanuel
+                              li 
+                                span Date of register
+                                p 22 Dec, 2025 
+                              li 
+                                span Phone number 
+                                p +42 9658 7458 254 
+                              li 
+                                span E-mail 
+                                p Nicholas@gmail.com
+                          .body-content 
+                            ul 
+                              li 
+                                .d-flex
+                                  .img   
+                                    img.img-fluid(src="../assets/images/doctor/team-1/5.jpg", alt="patients img")
+                                  .content 
+                                    span Doctor name
+                                    p Dr. David Garcia
+                              li 
+                                span Estimation Achedule
+                                p 15 jan, 2025 06:30
+                          .button-group 
+                            a.btn.decline(href="#!")   
+                              i.ri-close-fill
+                              | Decline   
+                            a.btn.approve(href="#" data-bs-toggle='modal' data-bs-target='#success-conform')  
+                              i.ri-check-fill
+                              | Approve 
+                      .col-lg-6.patient-remove
+                        .patients-box
+                          .top-content 
+                            .icon 
+                              i.ri-dossier-fill
+                            p #96582 
+                            span.badge.success Member
+                          .body-content 
+                            ul 
+                              li 
+                                .d-flex
+                                  .img   
+                                    img.img-fluid(src="../assets/images/avtar/team/6.jpg", alt="patients img")
+                                  .content 
+                                    span patients name 
+                                    p Penelope Irene
+                              li 
+                                span Date of register
+                                p 28 Dec, 2025 
+                              li 
+                                span Phone number 
+                                p +42 3256 5841 942
+                              li 
+                                span E-mail 
+                                p Penee652@gmail.com
+                          .body-content 
+                            ul 
+                              li 
+                                .d-flex
+                                  .img   
+                                    img.img-fluid(src="../assets/images/doctor/team-1/6.jpg", alt="patients img")
+                                  .content 
+                                    span Doctor name
+                                    p Dr. William Nguyen
+                              li 
+                                span Estimation Achedule
+                                p 30 jan, 2025 02:30
+                          .button-group 
+                            a.btn.decline(href="#!")   
+                              i.ri-close-fill
+                              | Decline   
+                            a.btn.approve(href="#" data-bs-toggle='modal' data-bs-target='#success-conform')   
+                              i.ri-check-fill
+                              | Approve 
+                      .col-lg-6.patient-remove
+                        .patients-box
+                          .top-content 
+                            .icon 
+                              i.ri-dossier-fill
+                            p #57489
+                            span.badge.success Member
+                          .body-content 
+                            ul 
+                              li 
+                                .d-flex
+                                  .img   
+                                    img.img-fluid(src="../assets/images/avtar/team/7.jpg", alt="patients img")
+                                  .content 
+                                    span patients name 
+                                    p Jonathan Alexander
+                              li 
+                                span Date of register
+                                p 11 Dec, 2025 
+                              li 
+                                span Phone number 
+                                p +42 4587 9854 547
+                              li 
+                                span E-mail 
+                                p Jonath85@gmail.com
+                          .body-content 
+                            ul 
+                              li 
+                                .d-flex
+                                  .img   
+                                    img.img-fluid(src="../assets/images/doctor/team-1/7.jpg", alt="patients img")
+                                  .content 
+                                    span Doctor name
+                                    p Dr. Emily Carter
+                              li 
+                                span Estimation Achedule
+                                p 4 jan, 2025 11:30
+                          .button-group 
+                            a.btn.decline(href="#!")   
+                              i.ri-close-fill
+                              | Decline   
+                            a.btn.approve(href="#" data-bs-toggle='modal' data-bs-target='#success-conform')  
+                              i.ri-check-fill
+                              | Approve 
+                      .col-lg-6.patient-remove
+                        .patients-box
+                          .top-content 
+                            .icon 
+                              i.ri-dossier-fill
+                            p #95478
+                            span.badge.assurence Assurence 
+                          .body-content 
+                            ul 
+                              li 
+                                .d-flex
+                                  .img   
+                                    img.img-fluid(src="../assets/images/avtar/team/8.jpg", alt="patients img")
+                                  .content 
+                                    span patients name 
+                                    p Isabella Grace
+                              li 
+                                span Date of register
+                                p 08 Dec, 2025 
+                              li 
+                                span Phone number 
+                                p +42 8745 5896 241
+                              li 
+                                span E-mail 
+                                p Isabella587@gmail.com
+                          .body-content 
+                            ul 
+                              li 
+                                .d-flex
+                                  .img   
+                                    img.img-fluid(src="../assets/images/doctor/team-1/8.jpg", alt="patients img")
+                                  .content 
+                                    span Doctor name
+                                    p Dr. James Patel
+                              li 
+                                span Estimation Achedule
+                                p 8 jan, 2025 08:30
+                          .button-group 
+                            a.btn.decline(href="#!")   
+                              i.ri-close-fill
+                              | Decline   
+                            a.btn.approve(href="#" data-bs-toggle='modal' data-bs-target='#success-conform')  
+                              i.ri-check-fill
+                              | Approve 
+                      .col-lg-6.patient-remove
+                        .patients-box
+                          .top-content 
+                            .icon 
+                              i.ri-dossier-fill
+                            p #32541
+                            span.badge.regular Regular
+                          .body-content 
+                            ul 
+                              li 
+                                .d-flex
+                                  .img   
+                                    img.img-fluid(src="../assets/images/avtar/team/5.jpg", alt="patients img")
+                                  .content 
+                                    span patients name 
+                                    p Christopher Nathaniel 
+                              li 
+                                span Date of register
+                                p 01 Dec, 2025 
+                              li 
+                                span Phone number 
+                                p +42 6541 2541 365
+                              li 
+                                span E-mail 
+                                p Christr584@gmail.com
+                          .body-content 
+                            ul 
+                              li 
+                                .d-flex
+                                  .img   
+                                    img.img-fluid(src="../assets/images/doctor/team-1/9.jpg", alt="patients img")
+                                  .content 
+                                    span Doctor name
+                                    p Dr. Olivia Zhang 
+                              li 
+                                span Estimation Achedule
+                                p 10 jan, 2025 12:30
+                          .button-group 
+                            a.btn.decline(href="#!")   
+                              i.ri-close-fill
+                              | Decline   
+                            a.btn.approve(href="#" data-bs-toggle='modal' data-bs-target='#success-conform')  
+                              i.ri-check-fill
+                              | Approve           
+                    .no-found-item
+                      img.img-fluid(src="../assets/images/others/no-data.png", alt="no data found")
+                      h4 No items found in patients
+                      p There are no products that meet your criteria. It's possible they're unavailable, too specific, or out of stock. To improve your search, please try again later. Get assistance by contacting support.
+                #appointments.tab-pane.fade(role='tabpanel' aria-labelledby='appointments-tab') 
+                  .dashboard-main-title   
+                    h5 Appointments
+                    .appointments-request
+                      .row.gy-4 
+                        .col-xl-4.col-md-6   
+                          .request-box
+                            .patients-content 
+                              a.img(href="#!") 
+                                img.img-fluid(src="../assets/images/avtar/team/8.jpg", alt="avtar8")
+                              .content 
+                                div 
+                                  span #112001
+                                  a(href="#!") 
+                                    h6 John Doe
+                                a.icon(href="#!")  
+                                  i.ri-video-on-fill
+                            .appointments-info 
+                              p
+                                i.ri-time-line
+                                | 28 Nov 2025 9.45 AM
+                              span General Visit
+                            .appointments-icon
+                              ul 
+                                li 
+                                  a(href="#!")
+                                    i.ri-eye-line 
+                                li 
+                                  a(href="#!")
+                                    i.ri-messenger-line
+                                li 
+                                  a(href="#!")
+                                    i.ri-close-circle-line
+                              a(href="#" data-bs-toggle='modal' data-bs-target='#patients-item') Begin Now
+                        .col-xl-4.col-md-6   
+                          .request-box
+                            .patients-content 
+                              a.img(href="#!") 
+                                img.img-fluid(src="../assets/images/avtar/team/7.jpg", alt="avtar7")
+                              .content 
+                                div 
+                                  span #112002
+                                  a(href="#!") 
+                                    h6 Jane Smith
+                                a.icon(href="#!")   
+                                  i.ri-hospital-fill
+                            .appointments-info 
+                              p
+                                i.ri-time-line
+                                | 07 Nov 2025 09.45 AM
+                              span General Visit
+                            .appointments-icon
+                              ul 
+                                li 
+                                  a(href="#!")
+                                    i.ri-eye-line 
+                                li 
+                                  a(href="#!")
+                                    i.ri-messenger-line
+                                li 
+                                  a(href="#!")
+                                    i.ri-close-circle-line
+                              a(href="#" data-bs-toggle='modal' data-bs-target='#patients-item') Begin Now
+                        .col-xl-4.col-md-6   
+                          .request-box
+                            .patients-content 
+                              a.img(href="#!") 
+                                img.img-fluid(src="../assets/images/avtar/team/6.jpg", alt="avtar6")
+                              .content 
+                                div 
+                                  span #112003
+                                  a(href="#!") 
+                                    h6 Michael Johnson
+                                a.icon(href="#!")  
+                                  i.ri-customer-service-fill
+                            .appointments-info 
+                              p
+                                i.ri-time-line
+                                | 11 aug 2025 10.45 AM
+                              span General Visit
+                            .appointments-icon
+                              ul 
+                                li 
+                                  a(href="#!")
+                                    i.ri-eye-line 
+                                li 
+                                  a(href="#!")
+                                    i.ri-messenger-line
+                                li 
+                                  a(href="#!") 
+                                    i.ri-close-circle-line
+                              a(href="#" data-bs-toggle='modal' data-bs-target='#patients-item') Begin Now
+                        .col-xl-4.col-md-6   
+                          .request-box
+                            .patients-content 
+                              a.img(href="#!") 
+                                img.img-fluid(src="../assets/images/avtar/team/5.jpg", alt="team5")
+                              .content 
+                                div 
+                                  span #112004
+                                  a(href="#!") 
+                                    h6 Emily Davis
+                                a.icon(href="#!")  
+                                  i.ri-video-on-fill
+                            .appointments-info 
+                              p
+                                i.ri-time-line
+                                | 10 aug 2025 12.45 AM
+                              span General Visit
+                            .appointments-icon
+                              ul 
+                                li 
+                                  a(href="#!")
+                                    i.ri-eye-line 
+                                li 
+                                  a(href="#!")
+                                    i.ri-messenger-line
+                                li 
+                                  a(href="#!") 
+                                    i.ri-close-circle-line
+                              a(href="#" data-bs-toggle='modal' data-bs-target='#patients-item') Begin Now
+                        .col-xl-4.col-md-6   
+                          .request-box
+                            .patients-content 
+                              a.img(href="#!") 
+                                img.img-fluid(src="../assets/images/avtar/team/4.jpg", alt="team4")
+                              .content 
+                                div 
+                                  span #112005
+                                  a(href="#!") 
+                                    h6 David Brown
+                                a.icon(href="#!")  
+                                  i.ri-customer-service-fill
+                            .appointments-info 
+                              p
+                                i.ri-time-line
+                                | 04 aug 2025 06.45 AM
+                              span General Visit
+                            .appointments-icon
+                              ul 
+                                li 
+                                  a(href="#!")
+                                    i.ri-eye-line 
+                                li 
+                                  a(href="#!")
+                                    i.ri-messenger-line
+                                li 
+                                  a(href="#!") 
+                                    i.ri-close-circle-line
+                              a(href="#" data-bs-toggle='modal' data-bs-target='#patients-item') Begin Now
+                        .col-xl-4.col-md-6   
+                          .request-box
+                            .patients-content 
+                              a.img(href="#!") 
+                                img.img-fluid(src="../assets/images/avtar/team/3.jpg", alt="team3")
+                              .content 
+                                div 
+                                  span #112006
+                                  a(href="#!") 
+                                    h6 Sarah Miller
+                                a.icon(href="#!")  
+                                  i.ri-hospital-fill
+                            .appointments-info 
+                              p
+                                i.ri-time-line
+                                | 11 aug 2025 10.45 AM
+                              span General Visit
+                            .appointments-icon
+                              ul 
+                                li 
+                                  a(href="#!")
+                                    i.ri-eye-line 
+                                li 
+                                  a(href="#!")
+                                    i.ri-messenger-line
+                                li 
+                                  a(href="#!") 
+                                    i.ri-close-circle-line
+                              a(href="#" data-bs-toggle='modal' data-bs-target='#patients-item') Begin Now
+                        .col-xl-4.col-md-6   
+                          .request-box
+                            .patients-content 
+                              a.img(href="#!") 
+                                img.img-fluid(src="../assets/images/avtar/team/2.jpg", alt="team2")
+                              .content 
+                                div 
+                                  span #112007
+                                  a(href="#!") 
+                                    h6 James Wilson
+                                a.icon(href="#!")  
+                                  i.ri-video-on-fill
+                            .appointments-info 
+                              p
+                                i.ri-time-line
+                                | 03 aug 2025 08.45 AM
+                              span General Visit
+                            .appointments-icon
+                              ul 
+                                li 
+                                  a(href="#!")
+                                    i.ri-eye-line 
+                                li 
+                                  a(href="#!")
+                                    i.ri-messenger-line
+                                li 
+                                  a(href="#!") 
+                                    i.ri-close-circle-line
+                              a(href="#" data-bs-toggle='modal' data-bs-target='#patients-item') Begin Now
+                        .col-xl-4.col-md-6   
+                          .request-box
+                            .patients-content 
+                              a.img(href="#!") 
+                                img.img-fluid(src="../assets/images/avtar/team/1.jpg", alt="team")
+                              .content 
+                                div 
+                                  span #112008
+                                  a(href="#!") 
+                                    h6 Laura Moore
+                                a.icon(href="#!")  
+                                  i.ri-hospital-fill
+                            .appointments-info 
+                              p
+                                i.ri-time-line
+                                | 03 aug 2025 11.45 AM
+                              span General Visit
+                            .appointments-icon
+                              ul 
+                                li 
+                                  a(href="#!")
+                                    i.ri-eye-line 
+                                li 
+                                  a(href="#!")
+                                    i.ri-messenger-line
+                                li 
+                                  a(href="#!") 
+                                    i.ri-close-circle-line
+                              a(href="#" data-bs-toggle='modal' data-bs-target='#patients-item') Begin Now
+                        .col-xl-4.col-md-6   
+                          .request-box
+                            .patients-content 
+                              a.img(href="#!") 
+                                img.img-fluid(src="../assets/images/avtar/team/5.jpg", alt="team5")
+                              .content 
+                                div 
+                                  span #112009
+                                  a(href="#!") 
+                                    h6 Robert Taylor
+                                a.icon(href="#!")  
+                                  i.ri-customer-service-fill
+                            .appointments-info 
+                              p
+                                i.ri-time-line
+                                | 11 aug 2025 10.45 AM
+                              span General Visit
+                            .appointments-icon
+                              ul 
+                                li 
+                                  a(href="#!")
+                                    i.ri-eye-line 
+                                li 
+                                  a(href="#!")
+                                    i.ri-messenger-line
+                                li 
+                                  a(href="#!") 
+                                    i.ri-close-circle-line
+                              a(href="#" data-bs-toggle='modal' data-bs-target='#patients-item') Begin Now
+                        .col-xl-4.col-md-6   
+                          .request-box
+                            .patients-content 
+                              a.img(href="#!") 
+                                img.img-fluid(src="../assets/images/avtar/team/6.jpg", alt="avtar6")
+                              .content 
+                                div 
+                                  span #112010
+                                  a(href="#!") 
+                                    h6 Olivia Anderson
+                                a.icon(href="#!")  
+                                  i.ri-hospital-fill
+                            .appointments-info 
+                              p
+                                i.ri-time-line
+                                | 16 aug 2025 06.45 AM
+                              span General Visit
+                            .appointments-icon
+                              ul 
+                                li 
+                                  a(href="#!")
+                                    i.ri-eye-line 
+                                li 
+                                  a(href="#!")
+                                    i.ri-messenger-line
+                                li 
+                                  a(href="#!") 
+                                    i.ri-close-circle-line
+                              a(href="#" data-bs-toggle='modal' data-bs-target='#patients-item') Begin Now
+                        .col-xl-4.col-md-6   
+                          .request-box
+                            .patients-content 
+                              a.img(href="#!") 
+                                img.img-fluid(src="../assets/images/avtar/team/7.jpg", alt="avtar7")
+                              .content 
+                                div 
+                                  span #112011
+                                  a(href="#!") 
+                                    h6 Sophia Harris
+                                a.icon(href="#!")  
+                                  i.ri-video-on-fill
+                            .appointments-info 
+                              p
+                                i.ri-time-line
+                                | 8 aug 2025 10.45 AM
+                              span General Visit
+                            .appointments-icon
+                              ul 
+                                li 
+                                  a(href="#!")
+                                    i.ri-eye-line 
+                                li 
+                                  a(href="#!")
+                                    i.ri-messenger-line
+                                li 
+                                  a(href="#!") 
+                                    i.ri-close-circle-line
+                              a(href="#" data-bs-toggle='modal' data-bs-target='#patients-item') Begin Now
+                #reviews.tab-pane.fade(role='tabpanel' aria-labelledby='reviews-tab') 
+                  .dashboard-main-title   
+                    h5 Reviews
+                    .row.gy-4 
+                      .col-12 
+                        .overall-reviews
+                          h6 Overall Rating
+                          ul.rating 
+                            li 4.8
+                            li 
+                                i.ri-star-fill  
+                                i.ri-star-fill  
+                                i.ri-star-fill  
+                                i.ri-star-half-line  
+                                i.ri-star-line
+                      .col-12
+                        .reviews-box
+                          ul  
+                            li.send  
+                              .d-flex 
+                                div
+                                  a.img(href="#!") 
+                                    img.img-fluid(src="../assets/images/avtar/team/1.jpg", alt="avtar")
+                                  .content 
+                                    a(href="#!") 
+                                      h6 Sam Taylor
+                                    p 1 Mar 2025
+                                ul.rating 
+                                  li 
+                                    i.ri-star-fill  
+                                    i.ri-star-fill  
+                                    i.ri-star-fill  
+                                    i.ri-star-half-line  
+                                    i.ri-star-line
+                              p Dr. Jane Smith has been our family doctor for many years, and we couldn't be more thankful. Their compassionate care and meticulous attention to our health needs bring us peace of mind during every visit. Dr. Hendry's remarkable ability to listen attentively and break down complex medical information into simple terms is truly outstanding. We are fortunate to have such a committed and caring physician looking after our family's well-being.
+                              span 
+                                i.fa-solid.fa-reply
+                                | Reply
+                            li.send  
+                              .d-flex 
+                                div
+                                  a.img(href="#!") 
+                                    img.img-fluid(src="../assets/images/avtar/team/2.jpg", alt="avtar")
+                                  .content 
+                                    a(href="#!") 
+                                      h6 Alex Johnson
+                                    p 28 Feb 2025
+                                ul.rating 
+                                  li 
+                                    i.ri-star-fill  
+                                    i.ri-star-fill  
+                                    i.ri-star-fill  
+                                    i.ri-star-half-line  
+                                    i.ri-star-line
+                              p I recently finished a series of dental treatments with Dr. Edalin Hendry, and I am absolutely thrilled with the outcome. From the initial consultation, Dr. Hendry and the entire team provided exceptional care, ensuring that all my questions and concerns were handled with great patience and empathy. The modern, well-equipped office and the staff's dedication to maintaining a comfortable and pristine environment truly stood out.
+                              span 
+                                i.fa-solid.fa-reply
+                                | Reply
+                            li.reply  
+                              .d-flex 
+                                div
+                                  a.img(href="#!") 
+                                    img.img-fluid(src="../assets/images/avtar/1.jpg", alt="avtar")
+                                  .content 
+                                    a(href="#!") 
+                                      h6 Dr. David Johnson
+                                    p 28 Feb 2025
+                                ul.rating 
+                                  li 
+                                    i.ri-star-fill  
+                                    i.ri-star-fill  
+                                    i.ri-star-fill  
+                                    i.ri-star-half-line  
+                                    i.ri-star-line
+                              p Thank you for sharing your experience with us. We're genuinely grateful for your kind feedback and delighted to learn that your treatment had such a positive impact. Our goal is to create a warm and inviting atmosphere for all our patients, and it's rewarding to know that we succeeded in making your visits comfortable and reassuring.
+                              span 
+                                i.fa-solid.fa-reply
+                                | Reply
+                            li.send  
+                              .d-flex 
+                                div
+                                  a.img(href="#!") 
+                                    img.img-fluid(src="../assets/images/avtar/team/5.jpg", alt="avtar5")
+                                  .content 
+                                    a(href="#!") 
+                                      h6 Jane Smith
+                                    p 22 Feb 2025
+                                ul.rating 
+                                  li 
+                                    i.ri-star-fill  
+                                    i.ri-star-fill  
+                                    i.ri-star-fill  
+                                    i.ri-star-half-line  
+                                    i.ri-star-line
+                              p From the initial consultation to the final treatment, Dr. Edalin Hendry has been exceptional. Dental appointments have often caused me anxiety, but the serene and comforting environment at Dr. Hendry's office made a significant difference. I highly recommend their services!
+                              span 
+                                i.fa-solid.fa-reply
+                                | Reply
+                            li.reply  
+                              .d-flex 
+                                div
+                                  a.img(href="#!") 
+                                    img.img-fluid(src="../assets/images/avtar/2.jpg", alt="avtar2")
+                                  .content 
+                                    a(href="#!") 
+                                      h6 Dr. John Smith
+                                    p 28 Feb 2025
+                                ul.rating 
+                                  li 
+                                    i.ri-star-fill  
+                                    i.ri-star-fill  
+                                    i.ri-star-fill  
+                                    i.ri-star-half-line  
+                                    i.ri-star-line
+                              p Thank you so much for sharing your experience with us. We truly appreciate your kind words and are thrilled to hear that your treatment had such a beneficial effect. Our aim is to ensure a welcoming and comforting environment for all our patients, and it's wonderful to know that we achieved that for you.
+                              span 
+                                i.fa-solid.fa-reply
+                                | Reply
+                #change-password.tab-pane.fade(role='tabpanel' aria-labelledby='change-password-tab') 
+                  .dashboard-main-title
+                    h5 Change Password
+                    .row.gy-3
+                      .col-lg-7 
+                        label Old Password 
+                          sup  *
+                        input(type="password", name="password" placeholder="*******")
+                      .col-lg-7 
+                        label New Password 
+                          sup  *
+                        input(type="password", name="password" placeholder="*******")
+                      .col-lg-7 
+                        label Confirm Password 
+                          sup  *
+                        input(type="password", name="password" placeholder="*******")
+                    .preview-none.theme-btn
+                      a.btn.btn-md.modal-cancel-btn(href="") Cancel
+                      a.btn.btn-md.sub-btn(href="") Save Changes
+
+    //- dark - rtl
+    .theme-btns
+      .theme-setting#rtl-btn.btntheme(data-bs-toggle="tooltip" data-bs-title="Rtl Mode")
+        i.fa-solid.fa-repeat
+
+    //- tap top 
+    .scroll-progress
+      a.scroll-top(href='#' aria-label='scroll')
+        span.scroll-text Scroll
+        span.scroll-line
+          span.scroll-point(style='height: 0%;')
+
+    footer.footer-dark 
+      section.footer-1   
+        .custom-container.container
+          .row.gy-3 
+            .col-lg-3.col-md-4.col-sm-5
+              .footer-content
+                .footer-logo
+                  a(href="index.html") 
+                    img.img-fluid(src="../assets/images/logo/white-logo5.svg" alt='Logo')
+                  p The healthcare sector urgently needs to develop new systems and upgrade existing ones to enhance efficiency, quality, and patient care.
+                ul.mt-4
+                  li 
+                    a(href="javascript:void(0)")
+                      i.ri-map-pin-2-line
+                      p A-32, Albany, Newyork. 
+                  li 
+                    a(href="tel:+800-585-8001")
+                      i.ri-phone-fill
+                      p (+066) 518 - 457 - 5181
+                  li 
+                    a(href="mailto:Contact@gmail.com") 
+                      i.ri-mail-fill
+                      p Contact@gmail.com
+            .col-lg-2.col-md-3.col-sm-3.col-xl-60
+              .footer-content
+                div 
+                  .footer-title.d-md-block 
+                    h5.footer-p  About 
+                    ul.footer-details.accordion-hidden.footer-p 
+                      li 
+                        a.nav(href="about-us.html") About us
+                      li 
+                        a.nav(href="doctors-list.html") Doctor 
+                      li 
+                        a.nav(href="pricing-plan.html") Pricing 
+                      li 
+                        a.nav(href="our-history.html") History
+                      li 
+                        a.nav(href="blog-left-sidebar.html") Blog
+                      li 
+                        a.nav(href="privacy-policy.html") Privacy
+                      li 
+                        a.nav(href="contact.html") Contact
+            .col-lg-2.col-md-5.col-sm-4.col-xl-60
+              .footer-content
+                div
+                  .footer-title.d-md-block
+                    h5.footer-p Department
+                    ul.footer-details.accordion-hidden.footer-p
+                      li 
+                        a.nav(href="specialty.html") Women Health 
+                      li 
+                        a.nav(href="specialty.html") Optician 
+                      li 
+                        a.nav(href="specialty.html") Emergency 
+                      li 
+                        a.nav(href="specialty.html") ICU
+                      li 
+                        a.nav(href="specialty.html") Dermatology
+                      li 
+                        a.nav(href="specialty.html") Subscribe
+            .col-lg-2.col-md-4.col-sm-4.col-xl-60
+              .footer-content
+                div
+                  .footer-title.d-md-block 
+                    h5.footer-p  Patient Services
+                    ul.footer-details.accordion-hidden.footer-p 
+                      li 
+                        a.nav(href="booking-1.html") Make Appointment 
+                      li 
+                        a.nav(href="element_after-before.html") Before & After 
+                      li 
+                        a.nav(href="service-1.html") Treatments
+                      li 
+                        a.nav(href="doctors-list.html") Doctor Team
+                      li 
+                        a.nav(href="service-1.html") Services
+                      li 
+                        a.nav(href="hospitals.html") About Clinic
+                      li 
+                        a.nav(href="specialty.html") Surgery
+            .col-lg-3.col-md-8.col-sm-8.col-xl-60
+              .footer-content
+                div
+                  .footer-title.d-md-block 
+                    h5 News Feeds
+                    .footer-details.accordion-hidden 
+                      .footer-blog
+                        .d-flex 
+                          .footer-img 
+                            a(href="doctor-blog.html") 
+                              img.img-fluid(src="../assets/images/footer/5.jpg" alt='Logo')
+                          a(href="doctor-blog.html" class="footer-news")
+                            h6 Latest Headlines
+                            span Doctors warn of rising infections due to antibiotic resistance surge.
+                        .d-flex 
+                          .footer-img
+                            a(href="doctor-blog.html") 
+                              img.img-fluid(src="../assets/images/footer/6.jpg" alt='Logo')
+                          a(href="doctor-blog.html" class="footer-news")
+                            h6 Latest news
+                            span India boosts HPV vaccination, expands medical seats, and doctors strike in Punjab over work conditions.
+    .copyright 
+      .custom-container.container
+        .d-flex
+          .flex-grow-1
+            .footer-social
+              a(href="https://www.google.com/intl/en-GB/gmail/about/#" target="_blank")
+                img.img-fluid(src="../assets/images/icon/google.png" alt="google icon")
+            .footer-social
+              a(href="https://twitter.com/" target="_blank")
+                img.img-fluid(src="../assets/images/icon/twitter.png" alt="twitter icon")
+            .footer-social
+              a(href="https://www.facebook.com/" target="_blank")
+                img.img-fluid(src="../assets/images/icon/facebook.png" alt="facebook icon")
+            .footer-social
+              a.instagram(href="https://www.instagram.com/" target="_blank")
+                img.img-fluid(src="../assets/images/icon/instagram.png" alt="Instagram icon")
+          .flex-shrink-0
+            p.text-center 
+              | Copyright 2025 Doctor By 	
+              i.fa.fa-heart
+              |  Pixelstrap
+    
+    #offcanvasRight.offcanvas.offcanvas-end.appointment-offcanvas(tabindex='-1' aria-labelledby='offcanvasRightLabel')
+      .offcanvas-header
+        a(href="index.html")#offcanvasRightLabel.offcanvas-Title 
+          img.light.img-fluid(src="../assets/images/logo/logo5.svg", alt="logo")
+          img.dark.img-fluid(src="../assets/images/logo/white-logo5.svg", alt="logo")
+        button.btn-close(type='button' data-bs-dismiss='offcanvas' aria-label='Close')
+          i.ri-close-line
+      .offcanvas-body.custom-scrollbar
+        p It integrates seamlessly with other services, enhancing community health, emergency management, and public safety within a broader ecosystem.
+        ul.social-icon 
+          li 
+            a(href="https://www.facebook.com/" target="_blank")
+              i.ri-facebook-line
+          li 
+            a(href="https://x.com/" target="_blank")
+              i.ri-twitter-x-line
+          li 
+            a(href="https://www.instagram.com/" target="_blank")  
+              i.ri-instagram-line
+          li 
+            a(href="https://www.linkedin.com/" target="_blank")
+              i.ri-linkedin-line 
+        h5 Visitation Schedule
+        ul.day-time 
+          li 
+            p Mon-Tue: 
+              span 8:00 am - 8:00 pm
+          li 
+            p Wed-Thu: 
+              span 9:00 am - 6:00 pm
+          li 
+            p Friday: 
+              span 1:00 am - 10:00 pm
+          li 
+            p Saturday: 
+              span 9:00 am - 6:00 pm
+          li 
+            p Sunday: 
+              span 9:00 am - 12:00 pm
+        ul.contact 
+          li 
+            a(href="#!") 
+              .icon 
+                i.ri-phone-fill
+              span +89574123478
+          li 
+            a(href="#!") 
+              .icon 
+                i.ri-mail-fill
+              span physic@doctor.com
+        h5 Gallery posts
+        .row.g-3 
+          .col-4
+            .gallery-img
+              a(href="#!")
+                img.img-fluid.w-100(src="../assets/images/others/treatment/1.jpg", alt="treatment1") 
+          .col-4
+            .gallery-img
+              a(href="#!")
+                img.img-fluid.w-100(src="../assets/images/others/treatment/2.jpg", alt="treatment2") 
+          .col-4
+            .gallery-img
+              a(href="#!")
+                img.img-fluid.w-100(src="../assets/images/others/treatment/3.jpg", alt="treatment3") 
+          .col-4
+            .gallery-img
+              a(href="#!")
+                img.img-fluid.w-100(src="../assets/images/others/treatment/4.jpg", alt="treatment4") 
+          .col-4
+            .gallery-img
+              a(href="#!")
+                img.img-fluid.w-100(src="../assets/images/others/treatment/5.jpg", alt="treatment5") 
+
+    #offcanvasCart.offcanvas.offcanvas-end.cart-offcanvas(tabindex='-1' aria-labelledby='offcanvasCartLabel')
+      .offcanvas-header
+        h5#offcanvasCartLabel.offcanvas-title My Cart
+        button.btn-close(type='button' data-bs-dismiss='offcanvas' aria-label='Close')
+          i.ri-close-line
+      .offcanvas-body
+        .cart-details   
+          div 
+            img.img-fluid(src="../assets/images/gif/cart.gif", alt="cart gif")
+            p Your cart is currently empty
+ 
+    #appointment.modal.fade.theme-modal
+      .modal-dialog.modal-lg.modal-dialog-centered(role='document')
+        .modal-content
+          .modal-header
+            button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
+              | Close
+              i.ri-close-line
+          .modal-body
+            .header-content 
+              h5 Appointment
+            .row.gy-3
+              .col-md-6
+                label Patient Name
+                input(type="text" placeholder="Name")
+              .col-md-6
+                label Email Address
+                input(type="email" placeholder="Email")
+              .col-md-6
+                label Phone Number
+                input(type="Number" placeholder="Number")
+              .col-md-6
+                label Choose Date
+                input(type="Date")
+              .col-md-6
+                label Department
+                select.form-select(aria-label='Default select example')
+                  option(selected='') Choose Department
+                  option(value='1') Cardiology
+                  option(value='2') Dental Care
+                  option(value='3') Ophthalmology
+              .col-md-6
+                label Department
+                select.form-select(aria-label='Default select example')
+                  option(selected='') Choose Doctor
+                  option(value='1') Jordan Peele
+                  option(value='2') Jamie Oliver
+                  option(value='3') Norton Berry
+              .col-12
+                label Address
+                textarea(cols='30' rows='4' placeholder="Write your Feedback here...")
+            .footer-content
+              button.btn.btn-md.sub-btn-2(type="submit" data-bs-dismiss="modal" aria-label="Close") Cancel
+              button.btn.btn-md.sub-btn(type="submit" data-bs-dismiss="modal" aria-label="Close") Submit Now 
+
+    #feedback.modal.fade.theme-modal.feedback-modal
+      .modal-dialog.modal-md.modal-dialog-centered(role='document')
+        .modal-content
+          .modal-header
+            button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
+              | Close
+              i.ri-close-line
+          .modal-body
+            .header-content 
+              h5 Feedback
+            h6 How are you feeling ?
+            span We value your feedback so that we can better understand your needs and adjust our service.
+            .emoji-wrapper
+              input#star-1(type='radio' name='rate')
+              input#star-2(type='radio' name='rate')
+              input#star-3(type='radio' name='rate')
+              input#star-4(type='radio' name='rate')
+              input#star-5(type='radio' name='rate')
+              .content
+                .outer
+                  ul.emojis
+                    li.slideImg
+                        img.img-fluid(src='../assets/images/others/emoji/angry.png' alt='emoji')
+                    li
+                        img.img-fluid(src='../assets/images/others/emoji/sad.png' alt='emoji')
+                    li
+                        img.img-fluid(src='../assets/images/others/emoji/think.png' alt='emoji')
+                    li
+                        img.img-fluid(src='../assets/images/others/emoji/smile.png' alt='emoji')
+                    li
+                        img.img-fluid(src='../assets/images/others/emoji/love.png' alt='emoji')
+                .stars
+                  label.star-1.fas.fa-star(for='star-1')
+                  label.star-2.fas.fa-star(for='star-2')
+                  label.star-3.fas.fa-star(for='star-3')
+                  label.star-4.fas.fa-star(for='star-4')
+                  label.star-5.fas.fa-star(for='star-5')
+              textarea(cols='30' rows='4' placeholder="Write your Feedback here...")
+            .footer-content
+              button.btn.btn-md.sub-btn(type="submit" data-bs-dismiss="modal" aria-label="Close") Submit Now 
+    
+    #delete-appointment.modal.fade.theme-modal
+      .modal-dialog.modal-md.modal-dialog-centered(role='document')
+        .modal-content
+          .modal-header
+            button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
+              | Close
+              i.ri-close-line
+          .modal-body.text-center
+            img.img-fluid(src="../assets/images/gif/close.gif", alt="close gif")
+            h6 Discard Slots
+            p Do you truly wish to remove these slots?
+            .footer-content.justify-content-center
+              button.btn.btn-md.sub-btn-2(type="submit" data-bs-dismiss="modal" aria-label="Close") Yes,Remove
+              button.btn.btn-md.sub-btn(type="submit" data-bs-dismiss="modal" aria-label="Close") No, I decided otherwise.
+
+    #add-appointment.modal.fade.theme-modal
+      .modal-dialog.modal-lg.modal-dialog-centered(role='document')
+        .modal-content
+          .modal-header
+            button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
+              | Close
+              i.ri-close-line
+          .modal-body
+            .header-content 
+              h5 Appointment
+            .row.gy-3
+              .col-md-6
+                label Start Time *
+                input(type="time", name="time")
+              .col-md-6
+                label End Time *
+                input(type="time", name="time")
+              .col-md-6
+                label Appointment Intervals *
+                select.form-select(aria-label='Default select example')
+                  option(selected='') 10 Minutes
+                  option(value='1') 20 Minutes
+                  option(value='2') 30 Minutes
+                  option(value='3') 40 Minutes
+              .col-md-6
+                label Appointment Durations *
+                select.form-select(aria-label='Default select example')
+                  option(selected='') 30 Minutes
+                  option(value='1') 40 Minutes
+                  option(value='2') 1 Hour
+                  option(value='3') 2 Hour
+            .footer-content
+              button.btn.btn-md.sub-btn-2(type="submit" data-bs-dismiss="modal" aria-label="Close") Cancel
+              button.btn.btn-md.sub-btn(type="submit" data-bs-dismiss="modal" aria-label="Close") Save Changes
+    
+    #account-details.modal.fade.theme-modal
+      .modal-dialog.modal-md.modal-dialog-centered(role='document')
+        .modal-content
+          .modal-header
+            button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
+              | Close
+              i.ri-close-line
+          .modal-body
+            .header-content 
+              h5 Account Details
+            .row.gy-3
+              .col-12
+                label Bank Name*
+                input(type="text", name="text" placeholder="Bank Name..")
+              .col-12
+                label Branch Name *
+                input(type="text", name="text" placeholder="Branch Name..")
+              .col-12
+                label Account Number *
+                input(type="text", name="text" placeholder="Account Number..")
+              .col-12
+                label Account Name *
+                input(type="text", name="text" placeholder="Account Name..")
+            .footer-content
+              button.btn.btn-md.sub-btn-2(type="submit" data-bs-dismiss="modal" aria-label="Close") Cancel
+              button.btn.btn-md.sub-btn(type="submit" data-bs-dismiss="modal" aria-label="Close") Save Changes
+    
+    #other-account.modal.fade.theme-modal.other-account
+      .modal-dialog.modal-lg.modal-dialog-centered(role='document')
+        .modal-content
+          .modal-header
+            button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
+              | Close
+              i.ri-close-line
+          .modal-body
+            .header-content 
+              h5 Other Accounts
+              ul.other-bank-info
+                li 
+                  ul 
+                    li 
+                      span Name
+                      p HDFC Bank Inc
+                    li 
+                      span Account No
+                      p 7548 5874 9574 XXXX
+                    li 
+                      span Branch
+                      p canada
+                    li 
+                      span Name on Bank Account
+                      p Edalin Hendry
+                    li 
+                      p Current
+                li 
+                  ul 
+                    li 
+                      span Name
+                      p ICICI Bank Inc
+                    li 
+                      span Account No
+                      p 9874 6521 3574 XXXX
+                    li 
+                      span Branch
+                      p Germany
+                    li 
+                      span Name on Bank Account
+                      p Edalin Hendry
+                    li 
+                      p Change to default
+                li 
+                  ul 
+                    li 
+                      span Name
+                      p IDBI Bank Inc
+                    li 
+                      span Account No
+                      p 8745 6521 8495 XXXX
+                    li 
+                      span Branch
+                      p London
+                    li 
+                      span Name on Bank Account
+                      p Edalin Hendry
+                    li 
+                      p Change to default
+                li 
+                  ul 
+                    li 
+                      span Name
+                      p BOI Bank Inc
+                    li 
+                      span Account No
+                      p 3256 5417 6589 XXXX
+                    li 
+                      span Branch
+                      p Uk
+                    li 
+                      span Name on Bank Account
+                      p Edalin Hendry
+                    li 
+                      p Change to default
+            
+            .footer-content
+              button.btn.btn-md.sub-btn-2(type="submit" data-bs-dismiss="modal" aria-label="Close") Close
+ 
+    #search.modal.fade.theme-modal.search-modal
+      .modal-dialog.modal-xl.modal-dialog-centered(role='document')
+        .modal-content
+          .modal-header
+            button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
+              | Close
+              i.ri-close-line
+          .modal-body
+            h5 Search Our Doctor
+            .search-box 
+              input(type="search", name="text" placeholder="Search Our Doctor...")
+              i.ri-search-eye-line
+            h6 Our Doctor Name 
+            ul.doctor-name  
+              li 
+                a(href="doctors-list.html") Dr. Ava Bennett
+              li 
+                a(href="doctors-list.html") Dr. Ethan Carter
+              li 
+                a(href="doctors-list.html") Dr. Mia Roberts
+              li 
+                a(href="doctors-list.html") Dr. Oliver Hughes
+              li 
+                a(href="doctors-list.html") Dr. Sophia Morgan
+              li 
+                a(href="doctors-list.html") Dr. Lucas Anderson
+            h6 Highest Searched
+            ul.search-doctor.custom-scrollbar
+              li
+                a(href="doctor-details.html")
+                  img.img-fluid(src="../assets/images/others/doctor/1.jpg", alt="doctor1") 
+                .content
+                  a(href="doctor-details.html") Dr. Ava Bennett
+                  span Pediatric Therapist
+              li    
+                a(href="doctor-details.html")
+                  img.img-fluid(src="../assets/images/others/doctor/2.jpg", alt="doctor2") 
+                .content
+                  a(href="doctor-details.html") Dr. Ava Bennett
+                  span Neurology Therapy
+              li
+                a(href="doctor-details.html")
+                  img.img-fluid(src="../assets/images/others/doctor/3.jpg", alt="doctor3") 
+                .content
+                  a(href="doctor-details.html") Dr. Ava Bennett
+                  span Senior Physiotherapist
+              li
+                a(href="doctor-details.html")
+                  img.img-fluid(src="../assets/images/others/doctor/4.jpg", alt="doctor4")
+                .content
+                  a(href="doctor-details.html") Dr. Ava Bennett
+                  span Orthopedic Therapist
+
+    #patients-item.modal.fade.theme-modal.patients-item
+      .modal-dialog.modal-lg.modal-dialog-centered(role='document')
+        .modal-content
+          .modal-header
+            button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
+              | Close
+              i.ri-close-line
+          .modal-body
+            .header-content 
+              h5 Appointment Details
+            .row.gy-3
+              .col-12 
+                .request-box
+                  ul 
+                    li
+                      .img 
+                        a(href="#!") 
+                          img.img-fluid(src="../assets/images/avtar/team/8.jpg", alt="avtar8")
+                        .content  
+                          span #120004
+                          a(href="#!") 
+                            h6 Adrian
+                          p 
+                            i.ri-mail-fill
+                            | kelly@example.com
+                          p 
+                            i.ri-phone-fill
+                            | +1 504 368 6874
+                    li.Person 
+                      span Person with patient
+                      p Andrew (45)
+                      span Person with patient
+                      p Andrew (45)
+                    li 
+                      .badge-info 
+                        span Upcoming
+                        p Consultation Fees : $200
+                        .icon 
+                          a(href="#!")
+                            i.ri-messenger-line
+                          a(href="#!")
+                            i.ri-close-circle-line
+              .col-12
+                ul.patient-info-box
+                  li 
+                    span Age / Gender
+                    p 28 Years / Female
+                  li 
+                    span Address
+                    p Newyork, United States
+                  li 
+                    span Blood Group
+                    p O+ve
+                  li 
+                    span No of Visit
+                    p 0
+              .col-lg-4
+                label Temprature*
+                input(type="text", name="text" placeholder="Eg : 97.8")
+              .col-lg-4
+                label Pulse *
+                input(type="text", name="text" placeholder="454")
+              .col-lg-4
+                label Respiratory Rate *
+                input(type="text", name="text" placeholder="Eg : 97.8")
+              .col-lg-4
+                label SPO2 *
+                input(type="text", name="text" placeholder="Eg : 20")
+              .col-lg-4
+                label Height *
+                input(type="text", name="text" placeholder="Eg : 97.8 cm")
+              .col-lg-4
+                label Weight2 *
+                input(type="text", name="text" placeholder="Eg : 92.2 kg")
+              .col-lg-4
+                label Waist *
+                input(type="text", name="text" placeholder="Eg : 97.1 cm")
+              .col-lg-4
+                label BSA *
+                input(type="text", name="text" placeholder="Eg : 54")
+              .col-lg-4
+                label BMI *
+                input(type="text", name="text" placeholder="Eg : 504 kg/cm")
+              .col-12
+                label Previous Medical History *
+                textarea(cols='30' rows='2')
+              .col-12
+                label Clinical Notes *
+                textarea(cols='30' rows='2')
+            .footer-content
+              button.btn.btn-md.sub-btn-2(type="submit" data-bs-dismiss="modal" aria-label="Close") Cancel
+              button.btn.btn-md.sub-btn(type="submit" data-bs-dismiss="modal" aria-label="Close") Save Changes
+
+    #dashboard-logout.modal.fade.theme-modal.dashboard-logout
+      .modal-dialog.modal-md.modal-dialog-centered(role='document')
+        .modal-content
+          .modal-header
+            button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
+              | Close
+              i.ri-close-line
+          .modal-body
+              img.img-fluid(src="../assets/images/gif/question.gif", alt="question gif")
+              h4 Confirmation
+              p Are you sure you want to proceed?
+              .submit-button 
+                button.btn(type='submit' data-bs-dismiss="modal" aria-label="Close") No
+                a.btn(href="login.html") Yes
+  
+    #success-conform.modal.fade.theme-modal.dashboard-logout
+      .modal-dialog.modal-md.modal-dialog-centered(role='document')
+        .modal-content
+          .modal-header
+            button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
+              | Close
+              i.ri-close-line
+          .modal-body
+              img.img-fluid(src="../assets/images/gif/question.gif", alt="question gif")
+              h4 Confirmation
+              p Are you sure you want to proceed?
+              .submit-button 
+                button.btn(type='submit' data-bs-dismiss="modal" aria-label="Close") No
+                a.btn(href="#" data-bs-dismiss="modal") Yes
+ 
+
+    include ../../components/footer-files

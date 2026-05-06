@@ -1,0 +1,165 @@
+/*=====================
+  4.39 banner css start
+==========================*/
+.product-banner {
+  padding: calc(20px + (50 - 20) * ((100vw - 320px) / (1920 - 320)));
+  position: relative;
+  z-index: 1;
+  border-radius: 10px;
+  overflow: hidden;
+  > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(90deg, rgba(var(--white), 0.2) 50%, rgba(var(--white), 0.8) 70%);
+    z-index: -1;
+  }
+  > .banner-content {
+    background-color: rgba(var(--body-background), 1);
+    padding: calc(12px + (20 - 12) * ((100vw - 320px) / (1920 - 320)));
+    display: flex;
+    align-items: center;
+    gap: calc(10px + (20 - 10) * ((100vw - 320px) / (1920 - 320)));
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    @media (max-width: 767px) {
+      flex-direction: column;
+    }
+    .img {
+      background: rgba(var(--section-background), 1);
+      width: calc(100px + (180 - 100) * ((100vw - 320px) / (1920 - 320)));
+      height: calc(100px + (180 - 100) * ((100vw - 320px) / (1920 - 320)));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 5px;
+      @media (max-width: 767px) {
+        width: 100%;
+      }
+      img {
+        @media (max-width: 575px) {
+          width: 35%;
+        }
+      }
+    }
+    .facilities-box {
+      padding: 0;
+      box-shadow: none;
+      width: calc(100% - calc(100px + (180 - 100) * ((100vw - 320px) / (1920 - 320))) - calc(15px + (20 - 15) * ((100vw - 320px) / (1920 - 320))));
+      @media (max-width: 767px) {
+        width: 100%;
+        text-align: center;
+      }
+      > .d-flex {
+        margin-bottom: 4px;
+        @media (max-width: 767px) {
+          justify-content: center;
+        }
+      }
+      .d-flex {
+        h5 {
+          font-size: 16px;
+        }
+        .icon {
+          position: absolute;
+          top: -6px;
+          right: -6px;
+          [dir="rtl"] & {
+            right: unset;
+            left: -6px;
+          }
+
+          i {
+            font-size: 20px;
+            color: rgba(var(--theme-default), 1);
+          }
+        }
+      }
+      a {
+        h4 {
+          margin-bottom: 8px;
+        }
+        &.btn {
+          span {
+            i {
+              font-size: $font-18;
+            }
+          }
+        }
+      }
+      p {
+        margin-bottom: 8px;
+        @media (max-width: 767px) {
+          width: 76%;
+          margin-inline: auto;
+        }
+        @media (max-width: 575px) {
+          width: 95%;
+        }
+      }
+    }
+  }
+}
+.banner-3 {
+  @media (max-width: 991px) {
+    text-align: center;
+  }
+  span {
+    font-weight: 700;
+    color: rgba(var(--theme-font-color), 1);
+  }
+  .rating {
+    color: rgba(var(--rating-color), 1);
+    font-size: $font-22;
+    margin-bottom: 8px;
+  }
+  h2 {
+    font-size: calc(22px + (55 - 22) * ((100vw - 320px) / (1920 - 320)));
+    font-weight: 400;
+    width: 80%;
+    margin-bottom: 8px;
+    span {
+      font-weight: 700;
+      font-size: calc(22px + (55 - 22) * ((100vw - 320px) / (1920 - 320)));
+      color: rgba(var(--theme-default), 1);
+    }
+    @media (max-width: 991px) {
+      width: 100%;
+    }
+  }
+  p {
+    width: 80%;
+    margin-bottom: calc(12px + (32 - 12) * ((100vw - 320px) / (1920 - 320)));
+    @media (max-width: 1199px) {
+      @include text-ellipsis($line: 3);
+      width: 100%;
+    }
+  }
+  .d-flex {
+    @media (max-width: 1199px) {
+      display: block !important;
+    }
+    .btn {
+      white-space: nowrap;
+    }
+    .countdown {
+      @media (max-width: 991px) {
+        margin: auto;
+        margin-top: 12px;
+      }
+    }
+  }
+}

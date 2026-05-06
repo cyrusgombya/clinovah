@@ -1,230 +1,458 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>@yield('title', 'Clinic')</title>
-  <meta name="description" content="@yield('meta_description', '')">
-  <meta name="keywords" content="@yield('meta_keywords', '')">
-
-  <!-- Favicons -->
-  <link href="{{ asset('assets/site/img/favicon.png') }}" rel="icon">
-  <link href="{{ asset('assets/site/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
-    rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="{{ asset('assets/site/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('assets/site/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
-  <link href="{{ asset('assets/site/vendor/aos/aos.css') }}" rel="stylesheet">
-  <link href="{{ asset('assets/site/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('assets/site/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('assets/site/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
-
-  <!-- Main CSS File -->
-  <link href="{{ asset('assets/site/css/main.css') }}" rel="stylesheet">
-
-  <!-- ✅ PWA -->
-  <link rel="manifest" href="{{ asset('manifest.webmanifest') }}">
-  <meta name="theme-color" content="#0d6efd">
-</head>
-
-<body class="@yield('body_class', '')">
-  <header id="header" class="header fixed-top">
-    <div class="topbar d-flex align-items-center dark-background">
-      <div class="container d-flex justify-content-center justify-content-md-between">
-        <div class="contact-info d-flex align-items-center">
-          <i class="bi bi-envelope d-flex align-items-center">
-            <a href="mailto:contact@clinovah.com">contact@clinovah.com</a>
-          </i>
-          <i class="bi bi-phone d-flex align-items-center ms-4">
-            <span>+256 123 456 789</span>
-          </i>
-        </div>
-        <div class="social-links d-none d-md-flex align-items-center">
-          <a href="#!" class="twitter"><i class="bi bi-twitter-x"></i></a>
-          <a href="#!" class="facebook"><i class="bi bi-facebook"></i></a>
-          <a href="#!" class="instagram"><i class="bi bi-instagram"></i></a>
-          <a href="#!" class="linkedin"><i class="bi bi-linkedin"></i></a>
-        </div>
-      </div>
-    </div>
-
-    <div class="branding d-flex align-items-cente">
-      <div class="container position-relative d-flex align-items-center justify-content-between">
- <a href="{{ route('site.home') }}" class="logo d-flex align-items-center" aria-label="Clinovah Home">
-  <img
-    src="{{ asset('assets/site/img/clinlogo.png') }}"
-    alt="Clinovah"
-    style="height: 56px; width: auto;"
-  >
-</a>
-  </a>
-
-        <nav id="navmenu" class="navmenu">
-          <ul>
-            <li><a href="{{ route('site.home') }}" class="{{ request()->routeIs('site.home') ? 'active' : '' }}">Home</a></li>
-            <li><a href="{{ route('site.about') }}" class="{{ request()->routeIs('site.about') ? 'active' : '' }}">About</a></li>
-           <li>
-             <a href="{{ route('clinics.index') }}" class="{{ request()->routeIs('clinics.*') ? 'active' : '' }}"> Clinics  </a> </li>
-
-
-            <li><a href="{{ route('site.contact') }}" class="{{ request()->routeIs('site.contact') ? 'active' : '' }}">Contact</a></li>
-
-            {{-- Optional: link to clinic portal --}}
-            <li><a href="{{ route('clinic.login') }}">Clinic Login</a></li>
-          </ul>
-          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-        </nav>
-      </div>
-    </div>
-  </header>
-
- <main class="main" style="padding-top: 120px;">
-  @yield('content')
-</main>
-
-  <footer id="footer" class="footer-16 footer position-relative">
-  <div class="container">
-    <div class="footer-main" data-aos="fade-up" data-aos-delay="100">
-      <div class="row align-items-start gy-4">
-
-        {{-- Brand --}}
-       <div class="col-lg-5">
-  <div class="brand-section">
-    <a href="{{ route('site.home') }}" class="logo d-flex align-items-center mb-4" aria-label="Clinovah Home">
-      <img
-        src="{{ asset('assets/site/img/clinlogo.png') }}"
-        alt="Clinovah"
-        style="height: 34px; width: auto; margin-right: 10px;"
-      >
-      <span class="sitename">Clinovah</span>
-    </a>
-
-            <p class="brand-description">
-              Transforming access to dental and specialized care through intuitive platforms that simplify how patients find and connect.
-            </p>
-
-            <div class="contact-info mt-4">
-              <div class="contact-item">
-                <i class="bi bi-geo-alt"></i>
-                <span>123 Kampala Road, Kampala, Uganda</span>
-              </div>
-              <div class="contact-item">
-                <i class="bi bi-telephone"></i>
-                <span>+256 123 456 789</span>
-              </div>
-              <div class="contact-item">
-                <i class="bi bi-envelope"></i>
-                <span>contact@clinovah.com</span>
-              </div>
-            </div>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="@yield('meta_description', 'PHYSIC')">
+    <meta name="keywords" content="@yield('meta_keywords', 'PHYSIC')">
+    <meta name="author" content="pixelstrap">
+    <title>@yield('title', 'PHYSIC - Premium Doctor Template')</title>
+    <link rel="icon" href="{{ asset('assets/clin/images/fav-icon.png') }}" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&amp;family=Roboto:ital,wght@0,100..900;1,100..900&amp;family=Russo+One&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/clin/css/fontawesome.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/clin/css/remixicon.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/clin/css/vendors/lg-thumbnail.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/clin/css/vendors/lg-zoom.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/clin/css/vendors/lightgallery.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/clin/css/vendors/swiper-bundle.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/clin/css/vendors/toastify.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/clin/css/vendors/aos.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/clin/css/style.css') }}">
+  </head>
+  <body class="dental-care">
+    <header>
+      <div class="top-header top-header-two">
+        <div class="custom-container container"> 
+          <div class="header-items">
+            <div class="top-header-left"><a href="tel:+256 200 948068"><i class="fa fa-phone"></i> +256 200 948068</a><a href="#"><i class="fa-regular fa-clock"></i>We Are Open 24 Hours</a></div>
+            <div class="top-header-right"><a href="contact.html">
+                 How to Find Us</a><a href="#" data-bs-toggle="modal" data-bs-target="#feedback">Give Feedback</a></div>
           </div>
         </div>
-
-        {{-- Footer links (placeholders only, no routes yet) --}}
-       <div class="col-lg-7">
-  <div class="footer-nav-wrapper">
-    <div class="row gy-4">
-      <div class="col-6 col-lg-4">
-        <div class="nav-column">
-          <h6>Explore</h6>
-          <nav class="footer-nav">
-            <a href="{{ route('site.home') }}">Home</a>
-            <a href="{{ route('site.about') }}">About</a>
-            <a href="{{ route('clinics.index') }}">Clinics</a>
-          </nav>
-        </div>
       </div>
-
-      <div class="col-6 col-lg-4">
-        <div class="nav-column">
-          <h6>Accounts</h6>
-          <nav class="footer-nav">
-            <a href="{{ route('login') }}">Patient Login</a>
-            <a href="{{ route('clinic.login') }}">Clinic Login</a>
-
-            {{-- If your admin routes file is prefixed (e.g. /admin), this will work.
-                 If not, tell me the admin login URL and I’ll adjust. --}}
-            <a href="{{ route('admin.login') }}">Admin Login</a>
-          </nav>
-        </div>
-      </div>
-
-      <div class="col-6 col-lg-4">
-        <div class="nav-column">
-          <h6>Help & Legal</h6>
-          <nav class="footer-nav">
-            <a href="{{ route('site.faq') }}">FAQs</a>
-            <a href="{{ route('site.privacy') }}">Privacy Policy</a>
-            <a href="{{ route('site.terms') }}">Terms of Service</a>
-          </nav>
-        </div>
-      </div>
-
-    </div>
-  </div>
+      <div class="main-header main-header-two">
+        <div class="custom-container container">
+          <div class="row"> 
+            <div class="col-12"> 
+              <div class="mobile-fix-option"> 
+                <ul> 
+                  <li> <a href="{{ route('site.home') }}">
+                      <svg>
+                        <use xlink:href="{{ asset('assets/clin/svg/mobile-icon.svg#home') }}"></use>
+                      </svg>Home </a></li>
+                  <li> <a href="{{ route('clinics.index') }}">
+                      <svg>
+                        <use xlink:href="{{ asset('assets/clin/svg/mobile-icon.svg#search') }}"></use>
+                      </svg>Search </a></li>
+                  <li> <a href="cart.html">
+                      <svg>
+                        <use xlink:href="{{ asset('assets/clin/svg/mobile-icon.svg#cart') }}"></use>
+                      </svg>Cart </a></li>
+                  <li> <a href="{{ route('site.about') }}">
+                      <svg>
+                        <use xlink:href="{{ asset('assets/clin/svg/mobile-icon.svg#heart') }}"></use>
+                      </svg>About</a></li>
+                  <li> <a href="doctor-dashboard.html">
+                      <svg>
+                        <use xlink:href="{{ asset('assets/clin/svg/mobile-icon.svg#user') }}"></use>
+                      </svg>Account  </a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-12 p-0"> 
+              <div class="main-menu">
+                <div class="menu-left"> 
+                  <div class="brand-logo"> <a href="index.html"> <img class="img-fluid light" src="{{ asset('assets/clin/images/logo/clinovah.png') }}" alt="Logo"><img class="img-fluid dark" src="{{ asset('assets/clin/images/logo/white-logo2.svg') }}" alt="Logo"></a></div>
+                </div>
+                <nav id="main-nav">
+                <div class="main-navbar">
+    <ul class="nav-menu sm-horizontal custom-scrollbar" id="sm-horizontal">
+        <li class="back-btn">
+            <div class="mobile-back text-right">
+                <h5>Back</h5><i class="fa fa-angle-right ps-2"></i>
+            </div>
+        </li>
+        <li>
+            <a class="nav-link" href="{{ route('site.home') }}">Home</a>
+        </li>
+        <li>
+            <a class="nav-link" href="{{ route('site.about') }}">About Us</a>
+        </li>
+        <li>
+            <a class="nav-link" href="{{ route('clinics.index') }}">Clinics</a>
+        </li>
+        <li>
+            <a class="nav-link" href="{{ route('site.contact') }}">Contact Us</a>
+        </li>
+    </ul>
 </div>
-
-      </div>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <div class="container">
-      <div class="bottom-content" data-aos="fade-up" data-aos-delay="300">
-        <div class="row align-items-center">
-          <div class="col-lg-6">
-            <div class="copyright">
-              <p>© <span class="sitename">Clinovah</span>. All rights reserved.</p>
+                </nav>
+                <div class="menu-right"> 
+                  <div class="icon-nav">
+                    <div class="default-btn mode me-2"><img class="img-fluid" src="{{ asset('assets/clin/svg/moon.svg') }}" alt="svg"></div>
+                    <div class="toggle-nav" id="toggle-nav">
+                      <div class="icon"><i class="ri-align-center"></i></div>
+                    </div>
+                    <ul class="d-flex gap-2"> 
+                      <li class="onhover-div mobile-search">
+                        <button class="btn default-btn" data-bs-toggle="modal" data-bs-target="#search"><img class="img-fluid" src="{{ asset('assets/clin/svg/search.svg') }}" alt="search"></button>
+                      </li>
+                      <li>
+                        <button class="btn default-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><img class="img-fluid" src="{{ asset('assets/clin/svg/grid.svg') }}" alt="svg"></button>
+                      </li>
+                      <li class="onhover-dropdown">
+                        <button class="btn default-btn"><img class="img-fluid" src="{{ asset('assets/clin/svg/user.svg') }}" alt="user"></button>
+                        <ul class="user-dropdown">
+                          <li> <a href="login.html">Login</a></li>
+                          <li> <a href="sign-up.html">Register</a></li>
+                        </ul>
+                      </li>
+                      <li>
+                        <button class="btn default-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart"><img class="img-fluid" src="{{ asset('assets/clin/svg/cart.svg') }}" alt="cart"></button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="col-lg-6">
-            <div class="legal-links">
-              <a href="#!">Privacy Policy</a>
-              <a href="#!">Terms of Service</a>
-              <a href="#!">FAQs</a>
+        </div>
+      </div>
+    </header>
+
+    @yield('content')
+
+    <!-- Footer Start-->
+    <footer> 
+      <section class="footer-1">  
+        <div class="custom-container container">
+          <div class="row gy-3"> 
+            <div class="col-xxl-2 col-xl-3 col-lg-3 col-md-4 col-sm-5">
+              <div class="footer-content">
+                <div class="footer-logo"><a href="{{ route('site.home') }}"> <img class="img-fluid light" src="{{ asset('assets/clin/images/logo/logo2.svg') }}" alt="Logo"><img class="img-fluid dark" src="{{ asset('assets/clin/images/logo/white-logo2.svg') }}" alt="Logo"></a>
+                  <p>Transforming access to dental and specialized care through intuitive platforms that simplify how patients find and connect.</p>
+                </div>
+                <ul> 
+                  <li> <a href="javascript:void(0)"><i class="ri-map-pin-2-line"></i>
+                      <p>Galuleeba Commercial Plaza, Wakiso Town, S26 Uganda</p></a></li> 
+                  <li> <a href="tel:+256 200 948068"><i class="ri-phone-fill"></i>
+                      <p>(+256) 200 - 948 - 068</p></a></li>
+                  <li> <a href="mailto:Contact@clinovah.com"> <i class="ri-mail-fill"></i>
+                      <p>Contact@clinovah.com</p></a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-xl-60">
+              <div class="footer-content">
+                <div> 
+                  <div class="footer-title d-md-block"> 
+                    <h5 class="footer-p"> About </h5>
+                    <ul class="footer-details accordion-hidden footer-p"> 
+                      <li> <a class="nav" href="{{ route('site.about') }}">About us</a></li>
+                      <li> <a class="nav" href="{{ route('clinics.index') }}">Doctor </a></li>
+                      <li> <a class="nav" href="{{ route('site.faq') }}">Faq </a></li>
+                      <li> <a class="nav" href="{{ route('site.privacy') }}">Privacy</a></li>
+                      <li> <a class="nav" href="{{ route('site.contact') }}">Contact</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xxl-3 col-xl-2 col-lg-2 col-md-5 col-sm-4 col-xl-60">
+              <div class="footer-content">
+                <div>
+                  <div class="footer-title d-md-block">
+                    <h5>Our Location</h5>
+                    <ul class="footer-details accordion-hidden"> 
+                      <li class="footer-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47247.51718643815!2d-0.16171645658701894!3d51.51061557179581!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a00baf21de75%3A0x52963a5addd52a99!2sLondon%2C%20UK!5e0!3m2!1sen!2sin!4v1594711805049!5m2!1sen!2sin"></iframe>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-4 col-sm-4 col-xl-60">
+              <div class="footer-content">
+                <div>
+                  <div class="footer-title d-md-block"> 
+                    <h5 class="footer-p"> Department</h5>
+                    <ul class="footer-details accordion-hidden footer-p"> 
+                      <li> <a class="nav" href="specialty.html">Surgery </a></li>
+                      <li> <a class="nav" href="specialty.html">Women </a></li>
+                      <li> <a class="nav" href="specialty.html">Health </a></li>
+                      <li> <a class="nav" href="specialty.html">Optician </a></li>
+                      <li> <a class="nav" href="specialty.html">Emergency</a></li>
+                      <li> <a class="nav" href="specialty.html">ICU</a></li>
+                      <li> <a class="nav" href="specialty.html">Dermatology</a></li>
+                      <li> <a class="nav" href="specialty.html">Subscribe</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-8 col-sm-8 col-xl-60">
+              <div class="footer-content">
+               
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </footer>
+    <div class="copyright"> 
+      <div class="custom-container container">
+        <div class="d-flex">
+          <div class="flex-grow-1">
+            <div class="footer-social"><a href="https://www.google.com/intl/en-GB/gmail/about/#" target="_blank"><img class="img-fluid" src="{{ asset('assets/clin/images/icon/google.png') }}" alt="google icon"></a></div>
+            <div class="footer-social"><a href="https://twitter.com/" target="_blank"><img class="img-fluid" src="{{ asset('assets/clin/images/icon/twitter.png') }}" alt="twitter icon"></a></div>
+            <div class="footer-social"><a href="https://www.facebook.com/" target="_blank"><img class="img-fluid" src="{{ asset('assets/clin/images/icon/facebook.png') }}" alt="facebook icon"></a></div>
+            <div class="footer-social"><a class="instagram" href="https://www.instagram.com/" target="_blank"><img class="img-fluid" src="{{ asset('assets/clin/images/icon/instagram.png') }}" alt="Instagram icon"></a></div>
+          </div>
+          <div class="flex-shrink-0">
+            <p>
+               Copyright 2026 Clinovah 	<i class="fa fa-heart"></i> All rights reserved
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="offcanvas offcanvas-end appointment-offcanvas" id="offcanvasRight" tabindex="-1" aria-labelledby="offcanvasRightLabel">
+      <div class="offcanvas-header"><a class="offcanvas-Title" href="index.html" id="offcanvasRightLabel"> <img class="light img-fluid" src="{{ asset('assets/clin/images/logo/logo2.svg') }}" alt="logo"><img class="dark img-fluid" src="{{ asset('assets/clin/images/logo/white-logo2.svg') }}" alt="logo"></a>
+        <button class="btn-close" type="button" data-bs-dismiss="offcanvas" aria-label="Close"><i class="ri-close-line"></i></button>
+      </div>
+      <div class="offcanvas-body custom-scrollbar">
+        <p>It integrates seamlessly with other services, enhancing community health, emergency management, and public safety within a broader ecosystem.</p>
+        <ul class="social-icon"> 
+          <li> <a href="https://www.facebook.com/" target="_blank"><i class="ri-facebook-line"></i></a></li>
+          <li> <a href="https://x.com/" target="_blank"><i class="ri-twitter-x-line"></i></a></li>
+          <li> <a href="https://www.instagram.com/" target="_blank"> <i class="ri-instagram-line"></i></a></li>
+          <li> <a href="https://www.linkedin.com/" target="_blank"><i class="ri-linkedin-line"> </i></a></li>
+        </ul>
+        <h5>Visitation Schedule</h5>
+        <ul class="day-time"> 
+          <li> 
+            <p>Mon-Tue: <span>8:00 am - 8:00 pm</span></p>
+          </li>
+          <li> 
+            <p>Wed-Thu: <span>9:00 am - 6:00 pm</span></p>
+          </li>
+          <li> 
+            <p>Friday: <span>1:00 am - 10:00 pm</span></p>
+          </li>
+          <li> 
+            <p>Saturday: <span>9:00 am - 6:00 pm</span></p>
+          </li>
+          <li> 
+            <p>Sunday: <span>9:00 am - 12:00 pm</span></p>
+          </li>
+        </ul>
+        <ul class="contact"> 
+          <li> <a href="#"> 
+              <div class="icon"> <i class="ri-phone-fill"></i></div><span>+89574123478</span></a></li>
+          <li> <a href="#"> 
+              <div class="icon"> <i class="ri-mail-fill"></i></div><span>physic@doctor.com</span></a></li>
+        </ul>
+        <h5>Gallery posts</h5>
+        <div class="row g-3"> 
+          <div class="col-4">
+            <div class="gallery-img"><a href="#"><img class="img-fluid w-100" src="{{ asset('assets/clin/images/others/treatment/1.jpg') }}" alt="treatment1"></a></div>
+          </div>
+          <div class="col-4">
+            <div class="gallery-img"><a href="#"><img class="img-fluid w-100" src="{{ asset('assets/clin/images/others/treatment/2.jpg') }}" alt="treatment2"></a></div>
+          </div>
+          <div class="col-4">
+            <div class="gallery-img"><a href="#"><img class="img-fluid w-100" src="{{ asset('assets/clin/images/others/treatment/3.jpg') }}" alt="treatment3"></a></div>
+          </div>
+          <div class="col-4">
+            <div class="gallery-img"><a href="#"><img class="img-fluid w-100" src="{{ asset('assets/clin/images/others/treatment/4.jpg') }}" alt="treatment4"></a></div>
+          </div>
+          <div class="col-4">
+            <div class="gallery-img"><a href="#"><img class="img-fluid w-100" src="{{ asset('assets/clin/images/others/treatment/5.jpg') }}" alt="treatment5"></a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="offcanvas offcanvas-end cart-offcanvas" id="offcanvasCart" tabindex="-1" aria-labelledby="offcanvasCartLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasCartLabel">My Cart</h5>
+        <button class="btn-close" type="button" data-bs-dismiss="offcanvas" aria-label="Close"><i class="ri-close-line"></i></button>
+      </div>
+      <div class="offcanvas-body">
+        <div class="cart-details">  
+          <div> <img class="img-fluid" src="{{ asset('assets/clin/images/gif/cart.gif') }}" alt="cart gif">
+            <p>Your cart is currently empty</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade theme-modal" id="appointment">
+      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close">Close<i class="ri-close-line"></i></button>
+          </div>
+          <div class="modal-body">
+            <div class="header-content"> 
+              <h5>Appointment</h5>
+            </div>
+            <div class="row gy-3">
+              <div class="col-md-6">
+                <label>Patient Name</label>
+                <input type="text" placeholder="Name">
+              </div>
+              <div class="col-md-6">
+                <label>Email Address</label>
+                <input type="email" placeholder="Email">
+              </div>
+              <div class="col-md-6">
+                <label>Phone Number</label>
+                <input type="Number" placeholder="Number">
+              </div>
+              <div class="col-md-6">
+                <label>Choose Date</label>
+                <input type="Date">
+              </div>
+              <div class="col-md-6">
+                <label>Department</label>
+                <select class="form-select" aria-label="Default select example">
+                  <option selected="">Choose Department</option>
+                  <option value="1">Cardiology</option>
+                  <option value="2">Dental Care</option>
+                  <option value="3">Ophthalmology</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label>Department</label>
+                <select class="form-select" aria-label="Default select example">
+                  <option selected="">Choose Doctor</option>
+                  <option value="1">Jordan Peele</option>
+                  <option value="2">Jamie Oliver</option>
+                  <option value="3">Norton Berry</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label>Address</label>
+                <textarea cols="30" rows="4" placeholder="Write your Feedback here..."></textarea>
+              </div>
+            </div>
+            <div class="footer-content">
+              <button class="btn btn-md sub-btn-2" type="submit" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+              <button class="btn btn-md sub-btn" type="submit" data-bs-dismiss="modal" aria-label="Close">Submit Now </button>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</footer>
+    <div class="modal fade theme-modal feedback-modal" id="feedback">
+      <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close">Close<i class="ri-close-line"></i></button>
+          </div>
+          <div class="modal-body">
+            <div class="header-content"> 
+              <h5>Feedback</h5>
+            </div>
+            <h6>How are you feeling ?</h6><span>We value your feedback so that we can better understand your needs and adjust our service.</span>
+            <div class="emoji-wrapper">
+              <input id="star-1" type="radio" name="rate">
+              <input id="star-2" type="radio" name="rate">
+              <input id="star-3" type="radio" name="rate">
+              <input id="star-4" type="radio" name="rate">
+              <input id="star-5" type="radio" name="rate">
+              <div class="content">
+                <div class="outer">
+                  <ul class="emojis">
+                    <li class="slideImg"><img class="img-fluid" src="{{ asset('assets/clin/images/others/emoji/angry.png') }}" alt="emoji"></li>
+                    <li><img class="img-fluid" src="{{ asset('assets/clin/images/others/emoji/sad.png') }}" alt="emoji"></li>
+                    <li><img class="img-fluid" src="{{ asset('assets/clin/images/others/emoji/think.png') }}" alt="emoji"></li>
+                    <li><img class="img-fluid" src="{{ asset('assets/clin/images/others/emoji/smile.png') }}" alt="emoji"></li>
+                    <li><img class="img-fluid" src="{{ asset('assets/clin/images/others/emoji/love.png') }}" alt="emoji"></li>
+                  </ul>
+                </div>
+                <div class="stars">
+                  <label class="star-1 fas fa-star" for="star-1"></label>
+                  <label class="star-2 fas fa-star" for="star-2"></label>
+                  <label class="star-3 fas fa-star" for="star-3"></label>
+                  <label class="star-4 fas fa-star" for="star-4"></label>
+                  <label class="star-5 fas fa-star" for="star-5"></label>
+                </div>
+              </div>
+              <textarea cols="30" rows="4" placeholder="Write your Feedback here..."></textarea>
+            </div>
+            <div class="footer-content">
+              <button class="btn btn-md sub-btn" type="submit" data-bs-dismiss="modal" aria-label="Close">Submit Now </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade theme-modal search-modal" id="search">
+      <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close">Close<i class="ri-close-line"></i></button>
+          </div>
+          <div class="modal-body">
+            <h5>Search Our Doctor</h5>
+            <div class="search-box"> 
+              <input type="search" name="text" placeholder="Search Our Doctor..."><i class="ri-search-eye-line"></i>
+            </div>
+            <h6>Our Doctor Name </h6>
+            <ul class="doctor-name"> 
+              <li> <a href="doctors-list.html">Dr. Ava Bennett</a></li>
+              <li> <a href="doctors-list.html">Dr. Ethan Carter</a></li>
+              <li> <a href="doctors-list.html">Dr. Mia Roberts</a></li>
+              <li> <a href="doctors-list.html">Dr. Oliver Hughes</a></li>
+              <li> <a href="doctors-list.html">Dr. Sophia Morgan</a></li>
+              <li> <a href="doctors-list.html">Dr. Lucas Anderson</a></li>
+            </ul>
+            <h6>Highest Searched</h6>
+            <ul class="search-doctor custom-scrollbar">
+              <li><a href="doctor-details.html"><img class="img-fluid" src="{{ asset('assets/clin/images/others/doctor/1.jpg') }}" alt="doctor1"></a>
+                <div class="content"><a href="doctor-details.html">Dr. Ava Bennett</a><span>Pediatric Therapist</span></div>
+              </li>
+              <li>   <a href="doctor-details.html"><img class="img-fluid" src="{{ asset('assets/clin/images/others/doctor/2.jpg') }}" alt="doctor2"></a>
+                <div class="content"><a href="doctor-details.html">Dr. Ava Bennett</a><span>Neurology Therapy</span></div>
+              </li>
+              <li><a href="doctor-details.html"><img class="img-fluid" src="{{ asset('assets/clin/images/others/doctor/3.jpg') }}" alt="doctor3"></a>
+                <div class="content"><a href="doctor-details.html">Dr. Ava Bennett</a><span>Senior Physiotherapist</span></div>
+              </li>
+              <li><a href="doctor-details.html"><img class="img-fluid" src="{{ asset('assets/clin/images/others/doctor/4.jpg') }}" alt="doctor4"></a>
+                <div class="content"><a href="doctor-details.html">Dr. Ava Bennett</a><span>Orthopedic Therapist</span></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <div class="theme-btns">
+      <div class="theme-setting btntheme" id="rtl-btn" data-bs-toggle="tooltip" data-bs-title="Rtl Mode"><i class="fa-solid fa-repeat"></i></div>
+    </div>
+    <div class="scroll-progress"><a class="scroll-top" href="#" aria-label="scroll"><span class="scroll-text">Scroll</span><span class="scroll-line"><span class="scroll-point" style="height: 0%;"></span></span></a></div>
 
-
-  <!-- Scroll Top -->
-  <a href="#!" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
-    <i class="bi bi-arrow-up-short"></i>
-  </a>
-
-  <!-- Preloader -->
-  <div id="preloader"></div>
-
-  <!-- Vendor JS Files -->
-  <script src="{{ asset('assets/site/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-  <script src="{{ asset('assets/site/vendor/php-email-form/validate.js') }}"></script>
-  <script src="{{ asset('assets/site/vendor/aos/aos.js') }}"></script>
-  <script src="{{ asset('assets/site/vendor/glightbox/js/glightbox.min.js') }}"></script>
-  <script src="{{ asset('assets/site/vendor/purecounter/purecounter_vanilla.js') }}"></script>
-  <script src="{{ asset('assets/site/vendor/swiper/swiper-bundle.min.js') }}"></script>
-
-  <!-- Main JS File -->
-  <script src="{{ asset('assets/site/js/main.js') }}"></script>
-
-  <!-- ✅ PWA -->
-  <script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/service-worker.js');
-    });
-  }
-</script>
-</body>
+    <script src="{{ asset('assets/clin/js/bootstrap/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/clin/js/bootstrap/popper.min.js') }}"></script>
+    <script src="{{ asset('assets/clin/js/lightgallery/lg-thumbnail.umd.js') }}"></script>
+    <script src="{{ asset('assets/clin/js/lightgallery/lightgallery.umd.js') }}"></script>
+    <script src="{{ asset('assets/clin/js/lightgallery/lg-zoom.umd.js') }}"></script>
+    <script src="{{ asset('assets/clin/js/swiper-bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/clin/js/custom-slider.js') }}"></script>
+    <script src="{{ asset('assets/clin/js/img-resize.js') }}"></script>
+    <script src="{{ asset('assets/clin/js/touchspin.js') }}"></script>
+    <script src="{{ asset('assets/clin/js/aos.js') }}"></script>
+    <script src="{{ asset('assets/clin/js/aos-custom.js') }}"></script>
+    <script src="{{ asset('assets/clin/js/gsap.min.js') }}"></script>
+    <script src="{{ asset('assets/clin/js/tap-to-top.js') }}"></script>
+    <script src="{{ asset('assets/clin/js/loader.js') }}"></script>
+    <script src="{{ asset('assets/clin/js/theme-setting.js') }}"></script>
+    <script src="{{ asset('assets/clin/js/toastify.js') }}"></script>
+    <script src="{{ asset('assets/clin/js/script.js') }}"></script>
+  </body>
 </html>

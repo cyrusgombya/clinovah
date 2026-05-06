@@ -1,0 +1,27 @@
+/*=====================
+  4.40 sortable css start
+==========================*/
+.nav-tabs-sortable{
+    overflow: auto;
+    .nav{
+        justify-content: center;
+        padding: 8px;
+        border-radius: 10px;
+        background-color: rgba(var(--light-background), 1);
+        width: fit-content;
+        margin: auto;
+        gap: 8px;
+        flex-wrap: nowrap;
+        .nav-item{
+            button {
+                font-weight: 600;
+                color: rgba(var(--theme-font-color), 1);
+                font-size: $font-16;
+                &.active {
+                    background-color: rgba(var(--theme-default), 1);
+                    color: rgba(var(--white), 1);
+                }
+            }
+        }
+    }
+}

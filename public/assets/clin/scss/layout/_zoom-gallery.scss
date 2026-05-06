@@ -1,0 +1,77 @@
+/*=====================
+  4.29 zoom-gallery css start
+==========================*/
+.zoomable {
+  position: relative;
+  overflow: hidden;
+}
+
+.zoomable__img {
+  transform-origin: var(--zoom-pos-x, 0%) var(--zoom-pos-y, 0%);
+  transition: transform 0.15s linear;
+}
+
+.zoomable--zoomed .zoomable__img {
+  cursor: zoom-in;
+  transform: scale(var(--zoom, 2));
+}
+
+.lg-container {
+  .lg-prev {
+    margin: 0;
+    transform: translateY(-50%);
+
+    &::after {
+      content: "\ea60";
+      font-family: remixicon;
+      font-style: normal;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    &::before {
+      content: unset;
+    }
+  }
+
+  .lg-next {
+    transform: translateY(-50%);
+    margin: 0;
+
+    &::after {
+      content: "\ea6c";
+      font-family: remixicon;
+      font-style: normal;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    &::before {
+      content: unset;
+    }
+  }
+
+  .lg-outer {
+    .lg-thumb {
+      padding: 10px 0 13px;
+      gap: 15px;
+      display: flex;
+      align-items: center;
+      flex-wrap: nowrap;
+      justify-content: center;
+      width: 100% !important;
+    }
+
+    .lg-thumb-item {
+      border: 1px solid rgba(var(--p-text-color), 1);
+      margin: 0 !important;
+
+      &.active,
+      &:hover {
+        border-color: rgba(var(--theme-color), 1);
+      }
+
+      img {
+        object-fit: contain;
+      }
+    }
+  }
+}
