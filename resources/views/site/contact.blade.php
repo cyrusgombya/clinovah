@@ -4,130 +4,112 @@
 @section('body_class', 'index-page')
 
 @section('content')
-<main class="main">
-   <main class="main">
-
-    <!-- Page Title -->
-    <div class="page-title">
-      <div class="heading">
-        <div class="container">
-          <div class="row d-flex justify-content-center text-center">
-            <div class="col-lg-8">
-              <h1 class="heading-title">Contact</h1>
-              <p class="mb-0">
-                Odio et unde deleniti. Deserunt numquam exercitationem. Officiis quo
-                odio sint voluptas consequatur ut a odio voluptatem. Sit dolorum
-                debitis veritatis natus dolores. Quasi ratione sint. Sit quaerat
-                ipsum dolorem.
-              </p>
+ <div class="breadcrumb-section">
+      <div class="img-overlay">
+        <div class="custom-container container">
+          <div class="row g-0">
+            <div class="col-12">
+              <div class="page-title">
+                <h3>Contact</h3>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="icon-breadcrumb">
+                <ol class="breadcrumb mb-0">
+                  <li class="breadcrumb-item"><a href="index.html">
+                      <svg>
+                        <use xlink:href="{{ asset('assets/clin/svg/home1.svg#home') }}"></use>
+                      </svg></a></li>
+                  <li class="breadcrumb-item active">Contact</li>
+                </ol>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <nav class="breadcrumbs">
-        <div class="container">
-          <ol>
-            <li><a href="index.html">Home</a></li>
-            <li class="current">Contact</li>
-          </ol>
-        </div>
-      </nav>
-    </div><!-- End Page Title -->
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact section">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="row g-5">
-          <div class="col-lg-5">
-            <div class="contact-info-wrapper">
-              <div class="contact-info-item" data-aos="fade-up" data-aos-delay="100">
-                <div class="info-icon">
-                  <i class="bi bi-geo-alt"></i>
-                </div>
-                <div class="info-content">
-                  <h3>Our Address</h3>
-                  <p>1842 Maple Avenue, Portland, Oregon 97204</p>
-                </div>
-              </div>
-
-              <div class="contact-info-item" data-aos="fade-up" data-aos-delay="200">
-                <div class="info-icon">
-                  <i class="bi bi-envelope"></i>
-                </div>
-                <div class="info-content">
-                  <h3>Email Address</h3>
-                  <p>info@example.com</p>
-                  <p>contact@example.com</p>
-                </div>
-              </div>
-
-              <div class="contact-info-item" data-aos="fade-up" data-aos-delay="300">
-                <div class="info-icon">
-                  <i class="bi bi-headset"></i>
-                </div>
-                <div class="info-content">
-                  <h3>Hours of Operation</h3>
-                  <p>Sunday-Fri: 9 AM - 6 PM</p>
-                  <p>Saturday: 9 AM - 4 PM</p>
+    </div>
+    <section>
+      <div class="custom-container container">
+        <div class="contact-main"> 
+          <div class="row gy-3">
+            <div class="col-12">
+              <h6>Let's Get In Touch</h6>
+            </div>
+            <div class="col-xl-3 col-sm-6">
+              <div class="address-items"> 
+                <div class="icon-box"> <i class="ri-map-pin-line"></i></div>
+                <div class="contact-box"> 
+                  <h6>Contact Number</h6>
+                  <p>(+256) 200 - 948 - 068</p>
                 </div>
               </div>
             </div>
-          </div>
-
-          <div class="col-lg-7">
-            <div class="contact-form-card" data-aos="fade-up" data-aos-delay="200">
-              <h2>Send us a Message</h2>
-              <p class="mb-4">Have questions or want to learn more? Reach out to us and our team will get back to you
-                shortly.</p>
-
-              <form action="forms/contact.php" method="post" class="php-email-form">
-                <div class="row g-4">
-                  <div class="col-md-6">
-                    <input type="text" class="form-control" name="name" id="name" placeholder="Your Name" required="">
-                  </div>
-
-                  <div class="col-md-6">
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email"
-                      required="">
-                  </div>
-
-                  <div class="col-12">
-                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject"
-                      required="">
-                  </div>
-
-                  <div class="col-12">
-                    <textarea class="form-control" name="message" id="message" placeholder="Your Message" rows="6"
-                      required=""></textarea>
-                  </div>
-
-                  <div class="col-12">
-                    <div class="loading">Loading</div>
-                    <div class="error-message"></div>
-                    <div class="sent-message">Your message has been sent. Thank you!</div>
-                  </div>
-
-                  <div class="col-12">
-                    <button type="submit" class="btn btn-submit">Send Message</button>
-                  </div>
+            <div class="col-xl-3 col-sm-6">
+              <div class="address-items"> 
+                <div class="icon-box"> <i class="ri-phone-line"></i></div>
+                <div class="contact-box"> 
+                  <h6>Email Address</h6>
+                  <p>contact@clinovah.com</p>
                 </div>
-              </form>
+              </div>
+            </div>
+            <div class="col-xl-3 col-sm-6">
+              <div class="address-items"> 
+                <div class="icon-box"> <i class="ri-mail-send-line"></i></div>
+                <div class="contact-box"> 
+                  <h6>Other Address</h6>
+                  <p>Galuleeba  Plaza, Wakiso Town, S26 Uganda</p>
+                </div>
+              </div>
+            </div>
+           
             </div>
           </div>
         </div>
       </div>
-
-      <div class="container-fluid map-container" data-aos="fade-up" data-aos-delay="200">
-        <div class="map-overlay"></div>
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus"
-          width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+    <section class="section-b-space pt-0"> 
+      <div class="custom-container container">
+        <div class="contact-main"> 
+          <div class="row align-items-center gy-4">
+            <div class="col-xl-5 col-lg-6">
+              <div class="contact-img"> <img class="img-fluid" src="{{ asset('assets/clin/images/others/contact1.png') }}" alt="contact1"></div>
+            </div> 
+            <div class="col-lg-6 offset-xl-1">
+              <div class="contact-box"> 
+                <h4>Contact Us </h4>
+                <p>If you've got fantastic products or want to collaborate, reach out to us. </p>
+                <div class="contact-form">  
+                  <div class="row gy-md-4 gy-3">
+                    <div class="col-12"> 
+                      <label class="form-label" for="inputEmail4">Full Name </label>
+                      <input id="inputEmail4" type="text" name="text" placeholder="Enter Full Name">
+                    </div>
+                    <div class="col-sm-6">
+                      <label class="form-label" for="inputEmail5">Email Address</label>
+                      <input id="inputEmail5" type="email" name="email" placeholder="Enter Email Address">
+                    </div>
+                    <div class="col-sm-6">
+                      <label class="form-label" for="inputEmail6">Phone Number</label>
+                      <input id="inputEmail6" type="number" name="number" placeholder="Enter Phone Number">
+                    </div>
+                    <div class="col-12"> 
+                      <label class="form-label" for="inputEmail7">Services</label>
+                      <input id="inputEmail7" type="text" name="text" placeholder="Enter Services">
+                    </div>
+                    <div class="col-12"> 
+                      <label class="form-label">Message</label>
+                      <textarea id="message" rows="6" placeholder="Enter Your Message"></textarea>
+                    </div>
+                    <div class="col-12"> 
+                      <button class="btn btn-md sub-btn" type="submit"> Send Message </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-
-    </section><!-- /Contact Section -->
-
-  </main>
-</main>
+    </section>
 @endsection

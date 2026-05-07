@@ -19,7 +19,7 @@
             <ol class="breadcrumb mb-0">
               <li class="breadcrumb-item"><a href="index.html">
                   <svg>
-                    <use xlink:href="../assets/svg/home1.svg#home"></use>
+                    <use xlink:href="{{ asset('assets/clin/svg/home1.svg#home') }}"></use>
                   </svg></a></li>
               <li class="breadcrumb-item active">About Us</li>
             </ol>
@@ -36,8 +36,8 @@
     <div class="row gy-4">
       <div class="col-lg-6 p-0">
         <div class="about-info">
-          <img class="img-fluid w-100 about-info-img-1" src="../assets/images/about/1.png" alt="about-1">
-          <img class="img-fluid w-100 about-info-img img-fluid" src="../assets/images/about/2.png" alt="about-2">
+          <img class="img-fluid w-100 about-info-img-1" src="{{ asset('assets/clin/images/about/about.png') }}" alt="about-1">
+          <img class="img-fluid w-100 about-info-img img-fluid" src="{{ asset('assets/clin/images/about/about.png') }}" alt="about-2">
           <div class="about-img-content">
             <h6>Dr. Esita Jabed</h6>
             <span>Staff proficient in English, Spanish, and French for comprehensive, multilingual content delivery.</span>
@@ -54,19 +54,19 @@
       </div>
       <div class="col-lg-6">
         <div class="about-info-content">
-          <p>Our clinic is dedicated to providing exceptional patient care, promoting community health, and upholding values of compassion, integrity, and excellence. We strive to empower individuals through accessible, high-quality healthcare, with a focus on improving overall well-being and fostering a healthier community.</p>
+         <p>Our platform is dedicated to connecting individuals with trusted specialized healthcare providers, making access to quality care simple and convenient. We focus on promoting well-being by helping people find the right professionals with ease, while upholding values of reliability, accessibility, and care. By streamlining the booking process, we empower individuals to take control of their health and support a stronger, healthier community.</p>
           <ul> 
             <li><a href="#"><i class="ri-heart-pulse-fill"></i>Healthcare Experts Network</a></li>
             <li><a href="#"><i class="ri-brain-fill"></i>Urgent Medical Assistance</a></li>
             <li><a href="#"><i class="ri-tooth-fill"></i>Essential Tools & Facilities</a></li>
             <li><a href="#"><i class="ri-capsule-fill"></i>Medical Strategy Advisors</a></li>
           </ul>
-          <a class="btn btn-md sub-btn" href="clinics.html">Our Clinics</a>
+         
           <div class="doctor-img d-none d-lg-block">
             <div class="row align-items-center"> 
               <div class="col-5">
                 <div class="img">
-                  <img class="img-fluid" src="../assets/images/about/1.jpg" alt="about-3">
+                  <img class="img-fluid" src="{{ asset('assets/clin/images/about/1.jpg') }}" alt="about-3">
                   <div class="play-icon">
                     <div class="icon-video"><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#video"><i class="ri-play-large-fill"></i></a></div>
                   </div>
@@ -101,7 +101,7 @@
                 <h4><span class="counter-count">100</span>+</h4>
                 <p class="f-light mb-0 mt-2">Expert Medical Professionals</p>
               </div>
-              <img class="outline-box" src="../assets/images/others/box/1.svg" alt="svg">
+              <img class="outline-box" src="{{ asset('assets/clin/images/others/box/1.svg') }}" alt="svg">
             </div>
           </div>
           <div class="col-lg-3 col-sm-6">
@@ -110,7 +110,7 @@
                 <h4><span class="counter-count">2000</span>+</h4>
                 <p class="f-light mb-0 mt-2">Patients Treated Annually</p>
               </div>
-              <img class="outline-box" src="../assets/images/others/box/2.svg" alt="svg">
+              <img class="outline-box" src="{{ asset('assets/clin/images/others/box/2.svg') }}" alt="svg">
             </div>
           </div>
           <div class="col-lg-3 col-sm-6">
@@ -119,7 +119,7 @@
                 <h4><span class="counter-count">40</span>+</h4>
                 <p class="f-light mb-0 mt-2">Partner Clinics Nationwide</p>
               </div>
-              <img class="outline-box" src="../assets/images/others/box/3.svg" alt="svg">
+              <img class="outline-box" src="{{ asset('assets/clin/images/others/box/3.svg') }}" alt="svg">
             </div>
           </div>
           <div class="col-lg-3 col-sm-6">
@@ -128,7 +128,7 @@
                 <h4><span class="counter-count">28</span>+</h4>
                 <p class="f-light mb-0 mt-2">Years of Experience</p>
               </div>
-              <img class="outline-box" src="../assets/images/others/box/4.svg" alt="svg">
+              <img class="outline-box" src="{{ asset('assets/clin/images/others/box/4.svg') }}" alt="svg">
             </div>
           </div>
         </div>
@@ -144,9 +144,9 @@
       <div class="col-xl-6 col-lg-5">
         <div class="about-two-content custom-sticky">
           <span>Our Mission</span>
-          <h3>Comprehensive Health Services and Medical Care Department</h3>
-          <p>The Comprehensive Health Services and Medical Care Department provides integrated medical care, including preventative services, diagnostic treatments, and specialized health interventions, aimed at improving overall patient health and well-being.</p>
-          <a class="btn btn-lg sec-btn-right" href="clinics.html">View Our Clinics<span> <i class="fa-solid fa-arrow-right"></i></span></a>
+          <h3>Making Specialized Healthcare Easy to Access</h3>
+          <p>We simplify the way people connect with specialized healthcare. Our platform brings together trusted clinics and professionals, helping you find the right care, book appointments effortlessly, and stay on track with your health journey, all in one place.</p>
+          <a class="btn btn-lg sec-btn-right" href="clinics.html">Explore Clinics<span> <i class="fa-solid fa-arrow-right"></i></span></a>
         </div>
       </div>
       <div class="col-xl-6 col-lg-7"> 
@@ -155,36 +155,36 @@
             <div class="about-two-box">
               <div class="content">
                 <div class="d-flex"> 
-                  <div class="flex-grow-1"><span><span></span>Sedatives</span><h4>Pharmaceuticals</h4></div>
-                  <div class="flex-shrink-0"><img class="img-fluid" src="../assets/images/about/icon/1.svg" alt="svg"></div>
+                  <div class="flex-grow-1"><span><span></span>Search</span><h4>Find the Right Specialist</h4></div>
+                  <div class="flex-shrink-0"><img class="img-fluid" src="{{ asset('assets/clin/images/about/icon/1.svg') }}" alt="svg"></div>
                 </div>
-                <div class="text"><p>Pharmaceuticals: Advancing global health through innovative drugs, research, clinical trials, and regulatory compliance.</p></div>
+                <div class="text"><p>Browse a wide range of verified healthcare providers and explore specialized services tailored to your needs.</p></div>
               </div>
-              <div class="img"><img class="img-fluid" src="../assets/images/about/3.jpg" alt="svg"></div>
+              <div class="img"><img class="img-fluid" src="{{ asset('assets/clin/images/about/3.jpg') }}" alt="svg"></div>
             </div>
           </div>
           <div class="col-12">
             <div class="about-two-box">
               <div class="content">
                 <div class="d-flex"> 
-                  <div class="flex-grow-1"><span><span></span>Dentist</span><h4>Dental Care</h4></div>
-                  <div class="flex-shrink-0"><img class="img-fluid" src="../assets/images/about/icon/2.svg" alt="svg"></div>
+                  <div class="flex-grow-1"><span><span></span>Book</span><h4>Schedule With Ease</h4></div>
+                  <div class="flex-shrink-0"><img class="img-fluid" src="{{ asset('assets/clin/images/about/icon/2.svg') }}" alt="svg"></div>
                 </div>
-                <div class="text"><p>Dental care involves regular brushing, flossing, professional cleanings, and check-ups to maintain oral health and prevent issues.</p></div>
+                <div class="text"><p>Select a convenient time and book your appointment in just a few steps, with or without creating an account.</p></div>
               </div>
-              <div class="img"><img class="img-fluid" src="../assets/images/about/4.jpg" alt="svg"></div>
+              <div class="img"><img class="img-fluid" src="{{ asset('assets/clin/images/about/4.jpg') }}" alt="svg"></div>
             </div>
           </div>
           <div class="col-12">
             <div class="about-two-box">
               <div class="content">
                 <div class="d-flex"> 
-                  <div class="flex-grow-1"><span><span></span>Orthopedic</span><h4>Orthopedic Care</h4></div>
-                  <div class="flex-shrink-0"><img class="img-fluid" src="../assets/images/about/icon/4.svg" alt="svg"></div>
+                  <div class="flex-grow-1"><span><span></span>Visit</span><h4>Get Care Confidently</h4></div>
+                  <div class="flex-shrink-0"><img class="img-fluid" src="{{ asset('assets/clin/images/about/icon/4.svg') }}" alt="svg"></div>
                 </div>
-                <div class="text"><p>Orthopedic concerns the diagnosis and treatment of musculoskeletal system disorders, including bones, joints, and muscles.</p></div>
+                <div class="text"><p>Attend your appointment and receive care directly from your chosen provider, with payments handled at the clinic.</p></div>
               </div>
-              <div class="img"><img class="img-fluid" src="../assets/images/about/6.jpg" alt="svg"></div>
+              <div class="img"><img class="img-fluid" src="{{ asset('assets/clin/images/about/6.jpg') }}" alt="svg"></div>
             </div>
           </div>
         </div>
@@ -194,82 +194,7 @@
 </section>
 
 <!-- Doctor Team Carousel -->
-<section> 
-  <div class="custom-container container"> 
-    <div class="swiper doctor-team-1">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <div class="doctor-team-box1">
-            <div class="img">
-              <img class="img-fluid" src="../assets/images/about/team/1.jpg" alt="team">
-              <ul class="social-icon">
-                <li><a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook-f"></i>Facebook</a></li>
-                <li><a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i>Instagram</a></li>
-                <li><a href="https://x.com/" target="_blank"><i class="fa-brands fa-x-twitter"></i>Twitter</a></li>
-                <li><a href="https://www.linkedin.com/" target="_blank"><i class="fa-brands fa-linkedin-in"></i>Linkedin</a></li>
-              </ul>
-            </div>
-            <div class="content">
-              <h6>Dr. Jessica Garcia</h6>
-              <p>Senior Physiotherapist</p>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="doctor-team-box1">
-            <div class="img">
-              <img class="img-fluid" src="../assets/images/about/team/2.jpg" alt="team-1">
-              <ul class="social-icon">
-                <li><a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook-f"></i>Facebook</a></li>
-                <li><a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i>Instagram</a></li>
-                <li><a href="https://x.com/" target="_blank"><i class="fa-brands fa-x-twitter"></i>Twitter</a></li>
-                <li><a href="https://www.linkedin.com/" target="_blank"><i class="fa-brands fa-linkedin-in"></i>Linkedin</a></li>
-              </ul>
-            </div>
-            <div class="content">
-              <h6>Dr. Laura Martinez</h6>
-              <p>Heart Specialist</p>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="doctor-team-box1">
-            <div class="img">
-              <img class="img-fluid" src="../assets/images/about/team/3.jpg" alt="team-2">
-              <ul class="social-icon">
-                <li><a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook-f"></i>Facebook</a></li>
-                <li><a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i>Instagram</a></li>
-                <li><a href="https://x.com/" target="_blank"><i class="fa-brands fa-x-twitter"></i>Twitter</a></li>
-                <li><a href="https://www.linkedin.com/" target="_blank"><i class="fa-brands fa-linkedin-in"></i>Linkedin</a></li>
-              </ul>
-            </div>
-            <div class="content">
-              <h6>Dr. Emily Brown</h6>
-              <p>Senior Physiotherapist</p>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="doctor-team-box1">
-            <div class="img">
-              <img class="img-fluid" src="../assets/images/about/team/4.jpg" alt="team-4">
-              <ul class="social-icon">
-                <li><a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook-f"></i>Facebook</a></li>
-                <li><a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i>Instagram</a></li>
-                <li><a href="https://x.com/" target="_blank"><i class="fa-brands fa-x-twitter"></i>Twitter</a></li>
-                <li><a href="https://www.linkedin.com/" target="_blank"><i class="fa-brands fa-linkedin-in"></i>Linkedin</a></li>
-              </ul>
-            </div>
-            <div class="content">
-              <h6>Dr. Lisa Johnson</h6>
-              <p>Pediatric Therapist</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <!-- Testimonials Section -->
 <section class="light-section"> 
@@ -292,7 +217,7 @@
                 <div class="quots"><span></span></div>
               </div>
             </div>
-            <div class="img"><img class="img-fluid" src="../assets/images/about/team/7.jpg" alt="team-7"></div>
+            <div class="img"><img class="img-fluid" src="{{ asset('assets/clin/images/about/team/7.jpg') }}" alt="team-7"></div>
           </div>
         </div>
         <div class="swiper-slide"> 
@@ -310,7 +235,7 @@
                 <div class="quots"><span></span></div>
               </div>
             </div>
-            <div class="img"><img class="img-fluid" src="../assets/images/about/team/8.jpg" alt="team-8"></div>
+            <div class="img"><img class="img-fluid" src="{{ asset('assets/clin/images/about/team/8.jpg') }}" alt="team-8"></div>
           </div>
         </div>
         <div class="swiper-slide"> 
@@ -328,7 +253,7 @@
                 <div class="quots"><span></span></div>
               </div>
             </div>
-            <div class="img"><img class="img-fluid" src="../assets/images/about/team/9.jpg" alt="team-9"></div>
+            <div class="img"><img class="img-fluid" src="{{ asset('assets/clin/images/about/team/9.jpg') }}" alt="team-9"></div>
           </div>
         </div>
       </div>

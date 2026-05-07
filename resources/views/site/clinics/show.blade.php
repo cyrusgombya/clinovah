@@ -3,356 +3,392 @@
 @section('title', $clinic->name . ' - Clinic Details')
 
 @section('content')
-<main class="main">
 
-  {{-- Page Title --}}
-  <div class="page-title">
-    <div class="heading">
-      <div class="container">
-        <div class="row d-flex justify-content-center text-center">
-          <div class="col-lg-8">
-            <h1 class="heading-title">{{ $clinic->name }}</h1>
+@php
+  $photoUrl = $clinic->photo_path
+    ? asset('storage/' . $clinic->photo_path)
+    : asset('assets/images/others/doctor/doctor_1.jpg');
 
-            {{-- show tagline first, fallback to short services excerpt --}}
-            <p class="mb-0">
-              {{ $clinic->tagline
-                  ?: ($clinic->services
-                        ? \Illuminate\Support\Str::limit($clinic->services, 180)
-                        : 'Clinic profile details will be updated soon. You can book an appointment and the clinic will confirm availability.') }}
-            </p>
+  $hasCoords = !empty($clinic->latitude) && !empty($clinic->longitude);
+
+  $destination = $hasCoords
+    ? ($clinic->latitude . ',' . $clinic->longitude)
+    : ($clinic->address ?: $clinic->name);
+
+  $destinationEncoded = urlencode($destination);
+  $googleEmbedSrc = "https://www.google.com/maps?q={$destinationEncoded}&output=embed";
+  $directionsUrl = "https://www.google.com/maps/dir/?api=1&destination={$destinationEncoded}";
+
+  $rawServices = $clinic->services ?? '';
+  $servicesParsed = collect(preg_split("/\r\n|\n|\r/", $rawServices))
+    ->map(fn ($s) => trim($s))
+    ->filter()
+    ->values()
+    ->map(function ($line) {
+      $parts = preg_split('/\s-\s/', $line, 2);
+
+      return [
+        'title' => trim($parts[0] ?? ''),
+        'text' => trim($parts[1] ?? ''),
+      ];
+    });
+@endphp
+
+<div class="breadcrumb-section">
+  <div class="img-overlay">
+    <div class="custom-container container">
+      <div class="row g-0">
+        <div class="col-12">
+          <div class="page-title">
+            <h3>{{ $clinic->name }}</h3>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="icon-breadcrumb">
+            <ol class="breadcrumb mb-0">
+              <li class="breadcrumb-item">
+                <a href="{{ route('site.home') }}">
+                  <svg>
+                    <use xlink:href="{{ asset('assets/svg/home1.svg#home') }}"></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="breadcrumb-item">
+                <a href="{{ route('clinics.index') }}">Clinics</a>
+              </li>
+              <li class="breadcrumb-item active">{{ $clinic->name }}</li>
+            </ol>
           </div>
         </div>
       </div>
     </div>
-
-    <nav class="breadcrumbs">
-      <div class="container">
-        <ol>
-          <li><a href="{{ route('site.home') }}">Home</a></li>
-          <li><a href="{{ route('clinics.index') }}">Clinics</a></li>
-          <li class="current">{{ $clinic->name }}</li>
-        </ol>
-      </div>
-    </nav>
   </div>
-  {{-- End Page Title --}}
+</div>
 
-  @php
-    $photoUrl = $clinic->photo_path
-      ? asset('storage/' . $clinic->photo_path)
-      : asset('assets/site/img/health/neurology-2.webp');
+<section>
+  <div class="custom-container container">
+    <div class="row team-details gy-lg-0 gy-sm-4 gy-3">
 
-    $hasCoords = !empty($clinic->latitude) && !empty($clinic->longitude);
+      <div class="col-xl-3 col-lg-4">
+        <div class="left-sidebar custom-sticky">
+          <div class="img">
+            <img class="img-fluid w-100" src="{{ $photoUrl }}" alt="{{ $clinic->name }}">
+          </div>
 
-    // destination for google maps
-    $destination = $hasCoords
-      ? ($clinic->latitude . ',' . $clinic->longitude)
-      : ($clinic->address ?: $clinic->name);
+          <div class="content">
+            <span class="sub-title">
+              <span class="dot"></span>{{ $clinic->tagline ?: 'Specialized Healthcare' }}
+            </span>
 
-    $destinationEncoded = urlencode($destination);
+            <h4>{{ $clinic->name }}</h4>
 
-    // embed URL (no API key)
-    $googleEmbedSrc = $hasCoords
-      ? "https://www.google.com/maps?q={$destinationEncoded}&output=embed"
-      : "https://www.google.com/maps?q={$destinationEncoded}&output=embed";
-
-    // directions URL
-    $directionsUrl = "https://www.google.com/maps/dir/?api=1&destination={$destinationEncoded}";
-  @endphp
-
-  {{-- Clinic Details Section --}}
-  <section id="clinic-details" class="department-details section">
-    <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-      <div class="row">
-        <div class="col-xl-6 col-lg-7">
-          <div class="department-hero" data-aos="fade-right" data-aos-delay="200">
-            <div class="badge-wrap">
-              <span class="specialty-badge">
-                {{ $clinic->price_range ?: 'General Dentistry' }}
-              </span>
-            </div>
-
-            <h1 class="department-title">
-              {{ $clinic->tagline ?? 'Quality Dental Care' }}
-            </h1>
-
-            <p class="department-intro">
+            <p>
               {{ $clinic->about
-                  ?? ($clinic->address
-                        ? "Located at {$clinic->address}."
-                        : 'Clinic profile details will be updated soon.') }}
+                ?? 'This clinic provides specialized healthcare services and allows patients to book appointments easily through the platform.' }}
             </p>
 
-            <div class="key-highlights">
-              <div class="highlight-item">
-                <span class="highlight-number">Hours</span>
-                <span class="highlight-text">
-                  {{ $clinic->working_hours ?: 'Working hours not provided yet.' }}
-                </span>
-              </div>
-
-              <div class="highlight-item">
-                <span class="highlight-number">
-                  {{ $clinic->dentists?->count() ?: '—' }}
-                </span>
-                <span class="highlight-text">Dentists</span>
-              </div>
-
-              <div class="highlight-item">
-                <span class="highlight-number">Contact</span>
-                <span class="highlight-text">
-                  {{ $clinic->phone ?: 'Phone not provided yet.' }}
-                </span>
-              </div>
-            </div>
-
-            <div class="action-group">
-              <a href="#booking" class="btn-primary">Book Appointment</a>
-              <a href="#directions" class="btn-secondary">
-                <span>Get Directions</span>
-                <i class="bi bi-geo-alt"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-xl-6 col-lg-5">
-          <div class="department-visual" data-aos="fade-left" data-aos-delay="300">
-            <div class="image-container">
-              {{-- ✅ Storefront photo --}}
-              <img src="{{ $photoUrl }}"
-                   alt="{{ $clinic->name }}"
-                   class="img-fluid primary-image">
-
-              <div class="floating-card" data-aos="zoom-in" data-aos-delay="500">
-                <div class="card-icon">
-                  <i class="bi bi-hospital"></i>
-                </div>
-                <div class="card-content">
-                  <h4>{{ $clinic->name }}</h4>
-                  <p>{{ $clinic->address ?: 'Address will be provided soon.' }}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {{-- ✅ Services overview (generated from clinic->services) --}}
-      <div class="services-overview" data-aos="fade-up" data-aos-delay="400">
-        <div class="row justify-content-center">
-          <div class="col-lg-8">
-            <div class="overview-header">
-              <h3>Services</h3>
-              <p>
-                {{ $clinic->services
-                    ? 'Explore services offered at this clinic.'
-                    : 'Services list will be updated soon. For now you can request an appointment and specify what you need.' }}
-              </p>
-            </div>
-          </div>
-        </div>
-
-        @php
-          $rawServices = $clinic->services ?? '';
-          $serviceLines = collect(preg_split("/\r\n|\n|\r/", $rawServices))
-              ->map(fn ($s) => trim($s))
-              ->filter()
-              ->values();
-
-          $icons = [
-              'bi bi-stars',
-              'bi bi-emoji-smile',
-              'bi bi-tools',
-              'bi bi-shield-check',
-              'bi bi-bandaid',
-              'bi bi-gem',
-              'bi bi-heart-pulse',
-              'bi bi-patch-check',
-              'bi bi-brightness-high',
-          ];
-
-          $servicesParsed = $serviceLines->map(function ($line, $idx) use ($icons) {
-              $parts = preg_split('/\s-\s/', $line, 2);
-              $title = trim($parts[0] ?? '');
-              $text  = trim($parts[1] ?? '');
-
-              return [
-                  'icon' => $icons[$idx % count($icons)],
-                  'title' => $title,
-                  'text' => $text,
-              ];
-          });
-        @endphp
-
-        <div class="row gy-4 services-grid">
-          @if ($servicesParsed->count())
-            @foreach ($servicesParsed as $i => $s)
-              <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="{{ 500 + ($i * 50) }}">
-                <div class="service-item">
-                  <div class="service-icon">
-                    <i class="{{ $s['icon'] }}"></i>
+            <ul class="details">
+              <li>
+                <div class="d-flex">
+                  <div class="flex-shrink-0">
+                    <div class="icon"><i class="ri-phone-fill"></i></div>
                   </div>
-                  <h4>{{ $s['title'] }}</h4>
-
-                  @if (!empty($s['text']))
-                    <p>{{ $s['text'] }}</p>
-                  @else
-                    <p class="text-muted">Service available at this clinic.</p>
-                  @endif
+                  <div class="flex-grow-1">
+                    <span>Phone Number :</span>
+                    <p>{{ $clinic->phone ?: 'Not provided yet' }}</p>
+                  </div>
                 </div>
-              </div>
-            @endforeach
-          @else
-            <div class="col-12">
-              <div class="service-item">
-                <h4>Services</h4>
-                <p class="mb-0">
-                  Services list will be updated soon. For now you can request an appointment and specify what you need.
-                </p>
-              </div>
-            </div>
-          @endif
+              </li>
+
+              <li>
+                <div class="d-flex">
+                  <div class="flex-shrink-0">
+                    <div class="icon"><i class="ri-mail-line"></i></div>
+                  </div>
+                  <div class="flex-grow-1">
+                    <span>Email Address :</span>
+                    <p>{{ $clinic->email ?: 'Not provided yet' }}</p>
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <div class="d-flex">
+                  <div class="flex-shrink-0">
+                    <div class="icon"><i class="ri-map-pin-line"></i></div>
+                  </div>
+                  <div class="flex-grow-1">
+                    <span>Address :</span>
+                    <p>{{ $clinic->address ?: 'Address not set' }}</p>
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <div class="d-flex">
+                  <div class="flex-shrink-0">
+                    <div class="icon"><i class="ri-time-line"></i></div>
+                  </div>
+                  <div class="flex-grow-1">
+                    <span>Working Hours :</span>
+                    <p>{{ $clinic->working_hours ?: 'Working hours not set' }}</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+
+            <a href="#booking" class="btn btn-md sub-btn w-100 mt-3">
+              Book Appointment
+            </a>
+          </div>
         </div>
       </div>
 
-      {{-- ✅ Directions / Map --}}
-      <div id="directions" class="expert-care-section" data-aos="fade-up" data-aos-delay="650">
-        <div class="row align-items-center">
-          <div class="col-lg-6" data-aos="fade-right" data-aos-delay="700">
-            <div class="expert-content">
-              <h3>Directions</h3>
-              <p class="lead mb-2">
-                {{ $clinic->address ?: 'Address not provided yet.' }}
-              </p>
+      <div class="col-xl-9 col-lg-8">
+        <div class="right-sidebar">
 
-              <p class="mb-4">
-                @if ($hasCoords)
-                  Location coordinates are available for accurate directions.
-                @else
-                  Directions will use the clinic address/name (add coordinates later for best accuracy).
-                @endif
-              </p>
+          <h2>About {{ $clinic->name }}</h2>
 
-              <a class="btn btn-primary" href="{{ $directionsUrl }}" target="_blank" rel="noopener">
-                Open Google Maps Directions
-              </a>
+          <p>
+            {{ $clinic->about
+              ?? ($clinic->address
+                ? "Located at {$clinic->address}, {$clinic->name} offers specialized healthcare services with a focus on convenience, accessibility, and patient care."
+                : "{$clinic->name} offers specialized healthcare services and makes it easy for patients to request appointments online.") }}
+          </p>
+
+          <p>
+            You can review clinic information, check available services, and request an appointment directly from this page. Payments are handled directly at the clinic.
+          </p>
+
+          <div class="row gy-4">
+            <div class="col-xxl-7 col-12">
+              <div class="skills-box">
+                <h4>Clinic Highlights</h4>
+                <p>Helpful details to guide your booking decision.</p>
+
+                <div class="progress-box">
+                  <div class="parent-skill">
+                    <div class="skill">
+                      <div class="progress" data-progress="96">
+                        <span class="progress-number">0%</span>
+                      </div>
+                    </div>
+                    <span>Simple Booking Process</span>
+                  </div>
+
+                  <div class="parent-skill">
+                    <div class="skill">
+                      <div class="progress" data-progress="91">
+                        <span class="progress-number">0%</span>
+                      </div>
+                    </div>
+                    <span>Specialized Healthcare Access</span>
+                  </div>
+
+                  <div class="parent-skill">
+                    <div class="skill">
+                      <div class="progress" data-progress="88">
+                        <span class="progress-number">0%</span>
+                      </div>
+                    </div>
+                    <span>Clinic-Based Payments</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xxl-5 col-12">
+              <div class="educational-box">
+                <h4>Quick Information</h4>
+                <p>Important clinic details at a glance.</p>
+
+                <ul>
+                  <li>
+                    <span></span>
+                    <div>
+                      <h6>Price Range</h6>
+                      <p>{{ $clinic->price_range ?: 'Not provided yet' }}</p>
+                    </div>
+                  </li>
+
+                  <li>
+                    <span></span>
+                    <div>
+                      <h6>Available Specialists</h6>
+                      <p>{{ $clinic->dentists?->count() ?: 'Not listed yet' }}</p>
+                    </div>
+                  </li>
+
+                  <li>
+                    <span></span>
+                    <div>
+                      <h6>Booking</h6>
+                      <p>Available with or without an account</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
 
-          <div class="col-lg-6" data-aos="fade-left" data-aos-delay="700">
-            <div class="expert-image" style="border-radius:16px; overflow:hidden;">
+          <div class="educational-box mt-4">
+            <h4>Services</h4>
+
+            @if ($servicesParsed->count())
+              <p>Explore some of the services offered at this clinic.</p>
+
+              <ul>
+                @foreach ($servicesParsed as $service)
+                  <li class="align-items-baseline">
+                    <span></span>
+                    <p>
+                      <strong>{{ $service['title'] }}</strong>
+                      @if (!empty($service['text']))
+                        - {{ $service['text'] }}
+                      @endif
+                    </p>
+                  </li>
+                @endforeach
+              </ul>
+            @else
+              <p>Services list will be updated soon. You can still request an appointment and specify what you need.</p>
+            @endif
+          </div>
+
+          <div class="educational-box mt-4">
+            <h4>Location & Directions</h4>
+            <p>{{ $clinic->address ?: 'Address not provided yet.' }}</p>
+
+            <div style="border-radius: 16px; overflow: hidden; margin-bottom: 15px;">
               <iframe
                 src="{{ $googleEmbedSrc }}"
                 width="100%"
-                height="380"
+                height="320"
                 style="border:0;"
                 allowfullscreen=""
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
-          </div>
-        </div>
-      </div>
 
-      {{-- Booking --}}
-      <div id="booking" class="expert-care-section" data-aos="fade-up" data-aos-delay="800">
-        <div class="row align-items-center">
-          <div class="col-lg-5" data-aos="fade-right" data-aos-delay="900">
-            <div class="expert-image">
-              <img src="{{ asset('assets/site/img/health/neurology-4.webp') }}"
-                   alt="Booking"
-                   class="img-fluid">
-            </div>
+            <a class="btn btn-md sub-btn-2" href="{{ $directionsUrl }}" target="_blank" rel="noopener">
+              Open Google Maps Directions
+            </a>
           </div>
 
-          <div class="col-lg-7" data-aos="fade-left" data-aos-delay="900">
-            <div class="expert-content">
-              <h3>Book an Appointment</h3>
-              <p class="lead">
-                Choose a date/time and optionally a preferred dentist. If you don’t choose one, the clinic can assign an available dentist.
-              </p>
+          <h4 id="booking" class="mb-4 mt-4">Book An Appointment</h4>
+
+          <form class="form-2" method="POST" action="{{ route('appointments.store', $clinic) }}">
+            @csrf
+
+            <div class="row gy-3">
 
               @guest
-                <div class="alert alert-info mb-0">
-                  Please <a href="{{ route('login') }}">login</a> or <a href="{{ route('register') }}">create an account</a> to book.
+                <div class="col-md-6">
+                  <label>Patient Name</label>
+                  <input
+                    type="text"
+                    name="patient_name"
+                    value="{{ old('patient_name') }}"
+                    placeholder="Your name"
+                    required>
+                  @error('patient_name')
+                    <small class="text-danger">{{ $message }}</small>
+                  @enderror
+                </div>
+
+                <div class="col-md-6">
+                  <label>Email Address</label>
+                  <input
+                    type="email"
+                    name="patient_email"
+                    value="{{ old('patient_email') }}"
+                    placeholder="Your email"
+                    required>
+                  @error('patient_email')
+                    <small class="text-danger">{{ $message }}</small>
+                  @enderror
+                </div>
+
+                <div class="col-md-6">
+                  <label>Phone Number</label>
+                  <input
+                    type="text"
+                    name="patient_phone"
+                    value="{{ old('patient_phone') }}"
+                    placeholder="Your phone number"
+                    required>
+                  @error('patient_phone')
+                    <small class="text-danger">{{ $message }}</small>
+                  @enderror
                 </div>
               @endguest
 
-              @auth
-                <form method="POST" action="{{ route('appointments.store', $clinic) }}">
-                  @csrf
+              <div class="col-md-6">
+                <label>Date & Time</label>
+                <input
+                  type="datetime-local"
+                  name="appointment_at"
+                  value="{{ old('appointment_at') }}"
+                  required>
+                @error('appointment_at')
+                  <small class="text-danger">{{ $message }}</small>
+                @enderror
+              </div>
 
-                  <div class="row">
-                    <div class="col-md-6 mb-3">
-                      <label for="appointment_at" class="form-label">Date & Time</label>
-                      <input type="datetime-local"
-                             name="appointment_at"
-                             id="appointment_at"
-                             class="form-control @error('appointment_at') is-invalid @enderror"
-                             value="{{ old('appointment_at') }}"
-                             required>
-                      @error('appointment_at')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                      @enderror
-                    </div>
+              <div class="col-md-6">
+                <label>Preferred Specialist</label>
+                <select name="dentist_id" class="form-select">
+                  <option value="">Any available specialist</option>
+                  @foreach ($clinic->dentists as $dentist)
+                    <option value="{{ $dentist->id }}" {{ old('dentist_id') == $dentist->id ? 'selected' : '' }}>
+                      {{ $dentist->full_name }}
+                    </option>
+                  @endforeach
+                </select>
+                @error('dentist_id')
+                  <small class="text-danger">{{ $message }}</small>
+                @enderror
+              </div>
 
-                    <div class="col-md-6 mb-3">
-                      <label for="dentist_id" class="form-label">Preferred Dentist (optional)</label>
-                      <select name="dentist_id" id="dentist_id" class="form-select @error('dentist_id') is-invalid @enderror">
-                        <option value="">Any available dentist</option>
-                        @foreach ($clinic->dentists as $dentist)
-                          <option value="{{ $dentist->id }}" {{ old('dentist_id') == $dentist->id ? 'selected' : '' }}>
-                            {{ $dentist->full_name }}
-                          </option>
-                        @endforeach
-                      </select>
-                      @error('dentist_id')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                      @enderror
-                    </div>
-                  </div>
+              <div class="col-md-6">
+                <label>Service</label>
+                <input
+                  type="text"
+                  name="service"
+                  value="{{ old('service') }}"
+                  placeholder="e.g. Consultation, scan, therapy...">
+                @error('service')
+                  <small class="text-danger">{{ $message }}</small>
+                @enderror
+              </div>
 
-                  <div class="mb-3">
-                    <label for="service" class="form-label">Service (optional)</label>
-                    <input type="text"
-                           name="service"
-                           id="service"
-                           class="form-control @error('service') is-invalid @enderror"
-                           value="{{ old('service') }}"
-                           placeholder="e.g. Cleaning, Filling, Braces...">
-                    @error('service')
-                      <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                  </div>
+              <div class="col-12">
+                <label>Notes</label>
+                <textarea
+                  name="notes"
+                  cols="30"
+                  rows="4"
+                  placeholder="Tell the clinic what you need...">{{ old('notes') }}</textarea>
+                @error('notes')
+                  <small class="text-danger">{{ $message }}</small>
+                @enderror
+              </div>
 
-                  <div class="mb-3">
-                    <label for="notes" class="form-label">Notes (optional)</label>
-                    <textarea name="notes"
-                              id="notes"
-                              class="form-control @error('notes') is-invalid @enderror"
-                              rows="3"
-                              placeholder="Any extra details...">{{ old('notes') }}</textarea>
-                    @error('notes')
-                      <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                  </div>
-
-                  <button type="submit" class="btn btn-primary">
-                    Submit Booking
-                  </button>
-                </form>
-              @endauth
+              <div class="col-12">
+                <button class="btn btn-md sub-btn" type="submit">
+                  Submit Booking
+                </button>
+              </div>
 
             </div>
-          </div>
+          </form>
+
         </div>
       </div>
 
     </div>
-  </section>
-  {{-- /Clinic Details Section --}}
+  </div>
+</section>
 
-</main>
 @endsection

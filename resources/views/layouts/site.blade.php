@@ -133,7 +133,7 @@
           <div class="row gy-3"> 
             <div class="col-xxl-2 col-xl-3 col-lg-3 col-md-4 col-sm-5">
               <div class="footer-content">
-                <div class="footer-logo"><a href="{{ route('site.home') }}"> <img class="img-fluid light" src="{{ asset('assets/clin/images/logo/logo2.svg') }}" alt="Logo"><img class="img-fluid dark" src="{{ asset('assets/clin/images/logo/white-logo2.svg') }}" alt="Logo"></a>
+                <div class="footer-logo"><a href="{{ route('site.home') }}"> <img class="img-fluid light" src="{{ asset('assets/clin/images/logo/clinovah.png') }}" alt="Logo"><img class="img-fluid dark" src="{{ asset('assets/clin/images/logo/white-logo2.svg') }}" alt="Logo"></a>
                   <p>Transforming access to dental and specialized care through intuitive platforms that simplify how patients find and connect.</p>
                 </div>
                 <ul> 
