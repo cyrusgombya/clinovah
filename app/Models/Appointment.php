@@ -8,27 +8,33 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Appointment extends Model
 {
     protected $fillable = [
-        'user_id',
-        'clinic_id',
-        'dentist_id',
-        'appointment_at',
-        'service',
-        'notes',
+    'user_id',
+    'clinic_id',
+    'dentist_id',
 
-        'status',
-        'assigned_at',
+    'patient_name',
+    'patient_email',
+    'patient_phone',
+    'booking_reference',
 
-        'cancelled_at',
-        'cancelled_by',
-        'cancellation_reason',
-        'cancellation_note',
+    'appointment_at',
+    'service',
+    'notes',
 
-        'confirmed_at',
-        'completed_at',
+    'status',
+    'assigned_at',
 
-        'no_show_at',
-        'no_show_marked_by',
-    ];
+    'cancelled_at',
+    'cancelled_by',
+    'cancellation_reason',
+    'cancellation_note',
+
+    'confirmed_at',
+    'completed_at',
+
+    'no_show_at',
+    'no_show_marked_by',
+];
 
     protected $casts = [
         'appointment_at' => 'datetime',

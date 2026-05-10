@@ -1,402 +1,548 @@
+
+
 @extends('layouts.site')
 
-@section('title', 'PHYSIC - Premium Doctor Template')
-@section('meta_description', 'PHYSIC')
-@section('meta_keywords', 'PHYSIC')
+@section('title', 'Clinovah | Care. Connect. Convenient.')
 
 @section('content')
-    <div class="loader-wrapper">
-      <div class="text-center"><img class="img-fluid" src="{{ asset('assets/clin/images/Loader.gif') }}" alt="loader"></div>
-      <div class="text-animation">
-        <svg>
-          <text x="50%" y="50%" dy=".35em" text-anchor="middle">Clinovah</text>
-        </svg>
+
+@push('styles')
+<style>
+  .cv-home-page {
+    background: var(--cv-bg);
+    overflow: hidden;
+  }
+
+  .cv-hero {
+    position: relative;
+    padding: 90px 0 70px;
+    background:
+      radial-gradient(circle at 12% 14%, rgba(255, 142, 7, 0.12), transparent 28%),
+      radial-gradient(circle at 88% 22%, rgba(14, 82, 63, 0.12), transparent 30%),
+      linear-gradient(180deg, #ffffff 0%, #f3fbf7 100%);
+  }
+
+  .cv-hero::after {
+    content: "";
+    position: absolute;
+    width: 520px;
+    height: 520px;
+    right: -210px;
+    top: 90px;
+    border-radius: 50%;
+    background: rgba(14, 82, 63, 0.08);
+    pointer-events: none;
+  }
+
+  .cv-hero-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .cv-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff;
+    border: 1px solid var(--cv-border);
+    color: var(--cv-green);
+    border-radius: 999px;
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: 800;
+    box-shadow: 0 12px 35px rgba(14, 82, 63, 0.08);
+  }
+
+  .cv-hero-title {
+    margin: 22px 0 18px;
+    max-width: 760px;
+    color: var(--cv-dark);
+    font-size: clamp(46px, 6.2vw, 86px);
+    line-height: 0.96;
+    letter-spacing: -3px;
+    font-weight: 950;
+  }
+
+  .cv-hero-title span {
+    color: var(--cv-orange);
+  }
+
+  .cv-hero-text {
+    max-width: 590px;
+    color: #40574f;
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  .cv-search-card {
+    max-width: 720px;
+    background: rgba(255, 255, 255, 0.94);
+    border: 1px solid var(--cv-border);
+    border-radius: 28px;
+    padding: 14px;
+    box-shadow: 0 24px 70px rgba(14, 82, 63, 0.1);
+    margin-bottom: 22px;
+  }
+
+  .cv-search-card .form-control {
+    min-height: 58px;
+    border-radius: 18px;
+    border: 1px solid #dce9e2;
+    padding: 0 18px;
+    box-shadow: none;
+  }
+
+  .cv-trust-line {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    color: #395248;
+    font-size: 14px;
+    font-weight: 800;
+    margin-top: 18px;
+  }
+
+  .cv-phone-wrap {
+    position: relative;
+    z-index: 2;
+  }
+
+  .cv-phone-card {
+    max-width: 410px;
+    margin-left: auto;
+    background: #fff;
+    border: 1px solid var(--cv-border);
+    border-radius: 34px;
+    padding: 16px;
+    box-shadow: 0 30px 90px rgba(14, 82, 63, 0.18);
+  }
+
+  .cv-phone-screen {
+    border-radius: 28px;
+    overflow: hidden;
+    background: #fbfdfb;
+    border: 1px solid #edf3ef;
+  }
+
+  .cv-app-head {
+    background: #fff;
+    padding: 18px;
+    border-bottom: 1px solid #edf3ef;
+  }
+
+  .cv-service-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+
+  .cv-service-mini {
+    background: #fff;
+    border: 1px solid #edf3ef;
+    border-radius: 18px;
+    padding: 12px 6px;
+    text-align: center;
+    color: #33554b;
+    font-size: 12px;
+    font-weight: 800;
+  }
+
+  .cv-mini-icon {
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    background: var(--cv-mint);
+    margin: 0 auto 7px;
+    font-size: 18px;
+  }
+
+  .cv-clinic-mini {
+    background: #fff;
+    border: 1px solid #edf3ef;
+    border-radius: 20px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .cv-clinic-image {
+    width: 62px;
+    height: 62px;
+    flex: 0 0 62px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #dcefe6, #fff1dc);
+  }
+
+  .cv-pill {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    background: var(--cv-mint);
+    color: var(--cv-green);
+    padding: 4px 8px;
+    font-size: 11px;
+    font-weight: 900;
+  }
+
+  .cv-section {
+    padding: 76px 0;
+  }
+
+  .cv-section-white {
+    background: #fff;
+  }
+
+  .cv-section-title {
+    max-width: 720px;
+    margin: 0 auto 38px;
+    text-align: center;
+  }
+
+  .cv-section-title h2 {
+    color: var(--cv-dark);
+    font-size: clamp(30px, 4vw, 48px);
+    line-height: 1.08;
+    letter-spacing: -1.5px;
+    font-weight: 950;
+  }
+
+  .cv-section-title p {
+    color: var(--cv-muted);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .cv-card {
+    height: 100%;
+    background: #fff;
+    border: 1px solid var(--cv-border);
+    border-radius: 28px;
+    padding: 26px;
+    box-shadow: 0 18px 55px rgba(14, 82, 63, 0.06);
+  }
+
+  .cv-card-icon {
+    width: 58px;
+    height: 58px;
+    border-radius: 20px;
+    background: var(--cv-mint);
+    color: var(--cv-green);
+    display: grid;
+    place-items: center;
+    font-size: 26px;
+    margin-bottom: 18px;
+  }
+
+  .cv-card.orange .cv-card-icon {
+    background: var(--cv-cream);
+    color: var(--cv-orange);
+  }
+
+  .cv-card h5 {
+    color: var(--cv-dark);
+    font-weight: 900;
+    margin-bottom: 8px;
+  }
+
+  .cv-card p {
+    color: var(--cv-muted);
+    margin-bottom: 0;
+    line-height: 1.65;
+  }
+
+  .cv-step-number {
+    width: 48px;
+    height: 48px;
+    border-radius: 17px;
+    background: var(--cv-orange);
+    color: #fff;
+    display: grid;
+    place-items: center;
+    font-weight: 950;
+    margin-bottom: 18px;
+  }
+
+  .cv-cta-box {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--cv-green), #07352a);
+    border-radius: 34px;
+    padding: 38px;
+    color: #fff;
+  }
+
+  .cv-cta-box::after {
+    content: "";
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    right: -80px;
+    top: -80px;
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .cv-cta-box h2 {
+    font-weight: 950;
+    letter-spacing: -1px;
+  }
+  
+  .cv-hero-doctor-card {
+  position: relative;
+  max-width: 560px;
+  margin-left: auto;
+}
+
+.cv-hero-doctor-img {
+  width: 100%;
+  height: 560px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 42px;
+  box-shadow: 0 34px 90px rgba(14, 82, 63, 0.18);
+  border: 10px solid #fff;
+}
+
+.cv-floating-card {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid var(--cv-border);
+  border-radius: 22px;
+  padding: 14px 16px;
+  box-shadow: 0 18px 45px rgba(14, 82, 63, 0.14);
+  backdrop-filter: blur(12px);
+}
+
+.cv-floating-card strong {
+  display: block;
+  color: var(--cv-dark);
+  font-size: 14px;
+  font-weight: 950;
+}
+
+.cv-floating-card span {
+  display: block;
+  color: var(--cv-muted);
+  font-size: 12px;
+  font-weight: 800;
+  margin-top: 2px;
+}
+
+.cv-floating-card-top {
+  top: 32px;
+  left: -24px;
+}
+
+.cv-floating-card-bottom {
+  right: -18px;
+  bottom: 34px;
+}
+
+@media (max-width: 991px) {
+  .cv-hero-doctor-card {
+    margin: 30px auto 0;
+  }
+
+  .cv-hero-doctor-img {
+    height: 460px;
+    border-radius: 34px;
+  }
+
+  .cv-floating-card-top {
+    left: 14px;
+  }
+
+  .cv-floating-card-bottom {
+    right: 14px;
+  }
+}
+
+@media (max-width: 575px) {
+  .cv-hero-doctor-img {
+    height: 360px;
+    border-width: 6px;
+    border-radius: 28px;
+  }
+
+  .cv-floating-card {
+    padding: 11px 13px;
+    border-radius: 18px;
+  }
+
+  .cv-floating-card strong {
+    font-size: 12px;
+  }
+
+  .cv-floating-card span {
+    font-size: 11px;
+  }
+}
+
+  @media (max-width: 991px) {
+    .cv-hero {
+      padding: 64px 0 54px;
+    }
+
+    .cv-phone-card {
+      margin: 34px auto 0;
+    }
+  }
+
+  @media (max-width: 575px) {
+    .cv-hero-title {
+      font-size: 48px;
+      letter-spacing: -2px;
+    }
+
+    .cv-search-card {
+      border-radius: 24px;
+    }
+
+    .cv-section {
+      padding: 54px 0;
+    }
+
+    .cv-cta-box {
+      padding: 28px;
+    }
+  }
+</style>
+@endpush
+
+<main class="cv-home-page">
+  <section class="cv-hero">
+    <div class="container cv-hero-content">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <span class="cv-badge">⚡ Book trusted care in under 2 minutes</span>
+
+          <h1 class="cv-hero-title">
+            Healthcare made simple. <span>Appointments made easy.</span>
+          </h1>
+
+          <p class="cv-hero-text">
+            Find verified clinics near you, choose a time that works, and book your appointment without long calls, queues, or confusion.
+          </p>
+
+          <div class="cv-search-card">
+            <form action="{{ route('clinics.index') }}" method="GET" class="row g-2 align-items-center">
+              <div class="col-lg">
+                <input type="text" name="q" class="form-control" placeholder="Find a clinic or service">
+              </div>
+              <div class="col-lg-auto d-grid">
+                <button type="submit" class="cv-btn-orange">Find a Clinic</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="d-flex flex-wrap gap-3">
+            <a href="{{ route('clinics.index') }}" class="cv-btn-green">Start Booking</a>
+            <a href="#how-it-works" class="cv-btn-light">How it Works</a>
+          </div>
+
+          <div class="cv-trust-line">
+            <span>✅ Verified clinics</span>
+            <span>🔔 Smart reminders</span>
+            <span>📍 Nearby options</span>
+          </div>
+        </div>
+
+        <div class="col-lg-6 cv-phone-wrap">
+  <div class="cv-hero-doctor-card">
+    <img 
+      src="{{ asset('assets/clin/images/hero/doctor.png') }}" 
+      alt="Friendly Clinovah doctor" 
+      class="cv-hero-doctor-img"
+    >
+
+    <div class="cv-floating-card cv-floating-card-top">
+      <strong>✅ Verified clinics</strong>
+      <span>Trusted care near you</span>
+    </div>
+
+    <div class="cv-floating-card cv-floating-card-bottom">
+      <strong>📅 Easy booking</strong>
+      <span>Choose a time that works</span>
+    </div>
+  </div>
+</div>
       </div>
     </div>
-    <section class="p-0 home-section style-2">
-      <div class="custom-container container">
-        <div class="home-bg-img">
-          <div class="row align-items-center">
-            <div class="col-lg-7"> 
-              <div class="heading-title">Better
-                <ul> 
-                  <li> <img class="img-fluid" src="{{ asset('assets/clin/images/layout-2/home/1.jpg') }}" alt="home-1"></li>
-                  <li> <img class="img-fluid" src="{{ asset('assets/clin/images/layout-2/home/2.jpg') }}" alt="home-2"></li>
-                  <li> <img class="img-fluid" src="{{ asset('assets/clin/images/layout-2/home/3.jpg') }}" alt="home-3"></li>
-                </ul>Care Begins With The Right Connection<img class="img-fluid" src="{{ asset('assets/clin/images/layout-2/home/4.jpg') }}" alt="home-4">
-              </div>
-              <p>Every health journey is unique, and finding the right expert shouldn’t be complicated. Discover verified specialists, explore services, and schedule visits in just a few clicks. Quality care is now within reach.</p><a class="btn btn-lg sec-btn-right" href="{{ route('clinics.index') }}">
-                 Discover<span> <i class="fa-solid fa-arrow-right"> </i></span></a>
-              <div class="row"> 
-                <div class="col-md-7 col-10">
-                  <div class="dental-slider-box">
-                    <div class="swiper-pagination dental-pagination"></div>
-                    <div class="swiper dental-slider"> 
-                      <div class="swiper-wrapper">
-                        <div class="swiper-slide"><a href="element_book-appointment.html"> <img class="img-fluid rounded" src="{{ asset('assets/clin/images/sli-1.jpg') }}" alt="slider"></a></div>
-                        <div class="swiper-slide"> <a href="element_book-appointment.html"> <img class="img-fluid rounded" src="{{ asset('assets/clin/images/sli-2.jpg') }}" alt="slider-1"></a></div>
-                        <div class="swiper-slide"> <a href="element_book-appointment.html"> <img class="img-fluid rounded" src="{{ asset('assets/clin/images/sli-3.jpg') }}" alt="slider-3"></a></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-5"> 
-              <div class="eye-img"> <img class="img-fluid" src="{{ asset('assets/clin/images/doc.webp') }}" alt="other">
-                <div class="eye-box">
-                  <div class="box-1"> 
-                    <div class="content-box"> 
-                      <div class="bg-color"> <span>Available Doctor</span>
-                        <ul> 
-                          <li> <img class="img-fluid" src="{{ asset('assets/clin/images/layout-6/3.png') }}" alt="other">
-                            <div>  
-                              <h6>Ralph Edwards</h6>
-                              <p>Tajikistan</p>
-                            </div>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="box-2"> 
-                    <div class="content-box"> 
-                      <div class="bg-color"> <span>Available Doctor</span>
-                        <ul> 
-                          <li> <img class="img-fluid" src="{{ asset('assets/clin/images/layout-6/3.png') }}" alt="other">
-                            <div>  
-                              <h6>Ralph Edwards</h6>
-                              <p>Tajikistan</p>
-                            </div>
-                          </li>
-                          <li> <img class="img-fluid" src="{{ asset('assets/clin/images/layout-6/4.png') }}" alt="other">
-                            <div> 
-                              <h6>Dianne Russell</h6>
-                              <p>South Africa</p>
-                            </div>
-                          </li>
-                        </ul>
-                        <button class="btn">Book Appointment</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <section class="featured-hospitals">
-    <div class="custom-container container">
-        <div class="row">
-            <div class="col-12">
-                <div class="title-2">
-                   
-                    <h2>Top Healthcare Facilities</h2>
-                </div>
-            </div>
-        </div>
-        <div class="row gy-4">
-            <!-- Hospital 1: Tashkent Medical Park -->
-            <div class="col-lg-4 col-md-6">
-                <div class="hospital-list">
-                    <div class="d-flex">
-                        <div class="hospital-logo">
-                            <img class="img-fluid" src="../assets/images/others/dummy-logo/1.png" alt="hospital-icon">
-                        </div>
-                        <div class="hospital-content">
-                            <h6>Micheals Dental</h6>
-                            <ul class="rating">
-                                <li><i class="ri-star-s-fill"></i><i class="ri-star-s-fill"></i><i class="ri-star-s-fill"></i><i class="ri-star-s-fill"></i><i class="ri-star-s-fill"></i></li>
-                                <li>23 reviews</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <ul class="address-box">
-                        <li><i class="ri-time-line"></i>Mon – Sat: 09:00 to 20:00</li>
-                        <li><i class="ri-question-line"></i>Nansana</li>
-                    </ul>
-                    <div class="button-group">
-                        <a class="btn btn-fill" href="{{ route('clinics.index') }}">More Details</a>
-                        <a class="btn btn-outline" href="{{ route('clinics.index') }}"><i class="ri-send-plane-line"></i></a>
-                        <a class="btn btn-outline" href="{{ route('clinics.index') }}"><i class="ri-phone-line"></i></a>
-                    </div>
-                </div>
-            </div>
+  </section>
 
-            <!-- Hospital 2: CityCare Children's Hospital -->
-            <div class="col-lg-4 col-md-6">
-                <div class="hospital-list">
-                    <div class="d-flex">
-                        <div class="hospital-logo">
-                            <img class="img-fluid" src="../assets/images/others/dummy-logo/2.png" alt="hospital-icon">
-                        </div>
-                        <div class="hospital-content">
-                            <h6>CityCare Children's Hospital</h6>
-                            <ul class="rating">
-                                <li><i class="ri-star-s-fill"></i><i class="ri-star-s-fill"></i><i class="ri-star-s-fill"></i><i class="ri-star-s-fill"></i><i class="ri-star-s-fill"></i></li>
-                                <li>45 reviews</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <ul class="address-box">
-                        <li><i class="ri-time-line"></i>Everyday: 08:00 to 21:00</li>
-                        <li><i class="ri-question-line"></i>Kololo</li>
-                    </ul>
-                    <div class="button-group">
-                        <a class="btn btn-fill" href="{{ route('clinics.index') }}">More Details</a>
-                        <a class="btn btn-outline" href="{{ route('clinics.index') }}"><i class="ri-send-plane-line"></i></a>
-                        <a class="btn btn-outline" href="{{ route('clinics.index') }}"><i class="ri-phone-line"></i></a>
-                    </div>
-                </div>
-            </div>
+  <section class="cv-section" id="services">
+    <div class="container">
+      <div class="cv-section-title">
+        <h2>Book the care you need, faster</h2>
+        <p>Clinovah keeps the experience light, clear, and friendly, especially on mobile.</p>
+      </div>
 
-            <!-- Hospital 3: HeartPlus Cardiology Center -->
-            <div class="col-lg-4 col-md-6">
-                <div class="hospital-list">
-                    <div class="d-flex">
-                        <div class="hospital-logo">
-                            <img class="img-fluid" src="../assets/images/others/dummy-logo/4.png" alt="hospital-icon">
-                        </div>
-                        <div class="hospital-content">
-                            <h6>Nalongos General Hospital</h6>
-                            <ul class="rating">
-                                <li><i class="ri-star-s-fill"></i><i class="ri-star-s-fill"></i><i class="ri-star-s-fill"></i><i class="ri-star-s-fill"></i><i class="ri-star-s-fill"></i></li>
-                                <li>58 reviews</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <ul class="address-box">
-                        <li><i class="ri-time-line"></i>Mon – Sat: 09:00 to 20:00</li>
-                        <li><i class="ri-question-line"></i>Masaka</li>
-                    </ul>
-                    <div class="button-group">
-                        <a class="btn btn-fill" href="{{ route('clinics.index') }}">More Details</a>
-                        <a class="btn btn-outline" href="{{ route('clinics.index') }}"><i class="ri-send-plane-line"></i></a>
-                        <a class="btn btn-outline" href="{{ route('clinics.index') }}"><i class="ri-phone-line"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3"><div class="cv-card"><div class="cv-card-icon">🩺</div><h5>General Practice</h5><p>Find nearby clinics for everyday consultation and outpatient care.</p></div></div>
+        <div class="col-md-6 col-lg-3"><div class="cv-card orange"><div class="cv-card-icon">🦷</div><h5>Dental Care</h5><p>Book extractions, cleaning, fillings, and routine dental visits.</p></div></div>
+        <div class="col-md-6 col-lg-3"><div class="cv-card"><div class="cv-card-icon">👶</div><h5>Maternal Health</h5><p>Access antenatal care, child health, and family clinic services.</p></div></div>
+        <div class="col-md-6 col-lg-3"><div class="cv-card orange"><div class="cv-card-icon">🧪</div><h5>Lab & Diagnostics</h5><p>Discover facilities offering tests and diagnostic support.</p></div></div>
+      </div>
     </div>
-</section>
-        <div class="marquee">
-          <div class="marquee__item">
-            <h4 class="animation-text">Dental Care</h4>
+  </section>
+
+  <section class="cv-section cv-section-white" id="how-it-works">
+    <div class="container">
+      <div class="cv-section-title">
+        <h2>Three steps from search to booked</h2>
+        <p>No long registration maze. No dead ends. Just a clear path to care.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4"><div class="cv-card"><div class="cv-step-number">1</div><h5>Search nearby clinics</h5><p>Search by clinic name, service, location, or available time.</p></div></div>
+        <div class="col-md-4"><div class="cv-card"><div class="cv-step-number">2</div><h5>Pick a time slot</h5><p>Choose available dates and times without calling reception first.</p></div></div>
+        <div class="col-md-4"><div class="cv-card"><div class="cv-step-number">3</div><h5>Confirm your booking</h5><p>Get your booking reference and reminders before your visit.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cv-section" id="clinics">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-5">
+          <div class="cv-section-title text-lg-start mb-4">
+            <h2>Designed around trust</h2>
+            <p>Patients need confidence before they book. Clinovah should make verified clinics, clear appointment times, and reminders feel obvious.</p>
           </div>
-          <div class="marquee__item">
-            <h4 class="animation-text">Heart Care</h4>
-          </div>
-          <div class="marquee__item">
-            <h4 class="animation-text">Dental Care</h4>
+          <a href="{{ route('clinics.index') }}" class="cv-btn-green">Explore Clinics</a>
+        </div>
+
+        <div class="col-lg-7">
+          <div class="row g-3">
+            <div class="col-sm-6"><div class="cv-card"><h5>✅ Verified Clinics</h5><p>Clinics can be approved before becoming visible to patients.</p></div></div>
+            <div class="col-sm-6"><div class="cv-card"><h5>🔔 Smart Reminders</h5><p>Patients receive reminders before appointment time.</p></div></div>
+            <div class="col-sm-6"><div class="cv-card"><h5>📍 Nearby Alternatives</h5><p>No availability should guide users toward other options.</p></div></div>
+            <div class="col-sm-6"><div class="cv-card"><h5>🛡️ Simple & Private</h5><p>Short forms, clear statuses, and minimal patient details.</p></div></div>
           </div>
         </div>
       </div>
-    </section>
-    <section>
-      <div class="custom-container container">
-        <div class="row g-xl-5 gy-4">
-          <div class="col-xl-4 col-md-6"> 
-            <div class="service-details"> 
-              <div class="service-img"> <img class="img-fluid" src="{{ asset('assets/clin/images/layout-2/service/1.png') }}" alt="service-1"></div>
-              <div class="service-content"> <a href="service-2.html">
-                  <h4>Dental Care </h4></a>
-                <p>Dental Care that will make your smile shine from ear to ear. With trusted verified profesionals </p><a class="btn btn-md sub-btn" href="service-2.html">Learn more </a>
-              </div>
-            </div>
+    </div>
+  </section>
+
+  <section class="pb-5">
+    <div class="container">
+      <div class="cv-cta-box">
+        <div class="row align-items-center g-4 position-relative">
+          <div class="col-lg-8">
+            <h2>Ready to book healthcare without the headache?</h2>
+            <p class="mb-0 text-white-50">Start with a clinic search and let Clinovah guide the patient from discovery to confirmation.</p>
           </div>
-          <div class="col-xl-4 col-md-6"> 
-            <div class="service-details"> 
-              <div class="label-img"><img class="img-fluid" src="{{ asset('assets/clin/images/layout-2/service/shape.png') }}" alt="shape"><span>New</span></div>
-              <div class="service-img"> <img class="img-fluid" src="{{ asset('assets/clin/images/layout-2/service/2.png') }}" alt="service-2"></div>
-              <div class="service-content"><a href="service-2.html"> 
-                  <h4>Pediatric Care</h4></a>
-                <p>Pediatric care focuses on the health and well-being of children from birth through adolescence, ensuring proper growth, development, and disease prevention.</p><a class="btn btn-md sub-btn" href="service-2.html">Learn more </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-4 col-md-6">
-            <div class="service-details"> 
-              <div class="service-img"> <img class="img-fluid" src="{{ asset('assets/clin/images/layout-2/service/3.png') }}" alt="service-3"></div>
-              <div class="service-content"> <a href="service-2.html">
-                  <h4>Heart Clinicis</h4></a>
-                <p>A Pick from our heart specialists to keep that jog running with a healthy heart.</p><a class="btn btn-md sub-btn" href="service-2.html">Learn more </a>
-              </div>
-            </div>
+          <div class="col-lg-4 text-lg-end">
+            <a href="{{ route('clinics.index') }}" class="cv-btn-orange">Find a Clinic</a>
           </div>
         </div>
       </div>
-    </section>
-    <section class="about-us-section light-section"> 
-      <div class="custom-container container">
-        <div class="title">
-          <div class="dot-img"><span>Help</span><img class="img-fluid" src="{{ asset('assets/clin/images/title/title2.png') }}" alt="title2"></div>
-          <h2>How It Works</h2>
-        </div>
-        <div class="row"> 
-          <div class="col-lg-6 p-sm-0 col-12">
-            <div class="image-container">
-              <div class="ba-slider">
-                <div><img class="img-fluid" src="{{ asset('assets/clin/images/layout-2/abouts/2.jpg') }}" alt="images">
-                  <div class="resize"></div>
-                </div><span class="handle"><i class="ri-expand-left-right-line"></i></span>
-              </div>
-              <div class="back-div"></div>
-            </div>
-          </div>
-          <div class="col-lg-6 p-sm-0 col-12">
-            <div class="about-us-details">
-              <div class="d-flex align-items-center gap-3">
-               
-              </div><a href="about-us.html">
-                <h4>Specialised Care at Your Fingertips, Dont stand in line  </h4></a>
-              <p>Accessing specialized healthcare is simple and convenient. Search for the care you need and explore trusted clinics and professionals available on the platform. Choose a provider that suits you, pick a convenient date and time, and book your appointment in just a few steps.</p>
-              <div class="d-flex align-items-center gap-3"><a class="btn btn-md sub-btn" href="{{ route('site.about') }}">Read more</a><a class="btn btn-md sub-btn-2" href="{{ route('clinics.index') }}">Explore Clinics</a></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-   
-    <section class="light-section"> 
-      <div class="custom-container container">
-        <div class="title">
-          <div class="dot-img"><span>Our</span><img class="img-fluid" src="{{ asset('assets/clin/images/title/title2.png') }}" alt="title2"></div>
-          <h2>Top Doctors</h2>
-        </div>
-        <div class="team-slider-box">
-          <div class="swiper doctor-team about-us-section"> 
-            <div class="swiper-wrapper">
-              <div class="swiper-slide"> 
-                <div class="doctor-team-box"> 
-                  <div class="img"> <img src="{{ asset('assets/clin/images/doctor/doctor_1.jpg') }}" alt="doctor_1"></div>
-                  <div class="doctor-details">
-                    <div class="d-flex align-items-center gap-3">
-                      <p>Dental Specialist</p>
-                      <div class="icon"> <img class="img-fluid" src="{{ asset('assets/clin/images/layout-2/abouts/broken-tooth.png') }}" alt="broken-tooth"></div>
-                    </div><a href="doctors-list.html"> 
-                      <h5>Advanced Equipment Best Dentists in ...</h5></a><span class="m-0">Spending 5 years with Clinovah Dr. Gombya has a satisfaction rate that rivals a lot and you can book him on our platform</span>
-                  </div>
-                  <div class="doctor-name">   
-                    <p>Dr. Gombya</p><i class="ri-add-fill"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide"> 
-                <div class="doctor-team-box"> 
-                  <div class="img"> <img src="{{ asset('assets/clin/images/doctor/doctor_2.jpg') }}" alt="doctor_2"></div>
-                  <div class="doctor-details">
-                    <div class="d-flex align-items-center gap-3">
-                      <p>Nutritionist</p>
-                      <div class="icon"> <img class="img-fluid" src="{{ asset('assets/clin/images/layout-2/abouts/broken-tooth.png') }}" alt="broken-tooth"></div>
-                    </div><a href="doctors-list.html">
-                      <h5>Treating Through Food</h5></a><span class="m-0">Any Gut problems and eating problems we have specialists for you in every run and walk of your health journey.</span>
-                  </div>
-                  <div class="doctor-name">   
-                    <p>Dr. Annet</p><i class="ri-add-fill"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide"> 
-                <div class="doctor-team-box"> 
-                  <div class="img"> <img src="{{ asset('assets/clin/images/doctor/doctor_1.jpg') }}" alt="doctor_1"></div>
-                  <div class="doctor-details">
-                    <div class="d-flex align-items-center gap-3">
-                      <p>Dental Specialist</p>
-                      <div class="icon"> <img class="img-fluid" src="{{ asset('assets/clin/images/layout-2/abouts/broken-tooth.png') }}" alt="broken-tooth"></div>
-                    </div><a href="doctors-list.html">
-                      <h5>Exploring Effective Alternatives to Surgery</h5></a><span class="m-0">Non-surgical interventions encompass a range of treatments like medication management, lifestyle modifications, physical therapy, and minimally invasive procedures, offering effective alternatives to surgical options for various medical conditions.</span>
-                  </div>
-                  <div class="doctor-name">   
-                    <p>Dr. Marchel</p><i class="ri-add-fill"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide"> 
-                <div class="doctor-team-box"> 
-                  <div class="img"> <img src="{{ asset('assets/clin/images/doctor/doctor_2.jpg') }}" alt="doctor_2"></div>
-                  <div class="doctor-details">
-                    <div class="d-flex align-items-center gap-3">
-                      <p>Dental Specialist</p>
-                      <div class="icon"> <img class="img-fluid" src="{{ asset('assets/clin/images/layout-2/abouts/broken-tooth.png') }}" alt="broken-tooth"></div>
-                    </div><a href="doctors-list.html">
-                      <h5>Importance of Heart Health</h5></a><span class="m-0">Understanding the importance of heart health is crucial for longevity. Regular exercise, a balanced diet, and managing stress can significantly reduce the risk of heart disease and promote overall well-being.</span>
-                  </div>
-                  <div class="doctor-name">   
-                    <p>Dr. Marchel</p><i class="ri-add-fill"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-flex-2">
-            <div class="swiper-button-prev team-button-prev"></div>
-            <div class="swiper-button-next team-button-next"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section>
-      <div class="custom-container container"> 
-        <div class="title">
-         
-          <h2>Our Clinics  </h2>
-        </div>
-        <div class="row gy-4 gx-4 animated-thumbnails-gallery">
-          <div class="col-xl-3 col-md-4 col-sm-6"> 
-            <div class="surgery-box lg-item" data-src="{{ asset('assets/clin/images/layout-2/surgery/1.jpg') }}"> <img class="img-fluid w-100" src="{{ asset('assets/clin/images/layout-2/surgery/1.jpg') }}" alt="surgery-1">
-              <div class="surgery-details"><a href="sortable-list.html">Surgery</a><i class="ri-add-fill"> </i></div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-md-4 col-sm-6">
-            <div class="surgery-box lg-item" data-src="{{ asset('assets/clin/images/layout-2/surgery/2.jpg') }}"> <img class="img-fluid w-100" src="{{ asset('assets/clin/images/layout-2/surgery/2.jpg') }}" alt="surgery-2">
-              <div class="surgery-details"> <a href="sortable-list.html">Surgery</a><i class="ri-add-fill"></i></div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-md-4 col-sm-6"> 
-            <div class="surgery-box lg-item" data-src="{{ asset('assets/clin/images/layout-2/surgery/3.jpg') }}"> <img class="img-fluid w-100" src="{{ asset('assets/clin/images/layout-2/surgery/3.jpg') }}" alt="surgery-3">
-              <div class="surgery-details"> <a href="sortable-list.html">Surgery</a><i class="ri-add-fill"></i></div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-md-4 col-sm-6"> 
-            <div class="surgery-box lg-item" data-src="{{ asset('assets/clin/images/layout-2/surgery/4.jpg') }}"> <img class="img-fluid w-100" src="{{ asset('assets/clin/images/layout-2/surgery/4.jpg') }}" alt="surgery-4">
-              <div class="surgery-details"> <a href="sortable-list.html">Surgery</a><i class="ri-add-fill"></i></div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-md-4 col-sm-6"> 
-            <div class="surgery-box lg-item" data-src="{{ asset('assets/clin/images/layout-2/surgery/5.jpg') }}"> <img class="img-fluid w-100" src="{{ asset('assets/clin/images/layout-2/surgery/5.jpg') }}" alt="surgery-5">
-              <div class="surgery-details"> <a href="sortable-list.html">Surgery</a><i class="ri-add-fill"></i></div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-md-4 col-sm-6"> 
-            <div class="surgery-box lg-item" data-src="{{ asset('assets/clin/images/layout-2/surgery/6.jpg') }}"> <img class="img-fluid w-100" src="{{ asset('assets/clin/images/layout-2/surgery/6.jpg') }}" alt="surgery-6">
-              <div class="surgery-details"> <a href="sortable-list.html">Surgery</a><i class="ri-add-fill"></i></div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-md-4 col-sm-6"> 
-            <div class="surgery-box lg-item" data-src="{{ asset('assets/clin/images/layout-2/surgery/7.jpg') }}"> <img class="img-fluid w-100" src="{{ asset('assets/clin/images/layout-2/surgery/7.jpg') }}" alt="surgery-7">
-              <div class="surgery-details"> <a href="sortable-list.html">Surgery</a><i class="ri-add-fill"></i></div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-md-4 col-sm-6"> 
-            <div class="surgery-box lg-item" data-src="{{ asset('assets/clin/images/layout-2/surgery/8.jpg') }}"> <img class="img-fluid w-100" src="{{ asset('assets/clin/images/layout-2/surgery/8.jpg') }}" alt="surgery-8">
-              <div class="surgery-details"> <a href="sortable-list.html">Surgery </a><i class="ri-add-fill"></i></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-   
-    <section class="light-section"> 
-      <div class="custom-container container"> 
-        <div class="swiper bran-logo">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide text-center"> <a href="#"><img class="img-fluid" src="{{ asset('assets/clin/images/brand-logo/1.png') }}" alt="brand-logo"></a></div>
-            <div class="swiper-slide text-center"> <a href="#"><img class="img-fluid" src="{{ asset('assets/clin/images/brand-logo/2.png') }}" alt="brand-logo"></a></div>
-            <div class="swiper-slide text-center"> <a href="#"><img class="img-fluid" src="{{ asset('assets/clin/images/brand-logo/3.png') }}" alt="brand-logo"></a></div>
-            <div class="swiper-slide text-center"> <a href="#"><img class="img-fluid" src="{{ asset('assets/clin/images/brand-logo/4.png') }}" alt="brand-logo"></a></div>
-            <div class="swiper-slide text-center"> <a href="#"><img class="img-fluid" src="{{ asset('assets/clin/images/brand-logo/3.png') }}" alt="brand-logo"></a></div>
-          </div>
-        </div>
-      </div>
-    </section>
+    </div>
+  </section>
+</main>
+
 @endsection

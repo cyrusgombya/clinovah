@@ -80,7 +80,7 @@ class ClinicAppointmentController extends Controller
         return back()->withErrors(['dentist_id' => 'Selected dentist does not belong to this clinic.']);
     }
 
-    $slotMinutes = 20;
+    $slotMinutes = 120;
     $startAt = $appointment->appointment_at;
     $endAt = $startAt->copy()->addMinutes($slotMinutes);
 
