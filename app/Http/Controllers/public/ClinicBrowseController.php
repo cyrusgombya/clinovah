@@ -16,7 +16,7 @@ class ClinicBrowseController extends Controller
         return view('site.clinics.index', compact('clinics'));
     }
 
-   public function show(Clinic $clinic)
+  public function show(Clinic $clinic)
 {
     abort_unless($clinic->status === 'approved', 404);
 
