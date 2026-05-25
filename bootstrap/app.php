@@ -11,7 +11,6 @@ return Application::configure(basePath: dirname(__DIR__))
         commands: __DIR__.'/../routes/console.php',
         health: '/up',
         then: function () {
-            // ✅ Admin routes live here
             \Illuminate\Support\Facades\Route::prefix('admin')
                 ->middleware('web')
                 ->group(base_path('routes/admin.php'));
@@ -20,8 +19,9 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->alias([
             'clinic.auth' => RedirectIfClinicUnauthenticated::class,
-            // later we will add: 'admin.auth' => ...
         ]);
+
+        $middleware->throttleApi();
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

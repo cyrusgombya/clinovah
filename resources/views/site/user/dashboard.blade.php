@@ -43,7 +43,7 @@ Clinovah themed user dashboard
   }
 
   .cv-dash-card {
-    height: 100%;
+    
     background: #fff;
     border: 1px solid var(--cv-border);
     border-radius: 30px;
@@ -263,9 +263,12 @@ Clinovah themed user dashboard
                         {{ $a->appointment_at?->format('D, M d Y · h:i A') }}
                       </p>
                       <small class="text-muted">{{ $a->dentist?->full_name ?? 'Any available specialist' }}</small>
+                       <div class="text-muted small mt-1">
+                          Ref: <strong>{{ $a->booking_reference }}</strong>
+                        </div>
                     </div>
 
-                    <span class="cv-status-pill {{ $statusClass }}">{{ $a->status }}</span>
+                    <span class="cv-status-pill {{ $statusClass }}">{{ ucwords(str_replace('_', ' ', $a->status)) }}</span>
                   </div>
                 @endforeach
               </div>
@@ -296,7 +299,7 @@ Clinovah themed user dashboard
           </div>
 
           @if ($nextAppointment)
-            <div class="cv-dash-card mt-4">
+            <div class="cv-dash-card mt-4 mb-4">
               <h4 class="fw-bold mb-2">Next appointment</h4>
               <p class="text-muted mb-3">{{ $nextAppointment->clinic?->name }}</p>
               <div class="cv-appointment-date mb-3">

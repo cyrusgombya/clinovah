@@ -151,6 +151,9 @@ Clinovah themed user appointments list
                     <h5 class="fw-bold mb-1">{{ $a->clinic?->name ?? 'Clinic not available' }}</h5>
                     <p class="text-muted mb-1">{{ $a->appointment_at?->format('D, M d Y · h:i A') }}</p>
                     <small class="text-muted">{{ $a->dentist?->full_name ?? 'Any available specialist' }}</small>
+                      <div class="text-muted small mt-1">
+                        Ref: <strong>{{ $a->booking_reference }}</strong>
+                      </div>
                   </div>
 
                   <span class="cv-status-pill {{ $statusClass }}">{{ $a->status }}</span>

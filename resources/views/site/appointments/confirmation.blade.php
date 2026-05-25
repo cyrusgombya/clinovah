@@ -117,49 +117,80 @@
             <div class="alert alert-success rounded-4 border-0 fw-bold">{{ session('success') }}</div>
           @endif
 
-          <div class="row g-3 mb-4">
-            <div class="col-md-6">
-              <div class="cv-info-box">
-                <small>Booking Reference</small>
-                <p>{{ $appointment->booking_reference ?? 'CLN-' . str_pad($appointment->id, 5, '0', STR_PAD_LEFT) }}</p>
-              </div>
-            </div>
+         <div class="mb-4">
 
-            <div class="col-md-6">
-              <div class="cv-info-box">
-                <small>Status</small><br>
-                <span class="cv-status-pill">{{ $appointment->status }}</span>
-              </div>
-            </div>
+  <div class="text-center mb-4">
+    <small class="text-uppercase fw-bold text-muted d-block mb-2">
+      Your Booking Reference
+    </small>
 
-            <div class="col-md-6">
-              <div class="cv-info-box">
-                <small>Clinic</small>
-                <p>{{ $appointment->clinic?->name ?? 'Clinic not available' }}</p>
-              </div>
-            </div>
+    <div style="
+      background:linear-gradient(135deg,var(--cv-green),#07352a);
+      color:#fff;
+      border-radius:28px;
+      padding:26px 20px;
+      box-shadow:0 24px 70px rgba(14,82,63,.18);
+    ">
+      <div style="
+        font-size:clamp(28px,5vw,46px);
+        font-weight:950;
+        letter-spacing:2px;
+      ">
+        {{ $appointment->booking_reference ?? 'CLN-' . str_pad($appointment->id, 5, '0', STR_PAD_LEFT) }}
+      </div>
 
-            <div class="col-md-6">
-              <div class="cv-info-box">
-                <small>Date & Time</small>
-                <p>{{ $appointment->appointment_at?->format('D, M d Y · h:i A') }}</p>
-              </div>
-            </div>
+      <div class="mt-2" style="color:rgba(255,255,255,.72);font-weight:700;">
+        Save this reference to track your appointment later
+      </div>
+    </div>
+  </div>
 
-            <div class="col-md-6">
-              <div class="cv-info-box">
-                <small>Specialist</small>
-                <p>{{ $appointment->dentist?->full_name ?? 'Any available specialist' }}</p>
-              </div>
-            </div>
+  <div class="row g-3">
 
-            <div class="col-md-6">
-              <div class="cv-info-box">
-                <small>Service</small>
-                <p>{{ $appointment->service ?: 'Not specified' }}</p>
-              </div>
+    <div class="col-md-6">
+      <div class="cv-info-box">
+        <small>Status</small><br>
+        <span class="cv-status-pill">{{ $appointment->status }}</span>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="cv-info-box">
+        <small>Clinic</small>
+        <p>{{ $appointment->clinic?->name ?? 'Clinic not available' }}</p>
+      </div>
+    </div>
+
+          <div class="col-md-6">
+            <div class="cv-info-box">
+              <small>Date & Time</small>
+              <p>{{ $appointment->appointment_at?->format('D, M d Y · h:i A') }}</p>
             </div>
           </div>
+
+          <div class="col-md-6">
+            <div class="cv-info-box">
+              <small>Specialist</small>
+              <p>{{ $appointment->dentist?->full_name ?? 'Any available specialist' }}</p>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="cv-info-box">
+              <small>Service</small>
+              <p>{{ $appointment->service ?: 'Not specified' }}</p>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="cv-info-box">
+              <small>Need Help?</small>
+              <p>Track your booking anytime using your reference.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
 
           <div class="cv-next-box mb-4">
             <h4 class="fw-bold mb-2">What happens next?</h4>
@@ -172,7 +203,9 @@
             @auth
               <a href="{{ route('dashboard.appointments') }}" class="cv-btn-green">View My Bookings</a>
             @else
-              <a href="{{ route('register') }}" class="cv-btn-green">Create Account to Track Bookings</a>
+             <a href="{{ route('register') }}" class="cv-btn-light">
+                Create Account
+              </a>
             @endauth
 
             <a href="{{ route('clinics.index') }}" class="cv-btn-light">Find Another Clinic</a>

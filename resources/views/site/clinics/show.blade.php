@@ -522,6 +522,20 @@
               <div><span>Working Hours</span><p>{{ $clinic->working_hours ?: 'Working hours not set' }}</p></div>
             </div>
 
+            <div class="cv-contact-row">
+              <div class="cv-contact-icon"><i class="ri-calendar-check-line"></i></div>
+              <div>
+                <span>Booking Availability</span>
+                <p>
+                  @if(!empty($clinic->availability_days))
+                    {{ collect($clinic->availability_days)->map(fn($d) => ucfirst($d))->join(', ') }}
+                  @else
+                    Weekdays
+                  @endif
+                </p>
+              </div>
+            </div>
+
             <a href="#booking" class="cv-btn-orange w-100 mt-3">Book Appointment</a>
             <a href="{{ $directionsUrl }}" target="_blank" rel="noopener" class="cv-btn-light w-100 mt-2">Get Directions</a>
           </aside>
@@ -570,7 +584,9 @@
                   @endforeach
                 </div>
               @else
-                <p class="mb-0">Services list will be updated soon. You can still request an appointment and specify what you need.</p>
+               <p class="mb-0">
+  This clinic has not listed its services yet, but you can still request an appointment and describe what care you need during booking.
+</p>
               @endif
             </section>
 
@@ -594,9 +610,11 @@
 
             <section class="cv-booking-card" id="booking">
               <h3>Book an appointment</h3>
-              <p class="text-muted mb-4">Keep it short. Submit your details and the clinic can follow up on your request.</p>
+             <p class="text-muted mb-4">
+  Choose an available slot, submit your request, and the clinic will confirm your appointment. You can track your booking using your reference number.
+</p>
 
-              <form method="POST" action="{{ route('appointments.store', $clinic) }}">
+              <form method="POST" action="{{ route('appointments.store', $clinic) }}" id="bookingForm">
   @csrf
 
   <div class="row gy-3">
@@ -604,7 +622,7 @@
       <div class="col-12">
         <div class="p-3 rounded-4" style="background:#fff7ed;border:1px solid #ffd9b0;color:#9a4b00;">
           <strong>Booking as a guest</strong><br>
-          <small>You can book without an account. Later, we can let guests track bookings using their reference number.</small>
+          <small>You can book without an account and track your booking later using your reference number.</small>
         </div>
       </div>
 
@@ -646,7 +664,7 @@
         <small class="text-muted fw-bold">Showing the next 14 days</small>
       </div>
       <span class="cv-detail-pill">
-        <i class="ri-time-line"></i> 2-hour slots
+        <i class="ri-time-line"></i> Flexible clinic slots
       </span>
     </div>
 
@@ -654,7 +672,7 @@
 
     <div class="mt-4">
       <h5 class="fw-bold mb-1">Pick a time</h5>
-      <small class="text-muted fw-bold">Available between 8:00 AM and 5:00 PM</small>
+     <small class="text-muted fw-bold">Showing available times set by the clinic</small>
 
       <div class="cv-slot-times mt-3" id="slotTimes"></div>
     </div>
@@ -667,12 +685,17 @@
   <p class="text-muted mb-3">Here are other clinics you can try instead.</p>
 
   <div class="d-grid gap-2">
-    @foreach ($alternativeClinics as $alt)
+    @forelse (($alternativeClinics ?? collect()) as $alt)
       <a href="{{ route('clinics.show', $alt) }}#booking" class="cv-alt-card">
         <strong>{{ $alt->name }}</strong><br>
         <small class="text-muted">{{ $alt->address ?: 'Location not set' }}</small>
       </a>
-    @endforeach
+    @empty
+      <div class="cv-alt-card">
+        <strong>No alternatives yet</strong><br>
+        <small class="text-muted">Please check again later or contact the clinic directly.</small>
+      </div>
+    @endforelse
   </div>
 </div>
   </div>
@@ -706,7 +729,9 @@
     </div>
 
     <div class="col-12">
-      <button class="cv-btn-orange" type="submit">Submit Booking</button>
+      <button id="submitBookingBtn" class="cv-btn-orange" type="submit" disabled>
+  Select a Slot First
+</button>
     </div>
   </div>
 </form>
@@ -726,6 +751,15 @@ document.addEventListener('DOMContentLoaded', function () {
   const appointmentInput = document.getElementById('appointment_at');
   const selectedSlotText = document.getElementById('selectedSlotText');
   const alternativeClinicsBox = document.getElementById('alternativeClinicsBox');
+  const submitBookingBtn = document.getElementById('submitBookingBtn');
+  const bookingForm = document.getElementById('bookingForm');
+
+if (bookingForm && submitBookingBtn) {
+  bookingForm.addEventListener('submit', function () {
+    submitBookingBtn.disabled = true;
+    submitBookingBtn.textContent = 'Submitting...';
+  });
+}
 
   if (!slotDates || !slotTimes || !appointmentInput || !selectedSlotText) return;
 
@@ -796,6 +830,10 @@ document.addEventListener('DOMContentLoaded', function () {
         button.classList.add('active');
         selectedDate = dateValue;
         appointmentInput.value = '';
+        if (submitBookingBtn) {
+        submitBookingBtn.disabled = true;
+        submitBookingBtn.textContent = 'Select a Slot First';
+      }
 
         if (availableCount === 0) {
           selectedSlotText.textContent = 'No available slots on this day. Please choose another date.';
@@ -854,6 +892,10 @@ document.addEventListener('DOMContentLoaded', function () {
         button.classList.add('active');
         appointmentInput.value = slot.datetime;
         selectedSlotText.textContent = `Selected: ${readableDate(slot.date)} at ${slot.label}`;
+        if (submitBookingBtn) {
+          submitBookingBtn.disabled = false;
+          submitBookingBtn.textContent = 'Submit Booking';
+        }
       });
 
       slotTimes.appendChild(button);
@@ -880,7 +922,7 @@ if (alternativeClinicsBox) {
 }
 
       if (slots.length === 0) {
-        selectedSlotText.textContent = 'No slots available at this clinic right now.';
+        selectedSlotText.textContent = 'This clinic currently has no available booking slots. Try another day or explore nearby clinics below.';
         return;
       }
 

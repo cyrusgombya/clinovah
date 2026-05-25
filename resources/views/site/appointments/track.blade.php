@@ -47,18 +47,34 @@
             </form>
 
             @isset($appointment)
+              @php
+                $statusClass = match ($appointment->status) {
+                  'confirmed' => 'background:#e8f5ef;color:#0e523f;',
+                  'pending' => 'background:#fff7ed;color:#c05600;',
+                  'cancelled' => 'background:#fee2e2;color:#b91c1c;',
+                  'no_show' => 'background:#f1f5f9;color:#475569;',
+                  default => 'background:#e8f5ef;color:#0e523f;',
+                };
+              @endphp
+
               <div class="p-4 rounded-4" style="background:#fbfdfb;border:1px solid #e5eee8;">
-                <h4 class="fw-bold mb-3">Booking Details</h4>
+                <div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-4">
+                  <div>
+                    <small class="text-muted fw-bold text-uppercase">Booking Reference</small>
+                    <h2 class="fw-bold mb-0" style="color:#0e523f;letter-spacing:1px;">
+                      {{ $appointment->booking_reference }}
+                    </h2>
+                  </div>
+
+                  <span class="text-capitalize" style="{{ $statusClass }}border-radius:999px;padding:9px 14px;font-weight:950;">
+                    {{ str_replace('_', ' ', $appointment->status) }}
+                  </span>
+                </div>
 
                 <div class="row g-3">
                   <div class="col-md-6">
                     <small class="text-muted fw-bold">Clinic</small>
                     <p class="fw-bold mb-0">{{ $appointment->clinic?->name }}</p>
-                  </div>
-
-                  <div class="col-md-6">
-                    <small class="text-muted fw-bold">Status</small>
-                    <p class="fw-bold text-capitalize mb-0">{{ $appointment->status }}</p>
                   </div>
 
                   <div class="col-md-6">
@@ -75,11 +91,33 @@
                     <small class="text-muted fw-bold">Service</small>
                     <p class="fw-bold mb-0">{{ $appointment->service ?: 'Not specified' }}</p>
                   </div>
+                </div>
 
-                  <div class="col-md-6">
-                    <small class="text-muted fw-bold">Reference</small>
-                    <p class="fw-bold mb-0">{{ $appointment->booking_reference }}</p>
-                  </div>
+                <div class="mt-4 p-3 rounded-4" style="background:#fff;border:1px solid #e5eee8;">
+                  <strong>Next step:</strong>
+                  <span class="text-muted">
+                    @if($appointment->status === 'pending')
+                      The clinic is reviewing your request. Please keep this reference safe.
+                    @elseif($appointment->status === 'confirmed')
+                      Your appointment has been confirmed. Please arrive 10 minutes early.
+                    @elseif($appointment->status === 'cancelled')
+                      This booking was cancelled. You can search for another clinic.
+                    @else
+                      Keep this reference for your records.
+                    @endif
+                  </span>
+                </div>
+
+                <div class="d-flex flex-wrap gap-2 mt-4">
+                  @if($appointment->clinic)
+                    <a href="{{ route('clinics.show', $appointment->clinic) }}" class="cv-btn-green">
+                      View Clinic
+                    </a>
+                  @endif
+
+                  <a href="{{ route('clinics.index') }}" class="cv-btn-light">
+                    Find Another Clinic
+                  </a>
                 </div>
               </div>
             @endisset

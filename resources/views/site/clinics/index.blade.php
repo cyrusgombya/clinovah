@@ -1,8 +1,3 @@
-{{-- =========================================================
-FILE 1: resources/views/clinics/index.blade.php
-Friendly consumer Clinovah clinic listing page
-========================================================= --}}
-
 @extends('layouts.site')
 
 @section('title', 'Clinics | Clinovah')
@@ -233,7 +228,9 @@ Friendly consumer Clinovah clinic listing page
       <div class="cv-search-card-big">
         <div class="row g-3 align-items-center">
           <div class="col-lg-6">
-            <input id="q" type="search" class="form-control cv-input-soft" placeholder="Search clinics, services, address...">
+           <input id="q" type="search" name="q" class="form-control cv-input-soft"
+       placeholder="Search clinics, services, address..."
+       value="{{ request('q') }}">
           </div>
 
           <div class="col-md-6 col-lg-3">
@@ -287,7 +284,17 @@ Friendly consumer Clinovah clinic listing page
                 <a href="{{ route('clinics.show', $clinic) }}" class="d-block cv-clinic-photo-wrap mb-3">
                   <img src="{{ $photoUrl }}" alt="{{ $clinic->name }}">
                   <span class="cv-verified-badge"><i class="ri-verified-badge-fill"></i> Verified</span>
-                  <span class="cv-open-badge">Available today</span>
+                  @php
+                    $todayName = strtolower(now()->format('l'));
+
+                    $isOpenToday = collect($clinic->availability_days ?? [])
+                      ->map(fn ($d) => strtolower($d))
+                      ->contains($todayName);
+                  @endphp
+
+                  <span class="cv-open-badge">
+                    {{ $isOpenToday ? 'Open today' : 'Closed today' }}
+                  </span>
                 </a>
 
                 <div class="px-1">
@@ -318,8 +325,14 @@ Friendly consumer Clinovah clinic listing page
             <div class="col-12">
               <div class="cv-empty-state">
                 <div class="icon">🏥</div>
-                <h4 class="fw-bold">No clinics available yet</h4>
-                <p class="text-muted mb-0">Once approved clinics are added, they will appear here.</p>
+                              @if(request('q'))
+                  <h4 class="fw-bold">No clinics found for “{{ request('q') }}”</h4>
+                  <p class="text-muted mb-3">Try a different clinic name, service, or location.</p>
+                  <a href="{{ route('clinics.index') }}" class="cv-btn-orange">Clear Search</a>
+                @else
+                  <h4 class="fw-bold">No clinics available yet</h4>
+                  <p class="text-muted mb-0">Once approved clinics are added, they will appear here.</p>
+                @endif
               </div>
             </div>
           @endforelse
@@ -379,7 +392,11 @@ Friendly consumer Clinovah clinic listing page
           <a href="${detailsUrl}" class="d-block cv-clinic-photo-wrap mb-3">
             <img src="${photoUrl}" alt="${escapeHtml(c.name)}">
             <span class="cv-verified-badge"><i class="ri-verified-badge-fill"></i> Verified</span>
-            <span class="cv-open-badge">${distance ? `${distance} km away` : 'Available today'}</span>
+           <span class="cv-open-badge">
+             ${distance
+              ? `${distance} km away`
+              : (c.is_open_today ? 'Open today' : 'Closed today')}
+          </span>
           </a>
 
           <div class="px-1">
@@ -482,10 +499,8 @@ Friendly consumer Clinovah clinic listing page
   });
 
   btnClear.addEventListener('click', () => {
-    qInput.value = '';
-    status.textContent = '';
-    if (sortSelect.value === 'nearest') fetchNearClinics();
-  });
+  window.location.href = `{{ route('clinics.index') }}`;
+});
 
   qInput.addEventListener('keydown', (e) => {
     if (e.key !== 'Enter') return;

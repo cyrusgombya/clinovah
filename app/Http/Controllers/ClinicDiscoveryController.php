@@ -52,13 +52,31 @@ class ClinicDiscoveryController extends Controller
         $clinics = $query
             ->select([
                 'id', 'name', 'address', 'phone', 'working_hours', 'price_range', 'tagline', 'photo_path',
-                'latitude', 'longitude',
+                'latitude', 'longitude', 'availability_days',
             ])
             ->selectRaw("$haversine AS distance_km", [$lat, $lng, $lat])
             ->having('distance_km', '<=', $radiusKm)
             ->orderBy('distance_km', 'asc')
             ->limit(100)
-            ->get();
+            ->get()
+            ->map(function ($clinic) {
+
+                $todayName = strtolower(now()->format('l'));
+
+                $availableDays = collect(
+                    $clinic->availability_days ?? [
+                        'monday',
+                        'tuesday',
+                        'wednesday',
+                        'thursday',
+                        'friday',
+                    ]
+                )->map(fn ($d) => strtolower($d));
+
+                $clinic->is_open_today = $availableDays->contains($todayName);
+
+                return $clinic;
+            });
 
         return response()->json(['data' => $clinics]);
     }

@@ -3,59 +3,102 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+
   <title>@yield('title', 'Clinic Portal')</title>
 
-  {{-- Otika CSS (served from public/assets/admin/...) --}}
+  {{-- OTIKA CSS --}}
   <link rel="stylesheet" href="{{ asset('assets/admin/css/app.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/admin/css/style.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/admin/css/components.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/admin/css/custom.css') }}">
-  <link rel='shortcut icon' type='image/x-icon' href='{{ asset('admin/img/favicon.ico') }}' />
+
+  <link rel="shortcut icon"
+        type="image/x-icon"
+        href="{{ asset('assets/admin/img/favicon.ico') }}" />
+
+  <style>
+    /* Kill stuck loader overlays */
+    .loader,
+    .page-loader,
+    #loader,
+    #preloader,
+    .preloader,
+    .modal-backdrop {
+      display: none !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+    }
+
+    body.loaded {
+      overflow: auto !important;
+    }
+  </style>
 
   @stack('styles')
 </head>
 
-<body>
-  <div class="loader"></div>
-  <div id="app">
-    <div class="main-wrapper main-wrapper-1">
+<body class="loaded">
 
-      <div class="navbar-bg"></div>
+<div id="app">
 
-      {{-- Topbar --}}
-      @include('clinic.partials.topbar')
+  <div class="main-wrapper main-wrapper-1">
 
-      {{-- Sidebar --}}
-      @include('clinic.partials.sidebar')
+    <div class="navbar-bg"></div>
 
-      {{-- Main content --}}
-      <div class="main-content">
-        <section class="section">
-          @yield('content')
-        </section>
+    {{-- TOPBAR --}}
+    @include('clinic.partials.topbar')
 
-        {{-- Settings panel (optional) --}}
-        @include('clinic.partials.settings')
-      </div>
+    {{-- SIDEBAR --}}
+    @include('clinic.partials.sidebar')
 
-      {{-- Footer --}}
-      @include('clinic.partials.footer')
+    {{-- MAIN CONTENT --}}
+    <div class="main-content">
+
+      <section class="section">
+        @yield('content')
+      </section>
+
+      {{-- SETTINGS --}}
+      @include('clinic.partials.settings')
 
     </div>
+
+    {{-- FOOTER --}}
+    @include('clinic.partials.footer')
+
   </div>
 
-  {{-- General JS Scripts --}}
-  <script src="{{ asset('assets/admin/js/app.min.js') }}"></script>
+</div>
 
-  {{-- JS Libraries --}}
-  <script src="{{ asset('assets/admin/bundles/apexcharts/apexcharts.min.js') }}"></script>
+{{-- GENERAL JS --}}
+<script src="{{ asset('assets/admin/js/app.min.js') }}"></script>
 
-  {{-- Template JS File --}}
-  <script src="{{ asset('assets/admin/js/scripts.js') }}"></script>
+{{-- LIBRARIES --}}
+<script src="{{ asset('assets/admin/bundles/apexcharts/apexcharts.min.js') }}"></script>
 
-  {{-- Custom JS File --}}
-  <script src="{{ asset('assets/admin/js/custom.js') }}"></script>
+{{-- TEMPLATE JS --}}
+<script src="{{ asset('assets/admin/js/scripts.js') }}"></script>
 
-  @stack('scripts')
+{{-- CUSTOM JS --}}
+<script src="{{ asset('assets/admin/js/custom.js') }}"></script>
+
+<script>
+  // emergency cleanup for stuck overlays
+  document.addEventListener('DOMContentLoaded', function () {
+
+    document.body.classList.add('loaded');
+
+    document.querySelectorAll(
+      '.loader, .page-loader, #loader, #preloader, .preloader, .modal-backdrop'
+    ).forEach(el => {
+      el.remove();
+    });
+
+  });
+</script>
+
+@stack('scripts')
+
 </body>
 </html>

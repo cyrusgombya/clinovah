@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Appointment;
 use App\Models\Clinic;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,13 +13,10 @@ class ClinicDashboardController extends Controller
         /** @var Clinic $clinic */
         $clinic = Auth::guard('clinic')->user();
 
-        // Load dentists so helper methods don't cause extra queries
         $clinic->loadMissing('dentists');
 
         $clinicDocsComplete = $clinic->clinicDocsComplete();
         $hasDentist = $clinic->dentists()->count() >= 1;
-
-        // NOTE: requires Dentist model to have documents() relationship
         $dentistDocsComplete = $clinic->atLeastOneDentistFullyDocumented();
 
         $onboardingComplete = $clinicDocsComplete && $hasDentist && $dentistDocsComplete;
@@ -41,6 +39,34 @@ class ClinicDashboardController extends Controller
             $clinic->save();
         }
 
-        return view('clinic.dashboard', compact('clinic'));
+        $todayAppointments = Appointment::where('clinic_id', $clinic->id)
+            ->whereDate('appointment_at', today())
+            ->count();
+
+        $pendingAppointments = Appointment::where('clinic_id', $clinic->id)
+            ->where('status', 'pending')
+            ->count();
+
+        $confirmedAppointments = Appointment::where('clinic_id', $clinic->id)
+            ->where('status', 'confirmed')
+            ->where('appointment_at', '>=', now())
+            ->count();
+
+        $totalAppointments = Appointment::where('clinic_id', $clinic->id)
+            ->count();
+
+        $dentistsCount = $clinic->dentists()->count();
+
+        $documentsCount = $clinic->documents()->count();
+
+        return view('clinic.dashboard', compact(
+            'clinic',
+            'todayAppointments',
+            'pendingAppointments',
+            'confirmedAppointments',
+            'totalAppointments',
+            'dentistsCount',
+            'documentsCount'
+        ));
     }
 }

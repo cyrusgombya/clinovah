@@ -13,7 +13,7 @@ class Clinic extends Authenticatable
         'name',
         'email',
 
-        // editable profile (clinic)
+        // editable profile
         'phone',
         'address',
         'working_hours',
@@ -23,9 +23,11 @@ class Clinic extends Authenticatable
         'about',
         'photo_path',
 
-        // location (admin-only later)
-        // 'latitude',
-        // 'longitude',
+        // availability
+        'availability_days',
+        'opening_time',
+        'closing_time',
+        'slot_minutes',
 
         // auth/workflow
         'password',
@@ -35,7 +37,6 @@ class Clinic extends Authenticatable
         'rejection_reason',
         'onboarding_completed',
         'onboarding_completed_at',
-        // next: docs fields like license files etc.
     ];
 
     protected $hidden = [
@@ -46,6 +47,9 @@ class Clinic extends Authenticatable
     protected $casts = [
         'approved_at' => 'datetime',
         'rejected_at' => 'datetime',
+
+        // availability
+        'availability_days' => 'array',
     ];
 
     public function documents()
@@ -88,6 +92,7 @@ class Clinic extends Authenticatable
         ];
 
         foreach ($this->dentists as $dentist) {
+
             $uploaded = $dentist->documents()
                 ->whereIn('type', $required)
                 ->pluck('type')
@@ -100,5 +105,13 @@ class Clinic extends Authenticatable
         }
 
         return false;
+    }
+
+    public function isOpenOn(string $day): bool
+    {
+        return in_array(
+            strtolower($day),
+            array_map('strtolower', $this->availability_days ?? [])
+        );
     }
 }

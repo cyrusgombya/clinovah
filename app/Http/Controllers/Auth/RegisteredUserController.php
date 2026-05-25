@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\WelcomeUserMail;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -43,6 +45,7 @@ class RegisteredUserController extends Controller
         ]);
 
         event(new Registered($user));
+        Mail::to($user->email)->send(new WelcomeUserMail($user));
 
         Auth::login($user);
 

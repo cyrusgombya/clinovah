@@ -15,6 +15,21 @@ use App\Http\Controllers\Public\AppointmentController;
 use App\Http\Controllers\UserDashboardController;
 use App\Http\Controllers\ClinicDiscoveryController;
 
+use Illuminate\Support\Facades\Mail;
+
+Route::get('/test-email', function () {
+
+    Mail::raw('Clinovah email test successful.', function ($message) {
+
+        $message->to('cyrusgombya@gmail.com')
+                ->subject('Clinovah Test Email');
+    });
+
+    return 'Email sent!';
+});
+
+Route::view('/offline', 'site.offline')->name('offline');
+
 // ✅ Site pages (home becomes /)
 Route::name('site.')->group(function () {
 
@@ -62,11 +77,13 @@ Route::get('/api/clinics/nearby', [ClinicDiscoveryController::class, 'nearby'])
 Route::get('/clinics', [ClinicBrowseController::class, 'index'])
     ->name('clinics.index');
 
+Route::get('/clinics/{clinic}/available-slots', [ClinicBrowseController::class, 'availableSlots'])
+    ->name('clinics.available_slots');
+
 Route::get('/clinics/{clinic}', [ClinicBrowseController::class, 'show'])
     ->name('clinics.show');
 
-Route::get('/clinics/{clinic}/available-slots', [ClinicBrowseController::class, 'availableSlots'])
-    ->name('clinics.available_slots');
+
 
 
 // =========================================================

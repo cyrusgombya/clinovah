@@ -3,18 +3,34 @@
 namespace App\Http\Controllers\Public;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Models\Clinic;
 
 class ClinicBrowseController extends Controller
 {
-    public function index()
-    {
-        $clinics = Clinic::where('status', 'approved')
-            ->latest()
-            ->paginate(12);
+   public function index(Request $request)
+{
+    $query = Clinic::query()
+        ->where('status', 'approved');
 
-        return view('site.clinics.index', compact('clinics'));
+    if ($request->filled('q')) {
+        $search = $request->q;
+
+        $query->where(function ($q) use ($search) {
+            $q->where('name', 'like', "%{$search}%")
+              ->orWhere('services', 'like', "%{$search}%")
+              ->orWhere('address', 'like', "%{$search}%")
+              ->orWhere('tagline', 'like', "%{$search}%");
+        });
     }
+
+    $clinics = $query
+        ->latest()
+        ->paginate(12)
+        ->withQueryString();
+
+    return view('site.clinics.index', compact('clinics'));
+}
 
   public function show(Clinic $clinic)
 {
@@ -35,10 +51,21 @@ class ClinicBrowseController extends Controller
 {
     abort_unless($clinic->status === 'approved', 404);
 
-    $slotMinutes = 120;
+    $slotMinutes = $clinic->slot_minutes ?? 120;
     $days = 14;
 
-    $timeSlots = ['08:00', '10:00', '12:00', '14:00', '16:00'];
+    $openingTime = $clinic->opening_time ?? '08:00';
+    $closingTime = $clinic->closing_time ?? '17:00';
+
+    $availableDays = collect(
+        $clinic->availability_days ?? [
+            'monday',
+            'tuesday',
+            'wednesday',
+            'thursday',
+            'friday',
+        ]
+    )->map(fn ($d) => strtolower($d));
 
     $startDate = now()->startOfDay();
     $endDate = now()->copy()->addDays($days)->endOfDay();
@@ -52,28 +79,56 @@ class ClinicBrowseController extends Controller
     $slots = [];
 
     for ($i = 0; $i < $days; $i++) {
+
         $date = now()->copy()->addDays($i);
 
-        foreach ($timeSlots as $time) {
-            $slotStart = \Illuminate\Support\Carbon::parse($date->format('Y-m-d') . ' ' . $time);
+        $dayName = strtolower($date->format('l'));
+
+        // skip unavailable days
+        if (! $availableDays->contains($dayName)) {
+            continue;
+        }
+
+        $currentSlot = \Illuminate\Support\Carbon::parse(
+            $date->format('Y-m-d') . ' ' . $openingTime
+        );
+
+        $closingSlot = \Illuminate\Support\Carbon::parse(
+            $date->format('Y-m-d') . ' ' . $closingTime
+        );
+
+        while ($currentSlot->copy()->addMinutes($slotMinutes) <= $closingSlot) {
+
+            $slotStart = $currentSlot->copy();
             $slotEnd = $slotStart->copy()->addMinutes($slotMinutes);
 
             $isPast = $slotStart->isPast();
 
-            $isBooked = $bookedAppointments->contains(function ($appointment) use ($slotStart, $slotEnd) {
-                $appointmentStart = $appointment->appointment_at;
-                $appointmentEnd = $appointmentStart->copy()->addMinutes(120);
+            $isBooked = $bookedAppointments->contains(
+                function ($appointment) use ($slotStart, $slotEnd, $slotMinutes) {
 
-                return $appointmentStart->lt($slotEnd) && $appointmentEnd->gt($slotStart);
-            });
+                    $appointmentStart = $appointment->appointment_at;
+
+                    $appointmentEnd = $appointmentStart
+                        ->copy()
+                        ->addMinutes($slotMinutes);
+
+                    return $appointmentStart->lt($slotEnd)
+                        && $appointmentEnd->gt($slotStart);
+                }
+            );
 
             $slots[] = [
                 'date' => $date->format('Y-m-d'),
-                'time' => $time,
+                'time' => $slotStart->format('H:i'),
                 'datetime' => $slotStart->format('Y-m-d\\TH:i'),
                 'label' => $slotStart->format('g:i A'),
-                'status' => $isPast ? 'past' : ($isBooked ? 'booked' : 'available'),
+                'status' => $isPast
+                    ? 'past'
+                    : ($isBooked ? 'booked' : 'available'),
             ];
+
+            $currentSlot->addMinutes($slotMinutes);
         }
     }
 

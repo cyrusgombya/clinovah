@@ -8,6 +8,9 @@ use App\Models\Clinic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\PatientBookingReceivedMail;
+use App\Mail\ClinicNewBookingAlertMail;
 
 class AppointmentController extends Controller
 {
@@ -80,6 +83,27 @@ class AppointmentController extends Controller
         }
     }
 
+    $duplicateQuery = Appointment::query()
+    ->where('clinic_id', $clinic->id)
+    ->where('appointment_at', $appointmentAt)
+    ->whereIn('status', ['pending', 'confirmed']);
+
+if ($request->user()) {
+    $duplicateQuery->where('user_id', $request->user()->id);
+} else {
+    $duplicateQuery
+        ->where('patient_email', $data['patient_email'])
+        ->where('patient_phone', $data['patient_phone']);
+}
+
+$duplicate = $duplicateQuery->first();
+
+if ($duplicate) {
+    return redirect()
+        ->route('appointments.confirmation', $duplicate)
+        ->with('success', 'You already submitted this booking.');
+}
+
     $appointment = Appointment::create([
         'user_id' => $request->user()?->id,
         'clinic_id' => $clinic->id,
@@ -96,6 +120,22 @@ class AppointmentController extends Controller
         'status' => 'pending',
         'assigned_at' => !empty($data['dentist_id']) ? now() : null,
     ]);
+
+            $appointment->loadMissing(['clinic', 'dentist']);
+
+        try {
+            if ($appointment->patient_email) {
+                Mail::to($appointment->patient_email)
+                    ->send(new PatientBookingReceivedMail($appointment));
+            }
+
+            if ($clinic->email) {
+                Mail::to($clinic->email)
+                    ->send(new ClinicNewBookingAlertMail($appointment));
+            }
+        } catch (\Throwable $e) {
+            report($e);
+        }
 
     return redirect()
         ->route('appointments.confirmation', $appointment)
